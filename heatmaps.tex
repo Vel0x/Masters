@@ -4,11 +4,11 @@
 
 \textbf{What is a heat map?}
 
-A heat map is a two dimensional graphical representation of a matrix using colours to correspond to different magnitudes of values. It is similar to a chloropleth map, with its name originally used by Cormac Kinney in 1991 as can be seen in \begin{verbatim}http://tess2.uspto.gov/bin/showfield?f=doc&state=4008:wa2akk.2.9\end{verbatim}
+A heat map is a two dimensional graphical representation of a matrix using colours to correspond to different magnitudes of values. It is a thematic map of a matrix, although can also be applied to geographical maps. 
 
 \begin{figure}[H]
         \begin{center}
-                \includegraphics[scale=0.5]{./images/ExampleMouseMove.png}
+                \includegraphics[scale=0.5]{./images/heatmaps/ExampleMouseMove.png}
                 \caption{Example heat map generated from mouse movements}
         \end{center}
 \end{figure}
@@ -22,7 +22,7 @@ In order to create an image representation of the matrix, a colour progression m
 The algorithm to generate the colour range is very simple. In python for red to green we get the following code (the method accepts a normalised value):
 
 \begin{verbatim}	
-	def value_to_rgb(v):
+	def value_to_rg(v):
 	    oR = 255.0 * (1.0 - v)
 	    oG = 255.0 * v
 	    return '#%02x%02x%02x' % (oR, oG, 0)
@@ -37,7 +37,7 @@ In order to generate the heat map we first need a matrix. A simple matrix can ge
 
 \begin{figure}[H]
         \begin{center}
-                \includegraphics[scale=0.5]{./images/HeatMapGaussianExample.png}
+                \includegraphics[scale=0.5]{./images/heatmaps/HeatMapGaussianExample.png}
                 \caption{Heat Map Generation Example}
         \end{center}
 \end{figure}
@@ -56,17 +56,13 @@ Heat maps are extremely useful to show the concentrations of pollutants in geogr
 
 \begin{figure}[H]
         \begin{center}
-                \includegraphics[scale=0.5]{./images/zurichpm.png}
+                \includegraphics[scale=0.5]{./images/heatmaps/zurichpm.jpg}
                 \caption{Particulate matter heat map in Zurich. Source: www.stadt-zuerich.ch}
         \end{center}
 \end{figure}
 
 From the above image we an easily see that the highest concentrations of particulate matter are where the roads are situated indicating a relationship between the two. 
 
-
-\textbf{Land-Use Regression Model (LUR)}
-
-When measuring air quality it is difficult to calculate a single value which accurately represents the pollution level. In order to do this we use a Land-use Regression Model (LUR). LUR is a standard approach for predicting pollutant concentrations using concentration measures, location information, and information about the area. 
 
 
 
