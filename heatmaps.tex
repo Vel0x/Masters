@@ -1,8 +1,6 @@
-\subsection{Pollutant Mapping}\label{pollutantmapping}
+\subsection{Heat maps}\label{heatmaps}
 
-\subsubsection{Heat maps}\label{heatmaps}
-
-\textbf{What is a heat map?}
+\subsubsection{Definition}\label{heatmapdefinition}
 
 A heat map is a two dimensional graphical representation of a matrix using colours to correspond to different magnitudes of values. It is a thematic map of a matrix, although can also be applied to geographical maps. 
 
@@ -15,7 +13,8 @@ A heat map is a two dimensional graphical representation of a matrix using colou
 
 Heat maps are generally used to quickly display which values in a matrix have the greatest magnitude and how they compare to surrounding values. The above image, which represents mouse movements on a website clearly shows a horizontal band in the middle which indicates that the users mouse spent a lot of time there. 
 
-\textbf{Calculations and Colour Progression}
+\paragraph{Calculations and Colour Progression} \hspace{0pt} \\
+
 
 In order to create an image representation of the matrix, a colour progression must be chosen. The simplest colour progression method is a hue change on a single colour corresponding to the information. However this may not always be the most suitable method. When giving out information to the public, certain colours tend to represent different things. Red normally has negative connotations while green is the opposite. For this we can use a blended hue colour progression with red at one end of the scale and green at the other.
 
@@ -31,7 +30,7 @@ The algorithm to generate the colour range is very simple. In python for red to 
 \end{verbatim}
 
 
-\textbf{Representation Matrix}
+\paragraph{Representation Matrix} \hspace{0pt} \\
 
 In order to generate the heat map we first need a matrix. A simple matrix can generate an effective heat map as can be seen from the following example.
 
