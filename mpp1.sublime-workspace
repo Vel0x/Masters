@@ -1,0 +1,792 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"TASK",
+				"REMAINING_TASKS"
+			],
+			[
+				"__",
+				"__name__ == '__main__':  (variable)"
+			],
+			[
+				"saving",
+				"savingsTotal"
+			],
+			[
+				"savin",
+				"savingsTotal"
+			],
+			[
+				"buy",
+				"buymgetnfree"
+			],
+			[
+				"pri",
+				"products_applied"
+			],
+			[
+				"Pro",
+				"productLookup"
+			],
+			[
+				"prod",
+				"products_applied"
+			],
+			[
+				"shopping",
+				"shoppingTotal"
+			],
+			[
+				"product",
+				"productLookup"
+			],
+			[
+				"get",
+				"getUniqueID"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "airquality.tex",
+			"settings":
+			{
+				"buffer_size": 4369,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "heatmaps.tex",
+			"settings":
+			{
+				"buffer_size": 3779,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1.tex",
+			"settings":
+			{
+				"buffer_size": 723,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1calibration.tex",
+			"settings":
+			{
+				"buffer_size": 217,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1challenges.tex",
+			"settings":
+			{
+				"buffer_size": 1043,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1datacollection.tex",
+			"settings":
+			{
+				"buffer_size": 338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1interpolation.tex",
+			"settings":
+			{
+				"buffer_size": 1197,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1introduction.tex",
+			"settings":
+			{
+				"buffer_size": 89,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1meetings.tex",
+			"settings":
+			{
+				"buffer_size": 39,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1pollutantaggregation.tex",
+			"settings":
+			{
+				"buffer_size": 393,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1preliminary.tex",
+			"settings":
+			{
+				"buffer_size": 338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1timetable.tex",
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mpp1workplan.tex",
+			"settings":
+			{
+				"buffer_size": 219,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sensorcreation.tex",
+			"settings":
+			{
+				"buffer_size": 56,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 69.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"expo",
+				"Export to HTML: Show Export Menu"
+			],
+			[
+				"expor",
+				"Export to HTML: Show Export Menu"
+			],
+			[
+				"mark",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"git commit ",
+				"Git: Commit"
+			],
+			[
+				"git commit",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git add ",
+				"Git: Add Current File"
+			],
+			[
+				"git diff",
+				"Git: Diff All"
+			],
+			[
+				"git s",
+				"Git: Status"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"mar",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"Package Control: In",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/heatmaps.tex",
+		"/Users/Velox/Projects/inf1-oop/Battleships/untitled.html",
+		"/Users/Velox/Projects/inf1-oop/Battleships/bat.bat",
+		"/Users/Velox/Projects/inf1-oop/Battleships/Main.java",
+		"/Users/Velox/Projects/inf1-oop/Battleships/MousePlayer.java",
+		"/Users/Velox/Projects/inf1-oop/Battleships/Panel.java",
+		"/Users/Velox/Projects/inf1-oop/Battleships/Player.java",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1challenges.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1preliminary.tex",
+		"/Users/Velox/gravity.py",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1interpolation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/interpolationmodels.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1datacollection.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1workplan.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/challenges.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airqualitymodels.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1calibration.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1background.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/references.bib",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airquality.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1goals.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1introduction.tex",
+		"/Users/Velox/Dropbox/80-47-45",
+		"/Users/Velox/Projects/PPLS/PPLS2/aquadPartA.c",
+		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Submissions/shared/references.bib",
+		"/Users/Velox/Downloads/BioMedCentral.bib",
+		"/Users/Velox/Projects/PPLS/PPLS2/stack.h",
+		"/Users/Velox/Projects/PPLS/PPLS2/stack.c",
+		"/Users/Velox/test.py",
+		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Velox/Projects/PPLS/PPLS2/aquad.c",
+		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Heatmaps/algorithm.py",
+		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Heatmaps/test.html",
+		"/Users/Velox/Projects/av_cw2/getThisPartyStarted.m",
+		"/Users/Velox/test",
+		"/Users/Velox/untitled.py",
+		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/ExportHtml/readme.md",
+		"/Users/Velox/convert.py",
+		"/Users/Velox/Projects/shopping/offers.txt",
+		"/Users/Velox/Projects/shopping/Condition.py",
+		"/Users/Velox/Projects/shopping/shopping.py",
+		"/Users/Velox/Dropbox/Uni/4th Year/CN/Assignments/First/Report.md",
+		"/Users/Velox/Config/bash_global",
+		"/Users/Velox/Config/COMMIT_EDITMSG.COMMIT_EDITMSG",
+		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"* ",
+			"sun",
+			"merged",
+			"K_p",
+			"+/-",
+			"keypad",
+			"stack",
+			"double",
+			"  ",
+			"colorize",
+			"list",
+			"()\n",
+			"long",
+			"ignored"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\\item ",
+			"    ",
+			"unusedItems"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 13,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "airquality.tex",
+					"settings":
+					{
+						"buffer_size": 4369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "heatmaps.tex",
+					"settings":
+					{
+						"buffer_size": 3779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "mpp1.tex",
+					"settings":
+					{
+						"buffer_size": 723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "mpp1calibration.tex",
+					"settings":
+					{
+						"buffer_size": 217,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "mpp1challenges.tex",
+					"settings":
+					{
+						"buffer_size": 1043,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "mpp1datacollection.tex",
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "mpp1interpolation.tex",
+					"settings":
+					{
+						"buffer_size": 1197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "mpp1introduction.tex",
+					"settings":
+					{
+						"buffer_size": 89,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "mpp1meetings.tex",
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "mpp1pollutantaggregation.tex",
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "mpp1preliminary.tex",
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "mpp1timetable.tex",
+					"settings":
+					{
+						"buffer_size": 41,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "mpp1workplan.tex",
+					"settings":
+					{
+						"buffer_size": 219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "sensorcreation.tex",
+					"settings":
+					{
+						"buffer_size": 56,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
