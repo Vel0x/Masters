@@ -1,15 +1,27 @@
 \section{Interpolation and Extrapolation Models}\label{interpolation}
 
 
-   * Interpolation and Extrapolation (mainly a question of considering different schemes and models and talking about their effectiveness)
-
-
-      * Discuss state of the art
-      * Comparison and contrasting
-
-
 When measuring air quality values are only generally generated at points where sensors can easily be placed. In order to effectively map air pollution a method of calculating the missing values must be found. There are many different models which can be used to calculate missing values.
 
+
+	\begin{itemize}
+		\item Interpolation and Extrapolation (mainly a question of considering different schemes and models and talking about their effectiveness)
+		\begin{itemize}
+			\item Discuss state of the art
+			\item Comparison and contrasting
+		\end{itemize}
+	    \item A few paragraphs about each one
+	    \item Are things like LUR relevant when I have more dense sampling of the space
+	    \item Find out which model is the best for calculating air quality
+	    \begin{itemize}
+	        \item Implement several different models and see which is the most efficient by validating
+	        \item Find the pros and cons of each one (such as statistical models never being applied to these problems)
+	    \end{itemize}
+	    \item Compare and contrast (such as which schemes have these been used in)
+	    \begin{itemize}
+	        \item Talk about the constraints of each one
+	    \end{itemize}
+	\end{itemize}
 
 \subsection{Land-Use Regression Model (LUR)}\label{lur}
 

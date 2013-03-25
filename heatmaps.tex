@@ -8,10 +8,11 @@ A heat map is a two dimensional graphical representation of a matrix using colou
         \begin{center}
                 \includegraphics[scale=0.5]{./images/heatmaps/ExampleMouseMove.png}
                 \caption{Example heat map generated from mouse movements}
+                \label{fig:mousemoveheatmap}
         \end{center}
 \end{figure}
 
-Heat maps are generally used to quickly display which values in a matrix have the greatest magnitude and how they compare to surrounding values. The above image, which represents mouse movements on a website clearly shows a horizontal band in the middle which indicates that the users mouse spent a lot of time there. 
+Heat maps are generally used to quickly display which values in a matrix have the greatest magnitude and how they compare to surrounding values. Figure~\ref{fig:mousemoveheatmap}, which represents mouse movements on a website clearly shows a horizontal band in the middle which indicates that the users mouse spent a lot of time there. 
 
 \paragraph{Calculations and Colour Progression} \hspace{0pt} \\
 
@@ -39,10 +40,11 @@ In order to generate the heat map we first need a matrix. A simple matrix can ge
         \begin{center}
                 \includegraphics[scale=0.5]{./images/heatmaps/HeatMapGaussianExample.png}
                 \caption{Heat Map Generation Example}
+                \label{fig:matrixheatmapexample}
         \end{center}
 \end{figure}
 
-This example has the max value of 255 being red and the minimum value of 1 being black. 
+The example in figure~\ref{fig:matrixheatmapexample} has the maximum value of 255 represented by red (RGB value of \#FF0000) and the minimum value of 1 being almost black (RGB value \#010000). 
 
 \emph{Missing Values}
 
@@ -59,7 +61,8 @@ Heat maps are extremely useful to show the concentrations of pollutants in geogr
 \begin{figure}[H]
         \begin{center}
                 \includegraphics[scale=0.5]{./images/heatmaps/zurichpm.jpg}
-                \caption{Particulate matter heat map in Zurich. Source: www.stadt-zuerich.ch}
+                \caption{Particulate matter heat map in Zurich. Source: \url{www.stadt-zuerich.ch}}
+                \label{fig:pmheatmapzurich}
         \end{center}
 \end{figure}
 
