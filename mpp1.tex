@@ -1,3 +1,5 @@
+\nonstopmode
+
 \title{Exploiting Mobile Entities for Urban Air Quality Monitoring \\ MPP1}
 \author{Dale Myers \\ 0942590}
 \date{\today}
@@ -19,22 +21,21 @@
 \usepackage{comment}
 \usepackage{fullpage}
 
-
 \begin{document}
 
 \maketitle
-
+\thispagestyle{empty}
 \newpage
 
 \tableofcontents
-
+\thispagestyle{empty}
 %\todototoc
 %\listoftodos
 
 
 \newpage
 
-
+\setcounter{page}{1}
 \input{./mpp1introduction.tex}
 \input{./mpp1preliminary.tex}
 \input{./mpp1calibration.tex}
@@ -45,6 +46,7 @@
 
 \newpage
 
+\addcontentsline{toc}{section}{References}
 \bibliographystyle{unsrt}
 \bibliography{references}
 
