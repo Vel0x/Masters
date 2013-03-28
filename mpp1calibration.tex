@@ -1,6 +1,12 @@
 \section{Calibration}\label{calibration}
 
+As has been discussed in previous sections, \todo{Check} air quality sensors are all subtly different from each other and also degrade over time. In order to ensure that all the recorded data is accurate the sensors must be regularly calibrated. 
+
+The definition of calibration is a comparison between two measurements, one of unknown magnitude and one of known magnitude such that it is possible to define a function which can accurately map the unknown set of measurements to the known set. Usually this is as simple as adding or subtracting an offset, however it may be more complex than this. 
+
+In order to calibrate the pollutant sensors we must have data from sensors which are known to be accurate. This approach is used in the OpenSense projects \emph{forward calibration} which calibrates the sensors when they are in the same vicinity as a calibration station. ~\cite{ontheflycalibration} While not confirmed, it is hoped that the solution for this will be to use data provided by \emph{Air and Environment (Scotland)} in as close to real time as possible. As the buses move by these sensors, their readings can be compared and adjusted on the fly. The readings will also be recorded so that an accurate calibration model can be built up. This will allow us to estimate decay and the lifetime of the sensors. 
+
+A further optimisation is that when a sensor has been calibrated, it can be used as a reference for other sensors. Only a single bus is required to pass by the calibration station, the other buses are only required to pass by this bus, or others calibrated by this bus. 
 
 
-* Discuss state of the art
 * Identify an approach to use and implement in project (mainly a question of considering different schemes and talking about their effectiveness)
