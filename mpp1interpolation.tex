@@ -1,17 +1,100 @@
-\section{Interpolation and Extrapolation Models}\label{interpolation}
+\section{Geostatistical Mapping}\label{geostatistics}
 
+\todo[inline]{This was originally laid out differently, but it turns out that all the models are just different types of geostatistical mapping}
 
-When measuring air quality values are only generally generated at points where sensors can easily be placed. In order to effectively map air pollution a method of calculating the missing values must be found. There are many different models which can be used to calculate missing values.
+%http://systems.cs.colorado.edu/~caleb/dyspan2012.pdf
 
+When measuring air quality values are only generally generated at points where sensors can easily be placed. With this project we are limited to roads, and indeed where the data collection algorithms have deemed it necessary to collect data. In order to effectively map air pollution a method of calculating the missing values must be found.
+
+Geostatistics is a specific type of statistics which focuses on spatial data. One of the main uses being the prediction of values from a sample set, this being known as \emph{spatial prediction} or \emph{spatial interpolation}~\cite{practicalguidestatisticalmapping}. Within geostatistical mapping there is the ability to use many different interpolation algorithms. Indeed, \emph{A Practical Guide to Geostatistical Mapping of Environmental Variables} by Tomislav Hengl provides a list of just some of the available algorithms: 
+
+\emph{``Inverse Distance, Kriging, Minimum Curvature, Polynomial Regression, Triangulation, Nearest Neighbour, Shepard’s Method, Radial Basis Functions, Natural Neighbour, Moving Average, Local Polynomial, etc.''}
+
+When using this technique we must choose between a mechanical model and a statistical model. A mechanical model is suitable for the cases where no information about the data is available (e.g. range, deviation, mean, etc.). Statistical models use probability theory to estimate the new values using a provided rule set and can therefore be more accurate. Hengl states that there are four different types of statistical models:
 
 	\begin{itemize}
-		\item Interpolation and Extrapolation (mainly a question of considering different schemes and models and talking about their effectiveness)
-		\begin{itemize}
-			\item Discuss state of the art
-			\item Comparison and contrasting
-		\end{itemize}
-	    \item A few paragraphs about each one
-	    \item Are things like LUR relevant when I have more dense sampling of the space
+		\item Kriging (plain geostatistics);
+		\item Environmental Correlation (e.g. regression-based); 
+		\item Bayesian-based models (e.g. Bayesian Maximum Entropy); 
+		\item Mixed models (regression-kriging);
+	\end{itemize}
+
+Different types of each model will be looked at and compared in order to select the most suitable candidate for this project. 
+
+\subsection{Mechanical Models}\label{mechanicalmodels}
+
+\subsubsection{Inverse Distance Weighting}\label{inverseweight}
+%http://www.alyrica.net/wifi_mapping
+
+The key component of inverse distance weighting (IDW) is the calculation of new parameters as the weighted average of neighbouring parameters. The weight in this algorithm is calculated as the inverse of the distance from the current point to it's neighbours. The weighting is normalised so that the total of all weights to neighbours is equal to one. This causes the algorithm to slow down with large data sets and so a restriction on search radius may be put in place. 
+
+\subsubsection{Regression on Coordinates}\label{regressiononcoordinates}
+
+This model assumes that the value at any given point can be calculated using a function which also passes through, or goes close to, all other points. In this case of our three dimensional data (latitude, longitude and value) the function is the equation of a surface. Regression on coordinates does not use any information about the variance of the data. 
+
+\subsection{Statistical Models}\label{statisticalmodels}
+
+Many statistical models require no deliberate correlation between the measurements. Due to the fact that our measurements are taken along bus routes there is a definite correlation of geographic and temporal location information and therefore these models cannot be used. The main remaining model is kriging.
+
+\subsubsection{Kriging}
+
+\todo[inline]{Use hue interpolation for the variable and saturation for the variance?}
+
+Kriging is similar to IDW in that it follows the idea that an known point is the weighted average of it's neighbours. It is however more advanced in that it analyses the spatial structure of the data before any calculations take place~\cite{geostatisticalradiomapping}. It also takes into account environmental factors. This allows more accurate predictions. An example of how environmental factors are taken into account is when temperature is measured. IDW provides an answer based on nearby data. Kriging on the other hand would look at factors such as weather patterns, whether there are large bodies of water nearby, elevation, time of year, etc. All this data together allows kriging to be much more effective than simple IDW, however has the disadvantage that these environmental factors also need to be collected. There are 3 main types of kriging:
+
+\begin{itemize}
+	\item Ordinary kriging
+
+		Ordinary kriging requires the construction of a variogram~\cite{ordinarykriging}. A variogram is a function which describes the degree of dependence of a spatial field as a function of distance and consists of two parts: an experimental variogram and a model variogram. The experimental variogram is calculated as the variance of each point in the data set plotted against the distance between the two. The model variogram is a simple mathematical function which models the trend of the experimental variogram. Examples of this can be seen in figure~\ref{fig:ordinarykrigingexample}.
+
+		\begin{figure}[H]
+        	\begin{center}
+                \includegraphics[scale=0.75]{./images/mpp1/KrigingModelFunction.png}
+                \caption{Example experimental and model variograms}
+                \label{fig:ordinarykrigingexample}
+        	\end{center}
+		\end{figure}
+
+		When using kriging, as estimate of the variance is also returned with the interpolated results.
+
+	\item Simple kriging
+
+		Simple kriging is similar to ordinary kriging but it does not have the constraint that the weights surrounding a point must add up to one. This produces a less accurate but smoother result. ~\cite{simplekriging}
+
+	\item Universal kriging
+
+		Universal kriging assumes a stationary data set~\cite{universalkriging} and a polynomial trend model. The local trend implemented as part of this model provides some of the most accurate results
+
+	\item Regression kriging
+
+		Regression kriging is universal kriging but uses simple kriging to calculate the interpolated values of the environmental parameters provided to the algorithm ~\cite{regressionkriging}. 
+
+\end{itemize}
+
+
+
+\subsection{Comparison}\label{interpolationcomparison}
+
+Variables:
+	* Complexity
+	* Extra information required
+	* Calculation time
+	* Calculation location
+	* Extra tools required
+
+\begin{table}
+    \begin{tabular}{|l|l|}
+        \hline
+        Model                      & Complexity  \\ \hline
+        Inverse Distance Weighting & Low         \\ 
+        Regression on Coordinates  & Medium      \\ 
+        Ordinary Kriging           & High        \\ 
+        \hline
+    \end{tabular}
+\end{table}
+
+Currently members of the OpenSense project are using the land use regression (LUR) model to interpolate and extrapolate their data sets. 
+	\begin{itemize}
 	    \item Find out which model is the best for calculating air quality
 	    \begin{itemize}
 	        \item Implement several different models and see which is the most efficient by validating
@@ -23,22 +106,5 @@ When measuring air quality values are only generally generated at points where s
 	    \end{itemize}
 	\end{itemize}
 
-\subsection{Land-Use Regression Model (LUR)}\label{lur}
 
-Land-use Regression models are they standard approach in determining missing date in air quality measurements. LUR uses the concentration measure of the pollutant, location information, and information about the area (such as is it a built up area, the altitude, are there factories nearby, etc.). 
-
-
-
-
-
-
-\subsection{Geostatistical Mapping}\label{geostatics}
-
-%http://systems.cs.colorado.edu/~caleb/dyspan2012.pdf
-
-\subsection{Inverse Distance Weighting}\label{inverseweight}
-
-%http://www.alyrica.net/wifi_mapping
-
-\subsection{Comparison}\label{interpolationcomparison}
 

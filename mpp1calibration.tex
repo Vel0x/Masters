@@ -2,11 +2,21 @@
 
 As has been discussed in previous sections, \todo{Check} air quality sensors are all subtly different from each other and also degrade over time. In order to ensure that all the recorded data is accurate the sensors must be regularly calibrated. 
 
-The definition of calibration is a comparison between two measurements, one of unknown magnitude and one of known magnitude such that it is possible to define a function which can accurately map the unknown set of measurements to the known set. Usually this is as simple as adding or subtracting an offset, however it may be more complex than this. 
+There are many different methods of calibrating sensors, however most of these have requirements which are not possible to meet in this project. An example of this is having a sensor network so dense that sensors should have almost identical readings to those nearby ~\cite{collaborativeinplacecalibration}. Other examples~\cite{blindcalibration} require the sample rate to be high enough to satisfy the \emph{Nyquist-Shannon Sampling Theorem}~\cite{samplingtheoremorigins}. 
 
-In order to calibrate the pollutant sensors we must have data from sensors which are known to be accurate. This approach is used in the OpenSense projects \emph{forward calibration} which calibrates the sensors when they are in the same vicinity as a calibration station. ~\cite{ontheflycalibration} While not confirmed, it is hoped that the solution for this will be to use data provided by \emph{Air and Environment (Scotland)} in as close to real time as possible. As the buses move by these sensors, their readings can be compared and adjusted on the fly. The readings will also be recorded so that an accurate calibration model can be built up. This will allow us to estimate decay and the lifetime of the sensors. 
+For the approach we wish to take, we must have data from sensors which are known to be accurate. This data provides two options for us to use. 
 
-A further optimisation is that when a sensor has been calibrated, it can be used as a reference for other sensors. Only a single bus is required to pass by the calibration station, the other buses are only required to pass by this bus, or others calibrated by this bus. 
+The first approach is \emph{forward calibration} which calibrates the sensors when they are in the same vicinity as a calibration station. ~\cite{ontheflycalibration} While not confirmed, it is hoped that the solution for this will be to use reference data provided by \emph{Ricardo - Air and Environment (Scotland)} in as close to real time as possible. As the buses move by these static sensing stations, their readings can be compared and adjusted on the fly. 
+
+The second approach is \emph{backward calibration}. This method of calibration records the data as is, but then modifies the recorded data afterwards based on the reference data. 
+
+A further possible optimisation is that when a sensor has been calibrated, it can be used as a reference for other sensors. Only a single bus is required to pass by the calibration station, the other buses are only required to pass by this bus, or others calibrated by this bus. This provides a layer of complexity as every step of calibration introduces a new uncertainty and so it may not be possible to use it for more than a single hop if at all. 
+
+The forward calibration approach is most likely to be used in this project. The reason for this is time constraints and that the forward calibration algorithm is the most simple to implement. However, if the bandwidth proves to be high enough, the corrected data and the original data can be sent back to the server which would allow backward calibration to also be used if enough time remains. According to \emph{On-the-Fly Calibration of Low-cost Gas Sensors}~\cite{ontheflycalibration} the backwards calibration results in corrected data with less deviation from the reference data. 
+
+It should be noted that research shows that perhaps the most optimal method of calibration is the self calibration system CaliBree.~\cite{calibree} The method proposed is similar to the forward calibration scheme mentioned above, but is designed explicitly for sensor networks with mobile nodes and has the advantage that it can generate the entire calibration curve rather than just an offset. The algorithm has not, however, been tested on nodes with higher velocities than pedestrians walking. It is also complex and the implementation of it would be outside the scope of this project. 
+
+\todo[inline]{Comment on Byzantine Generals problem?}
 
 
-* Identify an approach to use and implement in project (mainly a question of considering different schemes and talking about their effectiveness)
+
