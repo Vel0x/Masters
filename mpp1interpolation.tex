@@ -75,25 +75,16 @@ Kriging is similar to IDW in that it follows the idea that an known point is the
 
 \subsection{Comparison}\label{interpolationcomparison}
 
-Variables:
-	* Complexity
-	* Extra information required
-	* Calculation time
-	* Calculation location
-	* Extra tools required
+Each model has advantages and disadvantages. In general the mechanical models are easier to implement, require less data and are faster. They have the downside that they are generally much more inaccurate. 
 
-\begin{table}
-    \begin{tabular}{|l|l|}
-        \hline
-        Model                      & Complexity  \\ \hline
-        Inverse Distance Weighting & Low         \\ 
-        Regression on Coordinates  & Medium      \\ 
-        Ordinary Kriging           & High        \\ 
-        \hline
-    \end{tabular}
-\end{table}
+Statistical models are much more difficult to implement and take longer to run. They also require much more data about the environment in order to be as accurate as possible. Generally when being used in similar projects, the calculations are done by software such as \emph{ArcGIS}~\cite{arcgis}, which is unsuitable for this project due to the high cost of \$2500. Free alternatives exist for GIS software but only one of these has the ability to perform kriging. 
 
-Currently members of the OpenSense project are using the land use regression (LUR) model to interpolate and extrapolate their data sets. 
+With the complexity in mind it would take longer than the project time frame to implement these statistical models. The extra information required would also provide extra difficulty, requiring either a third party data source or extra hardware. It would also be extremely difficult to validate the results. 
+
+The choice is therefore to use a mechanical model. IDW is the simplest and is therefore the choice. Time permitting, the regression on coordinates model will be implemented and compared in order to find which is most suitable. 
+
+
+
 	\begin{itemize}
 	    \item Find out which model is the best for calculating air quality
 	    \begin{itemize}
