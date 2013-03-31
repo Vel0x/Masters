@@ -8,8 +8,9 @@ The second method is the rapid upload of data. For this to happen, the data need
 
 \subsection{Compressive Sampling}\label{compressivesampling} 
 
-\todo[inline]{The general principle is that you can chose your sample points in order to leave you with a system of linear equations which need to be solved for any given data point. The number of unknowns is greater than the number of equations and normally this gives you infinite possible solutions. By specifying that the solution must also be sparse somehow you can reconstruct the original data (or close enough). JPEG compression works on this principle. It shows that data sampling isn't dependent on the Nyquist Rate as originally thought.}
+\todo[inline,color=red!40]{The general principle is that you can chose your sample points in order to leave you with a system of linear equations which need to be solved for any given data point. The number of unknowns is greater than the number of equations and normally this gives you infinite possible solutions. By specifying that the solution must also be sparse somehow you can reconstruct the original data (or close enough). JPEG compression works on this principle. It shows that data sampling isn't dependent on the Nyquist Rate as originally thought.}
 
+\mahesh{The compressive sampling stuff is extremely complicated and very difficult to get right. It seems that figuring out how to do this would be a masters project in it's own right. I've spend days trying to understand it and I'm not really getting anywhere. I think the best bet for this is to use the same technique that Arsham used when measuring wifi networks which is to take a reading when the time passes a certain threshold or the position does, which ever happenes soonest.}
 
 \subsection{Opportunistic Uploading}\label{opportunisticuploading}
 
