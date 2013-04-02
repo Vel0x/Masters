@@ -20,18 +20,6 @@ Heat maps are generally used to quickly display which values in a matrix have th
 
 In order to create an image representation of the matrix, a colour progression must be chosen. The simplest colour progression method is a hue change on a single colour corresponding to the information. However this may not always be the most suitable method. When giving out information to the public, certain colours tend to represent different things. Red normally has negative connotations while green is the opposite. For this we can use a blended hue colour progression with red at one end of the scale and green at the other.
 
-The algorithm to generate the colour range is very simple. In python for red to green we get the following code (the method accepts a normalised value):
-
-
-\begin{minted}{python}	
-	def value_to_rg(v):
-	    oR = 255.0 * (1.0 - v)
-	    oG = 255.0 * v
-	    return '#%02x%02x%02x' % (oR, oG, 0)
-	    
-	print value_to_rgb(0.5) #returns '#7f7f7f'
-\end{minted}
-
 
 \paragraph{Representation Matrix} \hspace{0pt} \\
 

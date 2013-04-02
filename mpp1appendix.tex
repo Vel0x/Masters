@@ -44,3 +44,18 @@ In other types of sensors, which react with the target at the cathode, oxygen is
 \end{align*}
 
 While oxygen is not a requirement, these sensors do eventually degrade due to the fact that no chemical reaction is going to be 100\% efficient.
+
+\section{Colour Progression Algorithm}
+
+The algorithm to generate the colour range is very simple. In python for red to green we get the following code (the method accepts a normalised value):
+
+
+\begin{minted}{python}	
+	def value_to_rg(v):
+	    oR = 255.0 * (1.0 - v)
+	    oG = 255.0 * v
+	    return '#%02x%02x%02x' % (oR, oG, 0)
+	    
+	print value_to_rgb(0.5) #returns '#7f7f7f'
+\end{minted}
+

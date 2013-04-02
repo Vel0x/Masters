@@ -23,15 +23,13 @@ Different types of each model will be looked at and compared in order to select 
 
 The key component of inverse distance weighting (IDW) is the calculation of new parameters as the weighted average of neighbouring parameters. The weight in this algorithm is calculated as the inverse of the distance from the current point to it's neighbours. The weighting is normalised so that the total of all weights to neighbours is equal to one. This causes the algorithm to slow down with large data sets and so a restriction on search radius may be put in place. 
 
-\begin{landscape}
-	\begin{figure}[H]
-    	\begin{center}
-            \includegraphics[scale=0.5]{./images/mpp1/IDW.png}
-            \caption{Example of IDW. It is clear that it is not a ``perfect'' solution. Source: http://esri.com}
-            \label{fig:idw}
-    	\end{center}
-	\end{figure}
-\end{landscape}
+\begin{figure}[H]
+	\begin{center}
+        \includegraphics[scale=0.5]{./images/mpp1/IDW.png}
+        \caption{Example of IDW. It is clear that it is not a ``perfect'' solution. Source: \url{http://esri.com}}
+        \label{fig:idw}
+	\end{center}
+\end{figure}
 
 \subsubsection{Regression on Coordinates}\label{regressiononcoordinates}
 
