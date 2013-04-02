@@ -19,18 +19,12 @@
 \usepackage{comment}
 \usepackage{fullpage}
 \usepackage{pdflscape}
+\usepackage[toc,page]{appendix}
 
 \newcommand{\mahesh}[1]{\todo[inline,color=green!40]{#1}}
 \newcommand{\idea}[1]{\todo[inline,color=blue!40]{#1}}
 
 \begin{document}
-
-\todo[inline]{Orange todo notes are things which I am considering. Please feel free to comment on these.}
-
-\mahesh{Green notes are questions directly for you which I am unsure about.}
-
-\idea{Blue notes are ideas that I have had for later in the project.}
-
 
 \maketitle
 \thispagestyle{empty}
@@ -46,15 +40,15 @@
 
 \setcounter{page}{1}
 
-\mahesh{We have been told not to put too much background into these reports, however since I have only done background research I'm not sure how to go about this. I have followed almost exactly the structure that you laid out for me in our last meeting. Is this suitable?}
-
 \input{./mpp1introduction.tex}
 \input{./mpp1preliminary.tex}
 \input{./mpp1calibration.tex}
 \input{./mpp1datacollection.tex}
 \input{./mpp1interpolation.tex}
 \input{./mpp1workplan.tex}
-
+\begin{appendices}
+\input{./mpp1appendix.tex}
+\end{appendices}
 
 \newpage
 

@@ -1,8 +1,8 @@
-\section{Geostatistical Mapping}\label{geostatistics}
-
-\mahesh{This was originally laid out differently, but it turns out that all the models are just different types of geostatistical mapping.}
+\section{Heatmaps and Geostatistical Mapping}\label{geostatistics}
 
 %http://systems.cs.colorado.edu/~caleb/dyspan2012.pdf
+
+Heatmaps are a valuable method of representing geostatistical data. As colour values on a map of some kind, in this case geographical, it allows the data to be visualised quickly and clearly, identifying any interesting points and features.
 
 When measuring air quality values are only generally generated at points where sensors can easily be placed. With this project we are limited to roads, and indeed where the data collection algorithms have deemed it necessary to collect data. In order to effectively map air pollution a method of calculating the missing values must be found.
 
@@ -14,6 +14,8 @@ When using this technique we must choose between a mechanical model and a statis
 
 Different types of each model will be looked at and compared in order to select the most suitable candidate for this project. However, the selection is dependent on factors such as the dataset it's self. This may mean that an accurate selection of model cannot be made until the data collection phase is complete~\cite{mappingairpollutionusinggis}. 
 
+\input{./heatmaps.tex}
+
 \subsection{Mechanical Models}\label{mechanicalmodels}
 
 \subsubsection{Inverse Distance Weighting}\label{inverseweight}
@@ -21,7 +23,15 @@ Different types of each model will be looked at and compared in order to select 
 
 The key component of inverse distance weighting (IDW) is the calculation of new parameters as the weighted average of neighbouring parameters. The weight in this algorithm is calculated as the inverse of the distance from the current point to it's neighbours. The weighting is normalised so that the total of all weights to neighbours is equal to one. This causes the algorithm to slow down with large data sets and so a restriction on search radius may be put in place. 
 
-\todo[inline]{Insert image similar to http://help.arcgis.com/en/arcgisdesktop/10.0/help/0031/GUID-EA2E0EEF-D84E-4856-963E-73AB99DBE58B-web.gif}
+\begin{landscape}
+	\begin{figure}[H]
+    	\begin{center}
+            \includegraphics[scale=0.5]{./images/mpp1/IDW.png}
+            \caption{Example of IDW. It is clear that it is not a ``perfect'' solution. Source: http://esri.com}
+            \label{fig:idw}
+    	\end{center}
+	\end{figure}
+\end{landscape}
 
 \subsubsection{Regression on Coordinates}\label{regressiononcoordinates}
 
@@ -32,8 +42,6 @@ This model assumes that the value at any given point can be calculated using a f
 Many statistical models require no deliberate correlation between the measurements. Due to the fact that our measurements are taken along bus routes there is a definite correlation of geographic and temporal location information and therefore these models cannot be used. The main remaining model is kriging.
 
 \subsubsection{Kriging}
-
-\idea{Use hue interpolation for the variable and saturation for the variance?}
 
 Kriging is similar to IDW in that it follows the idea that an known point is the weighted average of it's neighbours. It is however more advanced in that it analyses the spatial structure of the data before any calculations take place~\cite{geostatisticalradiomapping}. It also takes into account environmental factors. This allows more accurate predictions. An example of how environmental factors are taken into account is when temperature is measured. IDW provides an answer based on nearby data. Kriging on the other hand would look at factors such as weather patterns, whether there are large bodies of water nearby, elevation, time of year, etc. All this data together allows kriging to be much more effective than simple IDW, however has the disadvantage that these environmental factors also need to be collected. There are 3 main types of kriging:
 
@@ -63,7 +71,6 @@ Kriging is similar to IDW in that it follows the idea that an known point is the
 	\item Regression kriging
 
 		Regression kriging is universal kriging but uses simple kriging to calculate the interpolated values of the environmental parameters provided to the algorithm ~\cite{regressionkriging}. 
-		\mahesh{Land Use Regressions seems to be similar to RK but I cannot find anything which explicitly states what it is.}
 
 \end{itemize}
 
@@ -79,8 +86,16 @@ Statistical models are much more difficult to implement and take longer to run. 
 
 With the complexity in mind it would take longer than the project time frame to implement these statistical models. The extra information required would also provide extra difficulty, requiring either a third party data source or extra hardware. It would also be extremely difficult to validate the results. 
 
-The choice is therefore to use a mechanical model. IDW is the simplest and is therefore the choice. Time permitting, the regression on coordinates model will be implemented and compared in order to find which is most suitable. 
+The choice is therefore to use a mechanical model. IDW is the simplest and is therefore the choice. While it is not as accurate as may be hoped in this application, the algorithm still provides a reasonable view of the data which is suitable for plotting on a map. A smoothing function may be required as IDW can cause patterns in the data as can be seen in figure~\ref{idw}.
 
+Time permitting, the regression on coordinates model will be implemented and compared in order to find which is most suitable. 
+
+\subsection{Alternative Methods}\label{interpolationalternatives}
+
+\subsubsection{Compressive Sampling}\label{compressivesampling} 
+
+
+The general principle behind compressive sampling is choosing the locations, both spatial and temporal, where measurements are taken in order to take the smallest number of measurements, whilst still allowing as much of the true data to be reconstructed as possible. The algorithm is similar to that used by JPEG compression. While this is a complicated technique, it would allow us to collect less data but still provide relevant results. However, this technique is more suited to taking measurements just along the roads rather than allowing us to interpolate missing data between roads. For this reason interpolation and extrapolation will be used, but this is an open area which may be revisited before the end of the project.
 
 
 

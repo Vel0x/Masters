@@ -52,50 +52,10 @@
 	"buffers":
 	[
 		{
-			"file": "airquality.tex",
-			"settings":
-			{
-				"buffer_size": 4369,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "heatmaps.tex",
-			"settings":
-			{
-				"buffer_size": 3779,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "mpp1.tex",
 			"settings":
 			{
-				"buffer_size": 723,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1calibration.tex",
-			"settings":
-			{
-				"buffer_size": 217,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1challenges.tex",
-			"settings":
-			{
-				"buffer_size": 1043,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1datacollection.tex",
-			"settings":
-			{
-				"buffer_size": 338,
+				"buffer_size": 1586,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,80 +63,64 @@
 			"file": "mpp1interpolation.tex",
 			"settings":
 			{
-				"buffer_size": 1197,
+				"buffer_size": 8094,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "mpp1introduction.tex",
+			"file": "references.bib",
 			"settings":
 			{
-				"buffer_size": 89,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1meetings.tex",
-			"settings":
-			{
-				"buffer_size": 39,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1pollutantaggregation.tex",
-			"settings":
-			{
-				"buffer_size": 393,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1preliminary.tex",
-			"settings":
-			{
-				"buffer_size": 338,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1timetable.tex",
-			"settings":
-			{
-				"buffer_size": 41,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1workplan.tex",
-			"settings":
-			{
-				"buffer_size": 219,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sensorcreation.tex",
-			"settings":
-			{
-				"buffer_size": 56,
+				"buffer_size": 39584,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/LaTeX/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 69.0,
+		"height": 309.0,
 		"selected_items":
 		[
+			[
+				"latex",
+				"LaTeX Accents: Encode accents"
+			],
+			[
+				"snip",
+				"Snippet: Itemize"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"snippe",
+				"Snippet: Figure"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"instal",
+				"insta",
 				"Package Control: Install Package"
+			],
+			[
+				"late",
+				"Figlet: Add Text"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"figlet",
+				"Figlet: Add Text"
 			],
 			[
 				"expo",
@@ -189,10 +133,6 @@
 			[
 				"mark",
 				"Markdown Preview: preview in Browser"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"install ",
@@ -227,10 +167,6 @@
 				"Git: Status"
 			],
 			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
 				":q",
 				"Set Syntax: SQL"
 			],
@@ -260,29 +196,37 @@
 	},
 	"file_history":
 	[
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/references.bib",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1datacollection.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1calibration.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1introduction.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1timetable.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1advice.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1workplan.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1pollutantaggregation.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/heatmaps.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1interpolation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1challenges.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airquality.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1meetings.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1platformcreation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1preliminary.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/sensorcreation.tex",
+		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/LaTeX/LaTeX.sublime-build",
 		"/Users/Velox/Projects/inf1-oop/Battleships/untitled.html",
 		"/Users/Velox/Projects/inf1-oop/Battleships/bat.bat",
 		"/Users/Velox/Projects/inf1-oop/Battleships/Main.java",
 		"/Users/Velox/Projects/inf1-oop/Battleships/MousePlayer.java",
 		"/Users/Velox/Projects/inf1-oop/Battleships/Panel.java",
 		"/Users/Velox/Projects/inf1-oop/Battleships/Player.java",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1challenges.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1preliminary.tex",
 		"/Users/Velox/gravity.py",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1interpolation.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/interpolationmodels.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1datacollection.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1workplan.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/challenges.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airqualitymodels.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1calibration.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1background.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/references.bib",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airquality.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1goals.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1introduction.tex",
 		"/Users/Velox/Dropbox/80-47-45",
 		"/Users/Velox/Projects/PPLS/PPLS2/aquadPartA.c",
 		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Submissions/shared/references.bib",
@@ -290,7 +234,6 @@
 		"/Users/Velox/Projects/PPLS/PPLS2/stack.h",
 		"/Users/Velox/Projects/PPLS/PPLS2/stack.c",
 		"/Users/Velox/test.py",
-		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Velox/Projects/PPLS/PPLS2/aquad.c",
 		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Heatmaps/algorithm.py",
 		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Heatmaps/test.html",
@@ -323,6 +266,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"calibration",
+			"eric",
 			"* ",
 			"sun",
 			"merged",
@@ -357,57 +302,56 @@
 	"groups":
 	[
 		{
-			"selected": 13,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "airquality.tex",
+					"file": "mpp1.tex",
 					"settings":
 					{
-						"buffer_size": 4369,
+						"buffer_size": 1586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1077,
+								1077
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"keep focus": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 643.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "heatmaps.tex",
+					"file": "mpp1interpolation.tex",
 					"settings":
 					{
-						"buffer_size": 3779,
+						"buffer_size": 8094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								340,
+								340
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -417,313 +361,27 @@
 				},
 				{
 					"buffer": 2,
-					"file": "mpp1.tex",
+					"file": "references.bib",
 					"settings":
 					{
-						"buffer_size": 723,
+						"buffer_size": 39584,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								38992,
+								38965
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "mpp1calibration.tex",
-					"settings":
-					{
-						"buffer_size": 217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "mpp1challenges.tex",
-					"settings":
-					{
-						"buffer_size": 1043,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "mpp1datacollection.tex",
-					"settings":
-					{
-						"buffer_size": 338,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "mpp1interpolation.tex",
-					"settings":
-					{
-						"buffer_size": 1197,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "mpp1introduction.tex",
-					"settings":
-					{
-						"buffer_size": 89,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "mpp1meetings.tex",
-					"settings":
-					{
-						"buffer_size": 39,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "mpp1pollutantaggregation.tex",
-					"settings":
-					{
-						"buffer_size": 393,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "mpp1preliminary.tex",
-					"settings":
-					{
-						"buffer_size": 338,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "mpp1timetable.tex",
-					"settings":
-					{
-						"buffer_size": 41,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "mpp1workplan.tex",
-					"settings":
-					{
-						"buffer_size": 219,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "sensorcreation.tex",
-					"settings":
-					{
-						"buffer_size": 56,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 15416.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -737,7 +395,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -762,6 +420,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 283.0
+	},
 	"replace":
 	{
 		"height": 64.0
@@ -787,6 +449,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 150.0,
+	"side_bar_width": 217.0,
 	"status_bar_visible": true
 }

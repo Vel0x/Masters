@@ -6,12 +6,6 @@ The first is compression of the data. This can be achieved simply by only taking
 
 The second method is the rapid upload of data. For this to happen, the data needs to reach an access point as quickly as possible. Opportunistic uploading allows this to happen by moving data from one sensor to another in order to reach an access point rather than relying solely on the original sensor moving into range. 
 
-\subsection{Compressive Sampling}\label{compressivesampling} 
-
-\todo[inline,color=red!40]{The general principle is that you can chose your sample points in order to leave you with a system of linear equations which need to be solved for any given data point. The number of unknowns is greater than the number of equations and normally this gives you infinite possible solutions. By specifying that the solution must also be sparse somehow you can reconstruct the original data (or close enough). JPEG compression works on this principle. It shows that data sampling isn't dependent on the Nyquist Rate as originally thought.}
-
-\mahesh{The compressive sampling stuff is extremely complicated and very difficult to get right. It seems that figuring out how to do this would be a masters project in it's own right. I've spend days trying to understand it and I'm not really getting anywhere. I think the best bet for this is to use the same technique that Arsham used when measuring wifi networks which is to take a reading when the time passes a certain threshold or the position does, which ever happenes soonest.}
-
 \subsection{Opportunistic Uploading}\label{opportunisticuploading}
 
 Opportunistic uploading allows a sensor, \emph{B}, to pretend to be an access point so that a sensor with data which needs to be uploaded, \emph{A}, can transfer it's data to \emph{B}. This is an advantage in that if \emph{B} meets an actual access point before \emph{A} does, the data will be transferred with less latency than it would by only using actual access points. 
@@ -55,13 +49,8 @@ There are further considerations which thought has been given to, but most requi
 
 \end{itemize}
 
-\todo[inline]{I've already answered some of the above questions. Need to be tied together a little bit I think}
 
 Further experimentation is required with hardware to determine the average handshake length, and the average volume of data which is transferred at different relative velocities. This data can then be used to populate the parameters in the algorithm used. 
-
-\todo[inline]{This section needs to be rounded off better}
-
-
 
 
 

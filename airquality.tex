@@ -2,9 +2,6 @@
 
 %\subsubsection{Definition}\label{airqualitydefinition}
 
-\mahesh{Do I need this since it was in MPP? And if it comes out can I move the sensors stuff into an appendix or something?}
-
-\idea{Should probably expand this a little bit (at least for the final report)}
 
 A definition of air quality is a difficult problem which has not been solved. Many institutions measure and record what they refer to as ``air quality'', however the only thing these measurements have in common is that no two are the same. In order to research the area of ``air quality'' further we must have a concrete definition of what air quality is. Current definitions give a simple definition of ``air quality'' as being antonymous to that of air pollution in that higher air quality is the equivalent to low air pollution\cite{bcaq}. This implies that not only should the metrics used for defining air quality be considered, but also those used to define air pollution.
 
@@ -24,55 +21,8 @@ These chemicals can form the basis of pollutants which in turn can help define `
 ``The current measurements of the concentrations of certain pollutants in the air relative to the requirements of one or more biotic species or to any human need or purpose.''
 \end{quote}
 
-\subsubsection{Air Quality Sensors}\label{airqualitysensors}
 
-\mahesh{This is the only subsubsection in this sub section, so is it necessary?}
-
-In order to measure pollutants and other factors relating to air quality we rely on electrochemical, solid state, or mechanical sensors, with the former being the most popular. The nature of sensors presents some unique problems. Mechanical sensors, such as those used for measuring pressure, may seize up and provide inaccurate measurements. Electrochemical sensors, which use an active surface, decay over time. This project will be using electrochemical sensors only, and so only suffers from the latter problem. 
-
-\paragraph{Electrochemical Sensors} \hspace{0pt} \\
-
-An electrochemical sensor is made up of the following components:\cite{intlelectrochemicalsensor}
-
-\begin{itemize}
-	\item Anode
-	\item Cathode
-	\item Gas Permeable Membrane % - This covers the electrode in the sensor from contamination, while still allowing gases to pass though.
-	\item Electrolyte % - Something about reactions...
-\end{itemize}
-
-By reacting the target gas at the anode and measuring the resulting current generated we can calculate how much of the target gas is present. In sensors which react with the target gas at the anode, oxygen is needed at the cathode as can be seen from the following chemical reactions.
-
-At anode:
-
-\begin{align*}
-	\cee{\emph{Carbon Monoxide: } CO + H_{2}O &-> CO_{2} + 2H+ 2e- \\
-	\\
-	\emph{Hydrogen Sulphide: } H_{2}S + 4H_{2}O &-> H_{2}SO_{4} + 8H+ + 8e- \\
-	\\
-	\emph{Nitrous Oxide: } NO + 2H_{2}O &-> HNO_{3} + 3H+ + e- \\
-	\\
-	\emph{Hydrogen Cyanide: } 2HCN + Au &-> HAu(CN)_{2} + H+ + e-}
-\end{align*}
-At cathode:
-\begin{align*}
-	\cee{O_{2} + 4H+ + 4e- &-> 2H_{2}O \\}
-\end{align*}
-
-Insufficient oxygen at the cathode causes the cathode to degrade resulting in changing readings. 
-
-In other types of sensors, which react with the target at the cathode, oxygen is not always necessary. For example:
-
-\begin{align*}
-	\cee{\emph{Nitrous Oxide: } NO_{2} + 2H+ + 2e- &-> NO + H_{2}O \\
-	\\
-	\emph{Chlorine: } Cl_{2} + 2H+ + 2e- &->  2HCl\\
-	\\
-	\emph{Ozone: } O_{3} + 2H+ + 2e- &-> O_{2} + H_{2}O }
-\end{align*}
-
-While oxygen is not a requirement, these sensors do eventually degrade due to the fact that no chemical reaction is going to be 100\% efficient.
-
+We need a method of measuring these pollutants. For this the standard method is to use an electrochemical sensor. These will be purchased and connected to an embedded system, which will be discussed later. Measurements will be taken and recorded. 
 
 
 
