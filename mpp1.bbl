@@ -1,0 +1,179 @@
+\begin{thebibliography}{10}
+
+\bibitem{beijinghightwitter}
+{Beijing Air}.
+\newblock {Beijing PM2.5 ``Beyond Index''}.
+\newblock \url{https://twitter.com/BeijingAir/status/290067495614824448}.
+
+\bibitem{pm2point5inscotland}
+Duncan Laxen, Kieran Laxen, Matthew Heal, Massimo Vieno, and Martin Bigg.
+\newblock {PM2.5 in Scotland}.
+\newblock July 2012.
+
+\bibitem{opensensezurich}
+{Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.
+\newblock {OpenSense at ETH Zurich}.
+\newblock \url{http://www.opensense.ethz.ch/trac/}.
+
+\bibitem{bcaq}
+{B}ritish~{C}olumbia {G}overnment.
+\newblock {W}hat is {A}ir {Q}uality?
+\newblock \url{http://www.bcairquality.ca/101/what-is-air-quality.html}.
+
+\bibitem{epapollutants}
+{US} {E}nvironmental~{P}rotection {A}gency.
+\newblock {Air Pollution Monitoring}.
+\newblock \url{http://www.epa.gov/oaqps001/montring.html#criteria}.
+
+\bibitem{airqualityobjectives}
+{Scottish Air Quality}.
+\newblock {Air Quality Standards and Objectives}.
+\newblock
+  \url{http://www.scottishairquality.co.uk/about.php?n_action=standards#std}.
+
+\bibitem{cleanairnavigation}
+J.~van~Delden J.C.~Reijnhoudt.
+\newblock {Clean Air Navigation}.
+\newblock
+  \url{http://www.utwente.nl/ctw/aida/education/Final%20report%20ITS2%20Reijnhoudt%20and%20Van%20Delden.doc/1_introduction.html}.
+
+\bibitem{naaqs}
+{US Environmental Protection Agency}.
+\newblock {National Ambient Air Quality Standards (NAAQS)}.
+\newblock
+  \url{http://www.utwente.nl/ctw/aida/education/Final%20report%20ITS2%20Reijnhoudt%20and%20Van%20Delden.doc/1_introduction.html}.
+
+\bibitem{whoguidelines}
+{W}orld~{H}ealth {O}rganization.
+\newblock {WHO Air Quality Guidelines for Particulate Matter, Ozone, Nitrogen
+  Dioxide and Sulfur Dioxide}.
+\newblock \url{http://www.bcairquality.ca/101/what-is-air-quality.html}.
+
+\bibitem{meaningsofenvironmentalterms}
+D.L. Johnson, S.H. Ambrose, T.J. Basset, M.L. Bowen, D.E. Crummey, J.S.
+  Isaacson, D.N. Johnson, P.~Lamb, M.~Saul, and A.E. Winter-Nelson.
+\newblock {Meanings of Environmental Terms}.
+\newblock {\em {Journal of Environmental Quality}}, (26):581--589.
+
+\bibitem{waspmote}
+{Libelium}.
+\newblock {Waspmote}.
+\newblock \url{http://www.libelium.com/products/waspmote/}.
+
+\bibitem{arduinoproj1}
+Tie Luo, Hwee-Pink Tan, and T.Q.S. Quek.
+\newblock Sensor openflow: Enabling software-defined wireless sensor networks.
+\newblock {\em Communications Letters, IEEE}, 16(11):1896--1899, 2012.
+
+\bibitem{arduinoproj2}
+N.~S~A Zulkifli, F.K.C. Harun, and N.~S. Azahar.
+\newblock Xbee wireless sensor networks for heart rate monitoring in sport
+  training.
+\newblock In {\em Biomedical Engineering (ICoBE), 2012 International Conference
+  on}, pages 441--444, 2012.
+
+\bibitem{arduinoproj3}
+N.W. Bergmann, M.~Wallace, and E.~Calia.
+\newblock Low cost prototyping system for sensor networks.
+\newblock In {\em Intelligent Sensors, Sensor Networks and Information
+  Processing (ISSNIP), 2010 Sixth International Conference on}, pages 19--24,
+  2010.
+
+\bibitem{ardupi}
+{Libelium}.
+\newblock {arduPi Library Documentation}.
+\newblock
+  \url{http://www.cooking-hacks.com/index.php/documentation/tutorials/raspberry-pi-to-arduino-shields-connection-bridge#step4}.
+
+\bibitem{envisensor}
+Eric~S. Staples.
+\newblock {EnviSensor: Environmental Data Collection via Participatory Sensor
+  Networks Utilizing Mobile Devices}.
+\newblock Master's thesis, The University of Edinburgh, 2011.
+
+\bibitem{ontheflycalibration}
+David Hasenfratz, Olga Saukh, and Lothar Thiele.
+\newblock On-the-fly calibration of low-cost gas sensors.
+\newblock In {\em Proceedings of the 9th European conference on Wireless Sensor
+  Networks}, EWSN'12, pages 228--244, Berlin, Heidelberg, 2012.
+  Springer-Verlag.
+
+\bibitem{collaborativeinplacecalibration}
+Vladimir Bychkovskiy, Seapahn Megerian, Deborah Estrin, and Miodrag Potkonjak.
+\newblock A collaborative approach to in-place sensor calibration.
+\newblock In {\em In Proceedings of the Second International Workshop on
+  Information Processing in Sensor Networks (IPSN}, pages 301--316, 2003.
+
+\bibitem{blindcalibration}
+Laura Balzano and Robert Nowak.
+\newblock Blind calibration of sensor networks.
+\newblock In {\em Proceedings of the 6th international conference on
+  Information processing in sensor networks}, IPSN '07, pages 79--88, New York,
+  NY, USA, 2007. ACM.
+
+\bibitem{samplingtheoremorigins}
+H.D. Luke.
+\newblock The origins of the sampling theorem.
+\newblock {\em Communications Magazine, IEEE}, 37(4):106--108, 1999.
+
+\bibitem{calibree}
+Emiliano Miluzzo, Nicholas~D. Lane, Andrew~T. Campbell, and Reza Olfati-Saber.
+\newblock Calibree: A self-calibration system for mobile sensor networks.
+\newblock In {\em Proceedings of the 4th IEEE international conference on
+  Distributed Computing in Sensor Systems}, DCOSS '08, pages 314--331, Berlin,
+  Heidelberg, 2008. Springer-Verlag.
+
+\bibitem{practicalguidestatisticalmapping}
+Tomislav Hengl.
+\newblock {\em {A Practical Guide to Geostatistical Mapping of Environmental
+  Variables}}.
+\newblock {Office for Official Publications of the European Communities}, 2007.
+
+\bibitem{mappingairpollutionusinggis}
+David~J. Briggs, Susan Collins, Paul Elliott, Paul Fischer, Simon Kingham, Erik
+  Lebret, Karel Pryl, Hans Van~Reeuwijk, Kirsty Smallbone, and Andre Van
+  Der~Veen.
+\newblock Mapping urban air pollution using gis: a regression-based approach.
+\newblock {\em International Journal of Geographical Information Science},
+  11(7):699--718, 1997.
+
+\bibitem{geostatisticalradiomapping}
+Caleb Phillips, Michael Ton, Douglas Sicker, and Dirk Grunwald.
+\newblock Practical radio environment mapping with geostatistics.
+\newblock In {\em Dynamic Spectrum Access Networks (DYSPAN), 2012 IEEE
+  International Symposium on}, pages 422--433, 2012.
+
+\bibitem{ordinarykriging}
+{Aquaveo Water Modelling Solutions}.
+\newblock {Ordinary Kriging}.
+\newblock
+  \url{http://www.ems-i.com/gmshelp/Interpolation/Interpolation_Schemes/Kriging/Ordinary_Kriging.htm}.
+
+\bibitem{simplekriging}
+{Aquaveo Water Modelling Solutions}.
+\newblock {Simple Kriging}.
+\newblock
+  \url{http://www.ems-i.com/gmshelp/Interpolation/Interpolation_Schemes/Kriging/Simple_Kriging.htm}.
+
+\bibitem{universalkriging}
+{Aquaveo Water Modelling Solutions}.
+\newblock {Universal Kriging}.
+\newblock
+  \url{http://www.ems-i.com/gmshelp/Interpolation/Interpolation_Schemes/Kriging/Universal_Kriging.htm}.
+
+\bibitem{regressionkriging}
+Tomislav Hengl, Gerard~B.M. Heuvelink, and David~G. Rossiter.
+\newblock {About regression-kriging: From equations to case studies}.
+\newblock {\em {Computers and Geosciences}}, 33(10):1301 -- 1315, 2007.
+
+\bibitem{arcgis}
+{Esri}.
+\newblock {ArcGIS}.
+\newblock \url{http://www.esri.com/software/arcgis}.
+
+\bibitem{intlelectrochemicalsensor}
+International~Sensor Technology.
+\newblock {Electrochemical Sensors}.
+\newblock \url{http://www.intlsensor.com/pdf/electrochemical.pdf}.
+
+\end{thebibliography}

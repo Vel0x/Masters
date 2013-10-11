@@ -1,0 +1,33 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Preliminary Work}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Challenge Identification}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Air Quality Definition}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Platform Creation}{5}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Sensor}{5}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Data Collection Framework}{5}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {3}Calibration}{6}{section.3}
+\contentsline {section}{\numberline {4}Data Collection}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Opportunistic Uploading}{7}{subsection.4.1}
+\contentsline {section}{\numberline {5}Heatmaps and Geostatistical Mapping}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Heat maps}{10}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Definition}{10}{subsubsection.5.1.1}
+\contentsline {paragraph}{Calculations and Colour Progression}{10}{section*.2}
+\contentsline {paragraph}{Representation Matrix}{11}{section*.3}
+\contentsline {subsubsection}{\numberline {5.1.2}Applications in Air Quality Measurement}{11}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}Mechanical Models}{12}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Inverse Distance Weighting}{12}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Regression on Coordinates}{13}{subsubsection.5.2.2}
+\contentsline {subsection}{\numberline {5.3}Statistical Models}{13}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Kriging}{13}{subsubsection.5.3.1}
+\contentsline {subsection}{\numberline {5.4}Comparison}{14}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Alternative Methods}{15}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Compressive Sampling}{15}{subsubsection.5.5.1}
+\contentsline {section}{\numberline {6}Workplan}{15}{section.6}
+\contentsline {subsection}{\numberline {6.1}MPP Workplan Differences}{15}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Expert Advice}{16}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Timetable}{16}{subsection.6.3}
+\contentsline {section}{Appendices}{18}{section*.4}
+\contentsline {section}{\numberline {A}Air Quality Sensors}{18}{Appendix.1.A}
+\contentsline {paragraph}{Electrochemical Sensors}{18}{section*.5}
+\contentsline {section}{\numberline {B}Colour Progression Algorithm}{19}{Appendix.1.B}
+\contentsline {section}{References}{20}{Appendix.1.B}
