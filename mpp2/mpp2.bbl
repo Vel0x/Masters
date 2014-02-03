@@ -1,0 +1,72 @@
+\begin{thebibliography}{10}
+
+\bibitem{highperformancesimulatorofadhocnetworks}
+T.D. Hewer.
+\newblock {\em High Performance Simulation and Modelling of Wireless Vehicular
+  Ad Hoc Networks}.
+\newblock University College London (University of London), 2011.
+
+\bibitem{networksimulatorcomparison}
+E.~Weingartner, H.~vom Lehn, and K.~Wehrle.
+\newblock A performance comparison of recent network simulators.
+\newblock In {\em Communications, 2009. ICC '09. IEEE International Conference
+  on}, pages 1--5, 2009.
+
+\bibitem{miximvision}
+A.~K\"{o}pke, M.~Swigulski, K.~Wessel, D.~Willkomm, P.~T.~Klein Haneveld,
+  T.~E.~V. Parker, O.~W. Visser, H.~S. Lichte, and S.~Valentin.
+\newblock Simulating wireless and mobile networks in omnet++ the mixim vision.
+\newblock In {\em Proceedings of the 1st International Conference on Simulation
+  Tools and Techniques for Communications, Networks and Systems \& Workshops},
+  Simutools '08, pages 71:1--71:8, ICST, Brussels, Belgium, Belgium, 2008. ICST
+  (Institute for Computer Sciences, Social-Informatics and Telecommunications
+  Engineering).
+
+\bibitem{mysql2sqlite}
+esperlu.
+\newblock {mysql2sqlite.sh}.
+\newblock \url{https://gist.github.com/esperlu/943776#file-mysql2sqlite-sh}.
+
+\bibitem{omnetmpi}
+{Omnet++ Wiki | Setting up Parallel Simulations}.
+\newblock
+  \url{http://www.omnetpp.org/pmwiki/index.php?n=Main.SettingUpParallelDistributedSimulations}.
+
+\bibitem{digitalocean}
+{Digital Ocean}.
+\newblock \url{https://digitalocean.com/}.
+
+\bibitem{arduinoproj1}
+Tie Luo, Hwee-Pink Tan, and T.Q.S. Quek.
+\newblock Sensor openflow: Enabling software-defined wireless sensor networks.
+\newblock {\em Communications Letters, IEEE}, 16(11):1896--1899, 2012.
+
+\bibitem{arduinoproj2}
+N.~S~A Zulkifli, F.K.C. Harun, and N.~S. Azahar.
+\newblock Xbee wireless sensor networks for heart rate monitoring in sport
+  training.
+\newblock In {\em Biomedical Engineering (ICoBE), 2012 International Conference
+  on}, pages 441--444, 2012.
+
+\bibitem{arduinoproj3}
+N.W. Bergmann, M.~Wallace, and E.~Calia.
+\newblock Low cost prototyping system for sensor networks.
+\newblock In {\em Intelligent Sensors, Sensor Networks and Information
+  Processing (ISSNIP), 2010 Sixth International Conference on}, pages 19--24,
+  2010.
+
+\bibitem{arduinounospecs}
+{Arduino Uno}.
+\newblock \url{http://arduino.cc/en/Main/arduinoBoardUno}.
+
+\bibitem{opensensezurich}
+{Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.
+\newblock {OpenSense at ETH Zurich}.
+\newblock \url{http://www.opensense.ethz.ch/trac/}.
+
+\bibitem{regressionkriging}
+Tomislav Hengl, Gerard~B.M. Heuvelink, and David~G. Rossiter.
+\newblock {About regression-kriging: From equations to case studies}.
+\newblock {\em {Computers and Geosciences}}, 33(10):1301 -- 1315, 2007.
+
+\end{thebibliography}

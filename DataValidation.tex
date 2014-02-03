@@ -1,0 +1,82 @@
+\section{Data Validation}\label{datavalidation}
+	
+	The remaining part of the project is evaluating whether the implementation would provide useful data or not. As mentioned in section~\ref{introduction_problemstatement} a similar project is currently running in Zurich. The \emph{OpenSense}~\cite{opensensezurich} project places sensors on trams and is designed to provide data to the general public with minimal cost. The project uses cheap hardware and accurate stationary measurement stations for calibration. If we look at their maps of information we can see that the readings they provide are only along the tram routes. An example of this, but in Edinburgh, can be seen in figure~\ref{fig:stationarypollutantbuildup}. In order for the data that we would potentially collect, should the project be physically realised, to be useful we would have to be able to accurately predict what the concentrations of chemicals are in areas where we do not have sensor readings. 
+
+	\begin{figure}[H]
+	    \begin{center}
+	        \includegraphics[width=\textwidth]{./images/StationaryPollutantBuildUp.png}
+	        \caption{A map of air pollution around Edinburgh city centre. Image uses \emph{Open Street Map}.}
+	        \label{fig:stationarypollutantbuildup}
+	    \end{center}
+	\end{figure}
+
+	If were were to use some statistical method on a dataset similar to that seen in figure~\ref{fig:stationarypollutantbuildup}, we could estimate with some degree of certainty what the pollution levels are in areas where there are no recordings. By doing this we could produce a map similar to the one in figure~\ref{fig:zurichheatmap}.
+
+	\begin{figure}[H]
+	    \begin{center}
+	        \includegraphics[width=\textwidth]{./images/zurichpm.jpg}
+	        \caption{A heatmap of particulate matter in Zurich. The higher pollution levels can clearly be seen to follow transport infrastructure.~\cite{opensensezurich}}
+	        \label{fig:zurichheatmap}
+	    \end{center}
+	\end{figure}
+
+	
+	In order to solve this problem and accurately predict the pollution levels, advanced statistical techniques, with a great deal of domain specific information, are required. Doing this would be impractical for the \emph{City of Edinburgh Council}. Instead we will employ existing tools and simpler statistical methods to help us perform this task. By using well known and understood methods, avoiding complex methods such as regression kriging~\cite{regressionkriging}, which are provided in a single tool or package, such as R or Python libraries, we will attempt to prove that this data is at least accurate enough to provide a high level overview of pollution across the city. 
+
+	In order to validate whether our results are correct or not, we will use the freely available data from the OpenSense project and perform our analysis on this. By performing our statistical methods on a dataset from the OpenSense project we will be able to predict the pollution levels at any point in Zurich to within some degree of accuracy. By comparing the values at the same locations as a static measurement station, with the results from said measurement station, we will obtain a metric which informs us of the accuracy of the interpolation method.
+
+
+	\subsection{Statistical Methods}\label{datavalidation_statisticalmethods}
+		This section focuses on the various statistical methods of interpolating and extrapolating data values at arbitrary points on a grid. These methods vary in their effectiveness on different data sets, however it is important to note that none of these methods take into account data which could be viewed as extremely important in this case. An example of this is the terrain. In section~\ref{research_geostatisitcalmodelling} we discuss the effect that canyoning has on air quality readings. This effect is ignored by these models. 
+
+		A further crucial piece of information which needs to be taken into account is that these models do not take into account temporal changes of readings. In order to use our data sets we will have to have a way of ``snapshotting'' data. A choice needs to be made for the length of time each snapshot should be. A suggestion for a rough value is 30 minutes, however experimental results will reveal the best value to use.
+
+		%http://en.wikipedia.org/wiki/Multivariate_interpolation
+
+
+		\subsubsection{Regular Grid Algorithms}\label{datavalidation_regulargrid}
+
+			These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to be able to do this we will need to place our results into ``buckets''. Buckets of around $5m^{2}$ will allow us to have a reasonable resolution for data without our calculations taking too long. The boxed area which the trams cover in Zurich is roughly 4km by 5km. This gives us a grid resolution of 800*1000, for a total of 800,000 data points. 
+
+			\textbf{Barnes}\label{datavalidation_barnes} \\
+
+			Barnes interpolation uses a multi-pass approach to determine the new data points. The method has found success in calculating air pressure across the United States, providing results similar to careful analysis, however it depends on the data points be reasonably uniform~\cite{barnesinterpolation}.
+
+			\textbf{Bilinear}\label{datavalidation_bilinear} \\
+			
+			\textbf{Bicubic}\label{datavalidation_bicubic} \\
+			
+			\textbf{B\'{e}zier Surface}\label{datavalidation_beziersurface} \\
+			
+			\textbf{Lanczos Resampling}\label{datavalidation_lanczosresampling} \\
+			
+			\textbf{Delaunay Triangulation}\label{datavalidation_delaunaytriangulation} \\
+			
+			\textbf{Natural Neighbor}\label{datavalidation_naturalneighbour} \\
+			
+			\textbf{Spline Interpolation}\label{datavalidation_splineinterpolation} \\
+
+		\subsubsection{Irregular Grid Algorithms}\label{datavalidation_irregular_grid}
+
+			\textbf{Radial Basis Function}\label{datavalidation_radial_basis_function} \\
+
+			\textbf{Thin Plate Spline}\label{datavalidation_thin_plate_spline} \\
+
+			\textbf{Least-Squares Spline}\label{datavalidation_least_squares_spline} \\
+
+		\subsubsection{Hybrid Algorithms}\label{datavalidation_hybrid_algorithms}
+
+			%http://en.wikipedia.org/wiki/Nearest-neighbor_interpolation
+			\textbf{Nearest Neighbour}\label{datavalidation_nearest_neighbour} \\
+
+				Nearest neighbour interpolation is the simplest interpolation we will see in that it is not really interpolation at all. Instead the value of each point is the value of the closest data point we have. A na\"{\i}ve version of the algorithm in Python, with \emph{known\_points} being a list of tuples containing the co-ordinates and value of each known point, is as follows\:
+
+				\inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{./code/nearest_neighbour.py}
+
+			\textbf{Inverse Distance Weighting}\label{datavalidation_inversedistanceweighting} \\
+
+			\textbf{Kriging}\label{datavalidation_kriging} \\
+		
+	\subsection{Implementation}\label{datavalidation_implementation}
+	\subsection{Results}\label{datavalidation_results}
+	\subsection{Conclusion}\label{datavalidation_conclusion}

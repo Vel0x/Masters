@@ -3,4 +3,7 @@
 *.pdf
 *.out
 *.tdo
+*.toc
+*.pyg
 *.synctex.gz
+.DS_Store

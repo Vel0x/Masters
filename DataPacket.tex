@@ -1,0 +1,18 @@
+\subsubsection{Data Packet}
+
+In order to effectively simulate a real life scenario we needed a correct amount of data. To do this we first need to know what measurements we are taking. As discussed in section~\ref{research_airquality}, we decided to monitor certain chemicals. As such I have designed a packet which will be able to store all this data, and so will enable us to simulate the scenario effectively. 
+
+\begin{center}
+	\begin{tabular}{ | c | c |}
+		\hline
+		Metric & Size (bytes)\\ \hline
+		Timestamp & 4 \\
+		Bus Id & 2 \\
+		\cee{CO_{2}} & x \\
+		\cee{O_{2}} & y \\
+		etc & ... \\
+		\hline
+		Total & 16 \\
+		\hline
+	\end{tabular}
+\end{center}
