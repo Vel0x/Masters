@@ -40,9 +40,48 @@
 
 			\textbf{Barnes}\label{datavalidation_barnes} \\
 
-			Barnes interpolation uses a multi-pass approach to determine the new data points. The method has found success in calculating air pressure across the United States, providing results similar to careful analysis, however it depends on the data points be reasonably uniform~\cite{barnesinterpolation}.
+				Barnes interpolation uses a multi-pass approach to determine the new data points. The method has found success in calculating air pressure across the United States, providing results similar to careful analysis, however it depends on the data points be reasonably uniform~\cite{barnesinterpolation}.
+
+				No examples existed in either R or Python and so a custom implementation written in Python was created. This implementation follows the information in the original paper by Barnes and has shown success on test data sets. The algorithm works by calculating a simple distance weighted interpolation as the first result, and then iterating multiple times using a calculated error field to reduce the errors in the output. 
+
+				One important factor in Barnes interpolation is the fact that it depends on server constants. These constants depend on the type of data being interpolated and the nature of the measurements, including the density of the measurements. As such, determining these constants is a key part of using this algorithm for interpolation. One advantage of this approach, is that we can iterate over our data set and fit it to the known measurements in order to make sure it is as accurate as possible. With this method however, we lose test data points and so cannot validate it. Experiments using this algorithm have used similar mechanisms and shown success~\cite{pmconcentrationmaps}.
+
+				The algorithm for Barnes interpolation is as follows.
+
+				For the first pass each known point is assigned a weight using the formula: 
+
+				\begin{align*}
+					W_{i} &= e^{-(d/R^{2})}
+				\end{align*}
+				
+				where d is the distance between the known point and the current point to be interpolated, and R is the radius of influence. Using this weight, the initial guess of the grid points is calculated as: 
+				
+				\begin{align*}
+					X_{g} &= \frac{\sum_{i}{W_{i}X_{i}}}{\sum_{i}{W_{i}}}
+				\end{align*}
+
+				At this point we begin our successive passes. These are defined as:
+
+				\begin{align*}
+					X'_{g} &= X_{g} + \frac{\sum_{i}{W'_{i}E_{i}}}{\sum_{i}{W'_{i}}}
+				\end{align*}
+
+				where $E_{k}$ is the difference between the estimated value and the actual value at a known point $k$ and $W'_{i}$ is defined as:
+
+				\begin{align*}
+					W'_{i} &= e^{-(d/\Gamma R)^{2}}
+				\end{align*}
+
+				with $\Gamma$ as a convergence parameter normally set in the range 0.2-0.3.
+
+				The created Python code for this algorithm is as follows:
+
+				\tdi{Fix this code and make it nice.}
+				\inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{./code/barnes.py}
 
 			\textbf{Bilinear}\label{datavalidation_bilinear} \\
+
+				
 			
 			\textbf{Bicubic}\label{datavalidation_bicubic} \\
 			

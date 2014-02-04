@@ -5,9 +5,9 @@ def w(x,y,p,C):
     d = math.sqrt((x - p[0])**2 + (y - p[1])**2)
     return math.exp(float(-(d**2)) / float(4*C))
     
-def w2(x,y,p,D=3.5):
+def w2(x,y,p,D=3.5,Gamma=0.25):
     R = math.sqrt((x - p[0])**2 + (y - p[1])**2)
-    neg4rsquared = float(-4 * (R**2))
+    neg4rsquared = float(-(1/Gamma) * (R**2))
     dsquared = float(D**2)
     v = neg4rsquared/dsquared
     v = math.exp(v)
