@@ -1,5 +1,8 @@
 \section{Data Validation}\label{datavalidation}
 	
+	Stampfenbachstrasse: (47.386769, 8.539810)
+	Schimmelstrasse: (47.370962, 8.523560)
+
 	The remaining part of the project is evaluating whether the implementation would provide useful data or not. As mentioned in section~\ref{introduction_problemstatement} a similar project is currently running in Zurich. The \emph{OpenSense}~\cite{opensensezurich} project places sensors on trams and is designed to provide data to the general public with minimal cost. The project uses cheap hardware and accurate stationary measurement stations for calibration. If we look at their maps of information we can see that the readings they provide are only along the tram routes. An example of this, but in Edinburgh, can be seen in figure~\ref{fig:stationarypollutantbuildup}. In order for the data that we would potentially collect, should the project be physically realised, to be useful we would have to be able to accurately predict what the concentrations of chemicals are in areas where we do not have sensor readings. 
 
 	\begin{figure}[H]
@@ -81,7 +84,7 @@
 
 			\textbf{Bilinear}\label{datavalidation_bilinear} \\
 
-				
+
 			
 			\textbf{Bicubic}\label{datavalidation_bicubic} \\
 			
@@ -113,6 +116,16 @@
 				\inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{./code/nearest_neighbour.py}
 
 			\textbf{Inverse Distance Weighting}\label{datavalidation_inversedistanceweighting} \\
+
+				Inverse Distance Weighting, known as IDW, is the second simplest algorithm. Each point is a weighted average of all known points, where the weighting is the inverse of the distance. 
+
+				Each value is calculated as follows:
+
+				\begin{align*}
+					V = \frac{\sum_{i=1}^{n}{\frac{v_{i}}{d^{p}_{i}}}}{\sum_{i=1}^{n}{\frac{1}{d^{p}_{i}}}}
+				\end{align*}
+
+				Once again, there are parameters which must be supplied to the algorithm which are data dependent. In this case the parameter is the smoothing factor. A lower smoothing factor means that the interpolated value at a known data point is closer to the value of the known data point. A higher smoothing factor makes the rate of change smaller to give a smoother graph and the cost of some interpolated points being different to known values which are nearby.
 
 			\textbf{Kriging}\label{datavalidation_kriging} \\
 		

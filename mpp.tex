@@ -1,8 +1,12 @@
+\documentclass[minf,frontabs,twoside,singlespacing,parskip]{infthesis}  % for MInf
+
+
 \title{Exploiting Mobile Entities for Urban Air Quality Monitoring}
 \author{Dale Myers}
 \date{April 3, 2014}
+\course{Master of Informatics}
+\project{{\bf MInf Project (Part 2) Report}}
 
-\documentclass[12pt]{article}
 
 \usepackage{tabularx}
 \usepackage{float}
@@ -22,7 +26,7 @@
 \usepackage{amsmath}
 \usepackage[toc,page]{appendix}
 \usepackage{footnote}
-\usepackage[a4paper]{geometry}
+%\usepackage[a4paper]{geometry}
 
 \usepackage{titlesec}
 
@@ -30,6 +34,15 @@
 \newcommand{\mahesh}[1]{\todo[inline,color=green!40]{#1}}
 \newcommand{\idea}[1]{\todo[inline,color=blue!40]{#1}}
 \newcommand{\tdi}[1]{\todo[inline]{#1}}
+\newcommand{\tdic}[2][]{
+    \todo[inline, caption={#1}]{
+        \begin{minipage}{
+            \textwidth-4pt
+        }
+        #2
+        \end{minipage}
+    }
+}
 
 
 
@@ -39,17 +52,32 @@
 
 \begin{document}
 
+\abstract{
+This is an example of {\tt infthesis} style.
+The file {\tt skeleton.tex} generates this document and can be 
+used to get a ``skeleton'' for your thesis.
+The abstract should summarise your report and fit in the space on the 
+first page.
+%
+You may, of course, use any other software to write your report,
+as long as you follow the same style. That means: producing a title
+page as given here, and including a table of contents and bibliography.
+}
+
 \maketitle
 \thispagestyle{empty}
 \newpage
+
+\section*{Acknowledgements}
+Acknowledgements go here. 
 
 \tableofcontents
 \thispagestyle{empty}
 
 \newpage
+
 \todototoc
 \listoftodos
-
 
 \newpage
 
@@ -57,15 +85,17 @@
 
 
 \input{Introduction}
-\input{Research}
+\input{Background}
 \input{Simulation}
-\input{DataValidation}
+\input{Performance}
+\input{PredictionEvaluation}
 \input{Conclusions}
 
 
 
 \addcontentsline{toc}{section}{References}
-\bibliographystyle{unsrt}
+%\bibliographystyle{unsrt}
+\bibliographystyle{plain}
 \bibliography{references}
 
 
