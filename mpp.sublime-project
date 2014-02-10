@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/Velox/Dropbox/Uni/Masters Project/thesis",
+            "folder_exclude_patterns": ["code","images"],
+            "file_exclude_patterns": ["*.sh","*.log","*.aux","*.sty","*.cls","*.pyg","*.log","*.gitignore","*.out","*.sublime-project","*.pl","*.snm","*.nav","*.pdf"]
+		}
+	]
+}

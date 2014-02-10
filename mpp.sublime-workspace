@@ -51,37 +51,37 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "mpp1.tex",
-			"settings":
-			{
-				"buffer_size": 1586,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "mpp1interpolation.tex",
-			"settings":
-			{
-				"buffer_size": 8094,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "references.bib",
-			"settings":
-			{
-				"buffer_size": 39584,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/LaTeX/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 309.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"pro",
+				"Project: Save As"
+			],
+			[
+				"proj",
+				"Project: Add Folder"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				":w",
+				":w - Save"
+			],
 			[
 				"latex",
 				"LaTeX Accents: Encode accents"
@@ -100,10 +100,6 @@
 			],
 			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -137,10 +133,6 @@
 			[
 				"install ",
 				"Package Control: Install Package"
-			],
-			[
-				":w",
-				":w - Save"
 			],
 			[
 				"git commit ",
@@ -179,7 +171,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 521.0
 	},
 	"console":
 	{
@@ -196,24 +188,38 @@
 	},
 	"file_history":
 	[
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp.sublime-project",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp.tex",
+		"/Users/Velox/Downloads/MPP2skeleton.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/Research.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/DataPacket.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/code/nearest_neighbour.py",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/references.bib",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1datacollection.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1calibration.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1introduction.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1timetable.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1advice.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp2/mpp2.tex",
+		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Velox/dalemyersio.svg",
+		"/Users/Velox/fox.py",
+		"/Users/Velox/Projects/moonoct.py",
+		"/Users/Velox/Projects/pycmote/main.py",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1workplan.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1pollutantaggregation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1calibration.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1platformcreation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1challenges.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/heatmaps.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1interpolation.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1challenges.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airquality.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1meetings.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1appendix.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1.tex",
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1platformcreation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1introduction.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1preliminary.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1timetable.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/airquality.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1datacollection.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1introduction.log",
+		"/Users/Velox/Documents/Time/info.plist",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1advice.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1pollutantaggregation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp1meetings.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/sensorcreation.tex",
-		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Velox/Library/Application Support/Sublime Text 2/Packages/LaTeX/LaTeX.sublime-build",
 		"/Users/Velox/Projects/inf1-oop/Battleships/untitled.html",
 		"/Users/Velox/Projects/inf1-oop/Battleships/bat.bat",
@@ -259,6 +265,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -266,6 +273,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"opensense",
+			"\\label{fig:",
+			"fig:",
+			"figure",
+			"width=",
+			"scale",
+			",",
+			"opensen",
 			"calibration",
 			"eric",
 			"* ",
@@ -302,90 +317,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "mpp1.tex",
-					"settings":
-					{
-						"buffer_size": 1586,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1077,
-								1077
-							]
-						],
-						"settings":
-						{
-							"keep focus": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 643.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "mpp1interpolation.tex",
-					"settings":
-					{
-						"buffer_size": 8094,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								340,
-								340
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "references.bib",
-					"settings":
-					{
-						"buffer_size": 39584,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38992,
-								38965
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 15416.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -448,7 +381,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 217.0,
 	"status_bar_visible": true
 }
