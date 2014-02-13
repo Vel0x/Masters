@@ -1,4 +1,4 @@
-\documentclass[minf,frontabs,twoside,singlespacing,parskip]{infthesis}  % for MInf
+\documentclass[minf,frontabs,twoside,singlespacing,parskip]{infthesis}
 
 
 \title{Exploiting Mobile Entities for Urban Air Quality Monitoring}
@@ -16,8 +16,8 @@
 \usepackage{graphicx}
 \usepackage{parskip}
 \usepackage{hyperref}
-\usepackage{mhchem}
-\usepackage{todonotes}
+\usepackage[version=3]{mhchem}
+\usepackage[colorinlistoftodos,textwidth=2.0cm]{todonotes}
 \usepackage{minted}
 \usepackage{upgreek}
 \usepackage{comment}
@@ -29,12 +29,15 @@
 
 \usepackage{titlesec}
 
+\let\oldtodo\todo
+\newcommand{\maheshi}[1]{\oldtodo[inline,color=green!40]{#1}}
+\newcommand{\mahesh}[1]{\oldtodo[color=green!40, size=\tiny]{#1}}
+\newcommand{\idea}[1]{\oldtodo[inline,color=blue!40]{#1}}
+\newcommand{\tdi}[1]{\oldtodo[inline]{#1}}
+\renewcommand\todo[1]{\oldtodo[size=\tiny]{#1}}
 
-\newcommand{\mahesh}[1]{\todo[inline,color=green!40]{#1}}
-\newcommand{\idea}[1]{\todo[inline,color=blue!40]{#1}}
-\newcommand{\tdi}[1]{\todo[inline]{#1}}
 \newcommand{\tdic}[2][]{
-    \todo[inline, caption={#1}]{
+    \oldtodo[inline, caption={#1}]{
         \begin{minipage}{
             \textwidth-4pt
         }
@@ -43,6 +46,29 @@
     }
 }
 
+\newcommand{\centerimagewide}[3]{
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=\textwidth]{#1}
+            \caption{#2}
+            \label{#3}
+        \end{center}
+    \end{figure}
+}
+
+\newcommand{\centerimage}[4]{
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=#1]{#2}
+            \caption{#3}
+            \label{#4}
+        \end{center}
+    \end{figure}
+}
+
+\hbadness=10000
+\vbadness=10000
+\setlength{\marginparwidth}{2cm}
 
 
 \setcounter{secnumdepth}{4}
@@ -50,6 +76,8 @@
 
 
 \begin{document}
+
+\pagenumbering{Alph} %This suppresses an error with the hyperref package
 
 \abstract{
     This is an example of {\tt infthesis} style.
@@ -75,10 +103,12 @@ Acknowledgements go here.
 
 \newpage
 
-\todototoc
 \listoftodos
+\thispagestyle{empty}
 
 \newpage
+
+\pagenumbering{arabic}
 
 \setcounter{page}{1}
 
@@ -92,9 +122,9 @@ Acknowledgements go here.
 
 
 
-\addcontentsline{toc}{section}{References}
-%\bibliographystyle{unsrt}
-\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{References}
+\bibliographystyle{unsrt}
+%\bibliographystyle{plain}
 \bibliography{references}
 
 

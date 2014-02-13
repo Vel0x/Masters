@@ -3,12 +3,45 @@
 
     A further crucial piece of information which needs to be taken into account is that these models do not take into account temporal changes of readings. In order to use our data sets we will have to have a way of ``snapshotting'' data. A choice needs to be made for the length of time each snapshot should be. A suggestion for a rough value is 30 minutes, however experimental results will reveal the best value to use.
 
-    %http://en.wikipedia.org/wiki/Multivariate_interpolation
+    With regards to the models chosen, various possibilities were considered. Due to the fact that various algorithms are similar with minor differences, the decision was made to use only a single algorithm from each ``family''. As such the algorithms chosen to be evaluated are:
 
+    %http://en.wikipedia.org/wiki/Multivariate_interpolation
+    \begin{itemize}
+        \item Bicubic interpolation
+        \item Natural neighbour interpolation
+        \item Spline interpolation
+        \item Nearest neighbour interpolation
+        \item Inverse distance weighting interpolation
+        \item Barnes interpolation
+    \end{itemize}
+
+    These algorithms can be split into two categories, regular grid algorithms and irregular grid algorithms, based on the format of the input data expected. 
 
     \subsection{Regular Grid Algorithms}\label{background_interpolation_methods_regulargrid}
 
-        These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to be able to do this we will need to place our results into ``buckets''. Buckets of around $5m^{2}$ will allow us to have a reasonable resolution for data without our calculations taking too long. The boxed area which the trams cover in Zurich is roughly 4km by 5km. This gives us a grid resolution of 800*1000, for a total of 800,000 data points. 
+        These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to conform to this the data into ``buckets''. Buckets of around $5m^{2}$ will allow us to have a reasonable resolution for data without our calculations taking too long. The boxed area which the trams cover in Zurich is roughly $5km^{2}$. This gives us a grid resolution of 1,000*1,000, for a total of 800,000 data points. 
+
+        \subsubsection{Bicubic}\label{background_interpolation_methods_bicubic}
+
+            Bicubic interpolation is the simplest of the grid interpolation algorithms which will be evaluated. As a cubic Hermite spline~\cite{practicalguidesplines} the output is smoother than linear interpolation methods such as bilinear interpolation, as we can see in figure~\ref{fig:bicubicvsbilinear}. The bicubic algorithm achieves this by taking into account the 16 points surrounding the point to be interpolated rather than just 4. 
+
+            \centerimage{\textwidth}{images/Bicubic_vs_Bilinear_Interpolation.png}{This figure, created by Wikipedia user \emph{Berland}, shows the difference between bicubic interpolation (left) and bilinear interpolation (right) on the same dataset.}{fig:bicubicvsbilinear}\mahesh{Should this be in italics?}
+
+            The algorithm for bicubic interpolation is relatively simple, with the result being given by the calculation:
+
+            \begin{align*}
+                p(x,y) = \sum_{i=0}^{3}{\sum_{j=0}^{3}{a_{ij}x^{i}y^{j}}}
+            \end{align*}
+
+        %\subsubsection{B\'{e}zier Surface}\label{background_interpolation_methods_beziersurface}
+        %Probably not since the surface is stretched towards the points, but does not pass through them
+        
+        %\subsubsection{Lanczos Resampling}\label{background_interpolation_methods_lanczosresampling}
+        %Used to interpolate between a sampled signal.
+        
+        %\subsubsection{Delaunay Triangulation}\label{background_interpolation_methods_delaunaytriangulation}
+        %Doesn't give a smooth curve
+
 
         \subsubsection{Barnes}\label{background_interpolation_methods_barnes}
 
@@ -49,40 +82,32 @@
             The created Python code for this algorithm is as follows:
 
             \tdi{Fix this code and make it nice.}
-            \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{./code/barnes.py}
+            \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{../Data/OpenSense/barnes.py}
 
-        \subsubsection{Bilinear}\label{background_interpolation_methods_bilinear}
-
-
-        
-        \subsubsection{Bicubic}\label{background_interpolation_methods_bicubic}
-        
-        \subsubsection{B\'{e}zier Surface}\label{background_interpolation_methods_beziersurface}
-        
-        \subsubsection{Lanczos Resampling}\label{background_interpolation_methods_lanczosresampling}
-        
-        \subsubsection{Delaunay Triangulation}\label{background_interpolation_methods_delaunaytriangulation}
         
         \subsubsection{Natural Neighbor}\label{background_interpolation_methods_naturalneighbour}
+        %Seems like an interesting successor to bicubic
         
         \subsubsection{Spline Interpolation}\label{background_interpolation_methods_splineinterpolation}
+        %Basic spline method
 
     \subsection{Irregular Grid Algorithms}\label{background_interpolation_methods_irregular_grid}
 
-        \subsubsection{Radial Basis Function}\label{background_interpolation_methods_radial_basis_function}
+        %\subsubsection{Radial Basis Function}\label{background_interpolation_methods_radial_basis_function}
+        %The value will dip between points so probably not what is needed
 
-        \subsubsection{Thin Plate Spline}\label{background_interpolation_methods_thin_plate_spline}
+        %\subsubsection{Thin Plate Spline}\label{background_interpolation_methods_thin_plate_spline}
+        %Seems complicated
 
-        \subsubsection{Least-Squares Spline}\label{background_interpolation_methods_least_squares_spline}
-
-    \subsection{Hybrid Algorithms}\label{background_interpolation_methods_hybrid_algorithms}
+        %\subsubsection{Least-Squares Spline}\label{background_interpolation_methods_least_squares_spline}
+        %A possibility
 
         %http://en.wikipedia.org/wiki/Nearest-neighbor_interpolation
         \subsubsection{Nearest Neighbour}\label{background_interpolation_methods_nearest_neighbour}
 
             Nearest neighbour interpolation is the simplest interpolation we will see in that it is not really interpolation at all. Instead the value of each point is the value of the closest data point we have. A na\"{\i}ve version of the algorithm in Python, with \emph{known\_points} being a list of tuples containing the co-ordinates and value of each known point, is as follows\:
 
-            \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{./code/nearest_neighbour.py}
+            \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{../Data/OpenSense/nearest_neighbour.py}
 
         \subsubsection{Inverse Distance Weighting}\label{background_interpolation_methods_inversedistanceweighting}
 
@@ -96,4 +121,5 @@
 
             Once again, there are parameters which must be supplied to the algorithm which are data dependent. In this case the parameter is the smoothing factor. A lower smoothing factor means that the interpolated value at a known data point is closer to the value of the known data point. A higher smoothing factor makes the rate of change smaller to give a smoother graph and the cost of some interpolated points being different to known values which are nearby.
 
-        \subsubsection{Kriging}\label{background_interpolation_methods_kriging}
+        %\subsubsection{Kriging}\label{background_interpolation_methods_kriging}
+        % Very complicated and requires a lot of domain specific knowledge

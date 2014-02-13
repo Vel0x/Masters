@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{practicalguidesplines}
+Carl De~Boor, Carl De~Boor, Carl De~Boor, and Carl De~Boor.
+\newblock {\em A practical guide to splines}, volume~27.
+\newblock Springer-Verlag New York, 1978.
+
+\bibitem{barnesinterpolation}
+S.~L. {Barnes}.
+\newblock {A Technique for Maximizing Details in Numerical Weather Map
+  Analysis.}
+\newblock {\em Journal of Applied Meteorology}, 3:396--409, August 1964.
+
+\bibitem{pmconcentrationmaps}
+Stefan~R. Falke.
+\newblock {PM Concentration Maps for MODELS-3 Comparison: Data Integration and
+  Mapping Methodology}.
+\newblock July 2000.
+
+\bibitem{opensensezurich}
+{Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.
+\newblock {OpenSense at ETH Zurich}.
+\newblock \url{http://www.opensense.ethz.ch/trac/}.
+
+\bibitem{regressionkriging}
+Tomislav Hengl, Gerard~B.M. Heuvelink, and David~G. Rossiter.
+\newblock {About regression-kriging: From equations to case studies}.
+\newblock {\em {Computers and Geosciences}}, 33(10):1301 -- 1315, 2007.
+
+\end{thebibliography}

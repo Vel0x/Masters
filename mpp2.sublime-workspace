@@ -63,6 +63,10 @@
 				"Project: Save As"
 			],
 			[
+				"proje",
+				"Project: Save As"
+			],
+			[
 				"proj",
 				"Project: Add Folder"
 			],
@@ -188,8 +192,17 @@
 	},
 	"file_history":
 	[
-		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp.sublime-project",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp2.sublime-workspace",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp2.sublime-project",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/Introduction/Introduction.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/Background/BackgroundInterpolationMethods.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/Reports/Group Meetings/5th Year/Semester 2/Presentation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/PredictionEvaluation/DataValidation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/PredictionEvaluation/PredictionEvaluation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/Presentation/Presentation.tex",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp.sublime-project",
+		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/mpp.pdf",
 		"/Users/Velox/Downloads/MPP2skeleton.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/Research.tex",
 		"/Users/Velox/Dropbox/Uni/Masters Project/thesis/DataPacket.tex",
@@ -379,9 +392,9 @@
 		"width": 0.0
 	},
 	"show_minimap": true,
-	"show_open_files": true,
+	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 217.0,
+	"side_bar_width": 267.0,
 	"status_bar_visible": true
 }

@@ -1,21 +1,17 @@
 {
-    "folders":
+	"folders":
+	[
+		{
+			"path": ".",
+            "folder_exclude_patterns": ["code","images"],
+            "file_exclude_patterns": ["*.sh","*.log","*.aux","*.sty","*.cls","*.pyg","*.log","*.gitignore","*.out","*.sublime-project","*.pl","*.snm","*.nav","*.pdf"]
+		}
+	],
+	"build_systems":
     [
         {
-            "path": "",
-            "folder_exclude_patterns": ["code"],
-            "file_exclude_patterns": ["*.sh","*.log","*.aux","*.sty","*.cls","*.pyg","*.log"]
-        }
-    ],
-    "settings":
-    {
-        "tab_size": 8
-    },
-    "build_systems":
-    [
-        {
-            "name": "List",
-            "cmd": ["ls"]
+            "name": "Full Build",
+            "cmd": ["sh build.sh"]
         }
     ]
 }
