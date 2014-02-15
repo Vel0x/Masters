@@ -13,7 +13,7 @@
 \usepackage{url}
 \usepackage{verbatim}
 \usepackage{fixltx2e}
-\usepackage{graphicx}
+\usepackage[demo]{graphicx}
 \usepackage{parskip}
 \usepackage{hyperref}
 \usepackage[version=3]{mhchem}
@@ -26,6 +26,8 @@
 \usepackage{amsmath}
 \usepackage[toc,page]{appendix}
 \usepackage{footnote}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \usepackage{titlesec}
 
@@ -44,6 +46,10 @@
         #2
         \end{minipage}
     }
+}
+
+\newcommand{\code}[2]{
+    \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{#1}{#2}
 }
 
 \newcommand{\centerimagewide}[3]{
@@ -66,6 +72,7 @@
     \end{figure}
 }
 
+%Temporary fixes for todonotes
 \hbadness=10000
 \vbadness=10000
 \setlength{\marginparwidth}{2cm}
@@ -120,12 +127,13 @@ Acknowledgements go here.
 \input{PredictionEvaluation/PredictionEvaluation}
 \input{Conclusions/Conclusions}
 
-
-
 \addcontentsline{toc}{chapter}{References}
 \bibliographystyle{unsrt}
 %\bibliographystyle{plain}
 \bibliography{references}
+
+\appendix
+\input{Appendix/Appendix}
 
 
 \end{document}

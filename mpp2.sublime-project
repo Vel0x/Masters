@@ -4,7 +4,7 @@
 		{
 			"path": ".",
             "folder_exclude_patterns": ["code","images"],
-            "file_exclude_patterns": ["*.sh","*.log","*.aux","*.sty","*.cls","*.pyg","*.log","*.gitignore","*.out","*.sublime-project","*.pl","*.snm","*.nav","*.pdf"]
+            "file_exclude_patterns": ["*.sh","*.toc","*.bbl","*.blg","*.tdo","*.log","*.aux","*.sty","*.cls","*.pyg","*.log","*.gitignore","*.out","*.sublime-project","*.sublime-workspace","*.pl","*.snm","*.nav","*.pdf"]
 		}
 	],
 	"build_systems":

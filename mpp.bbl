@@ -1,4 +1,44 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{bcaq}
+{B}ritish~{C}olumbia {G}overnment.
+\newblock {W}hat is {A}ir {Q}uality?
+\newblock \url{http://www.bcairquality.ca/101/what-is-air-quality.html}.
+
+\bibitem{epapollutants}
+{US} {E}nvironmental~{P}rotection {A}gency.
+\newblock {Air Pollution Monitoring}.
+\newblock \url{http://www.epa.gov/oaqps001/montring.html#criteria}.
+
+\bibitem{airqualityobjectives}
+{Scottish Air Quality}.
+\newblock {Air Quality Standards and Objectives}.
+\newblock
+  \url{http://www.scottishairquality.co.uk/about.php?n_action=standards#std}.
+
+\bibitem{cleanairnavigation}
+J.~van~Delden J.C.~Reijnhoudt.
+\newblock {Clean Air Navigation}.
+\newblock
+  \url{http://www.utwente.nl/ctw/aida/education/Final%20report%20ITS2%20Reijnhoudt%20and%20Van%20Delden.doc/1_introduction.html}.
+
+\bibitem{naaqs}
+{US Environmental Protection Agency}.
+\newblock {National Ambient Air Quality Standards (NAAQS)}.
+\newblock
+  \url{http://www.utwente.nl/ctw/aida/education/Final%20report%20ITS2%20Reijnhoudt%20and%20Van%20Delden.doc/1_introduction.html}.
+
+\bibitem{whoguidelines}
+{W}orld~{H}ealth {O}rganization.
+\newblock {WHO Air Quality Guidelines for Particulate Matter, Ozone, Nitrogen
+  Dioxide and Sulfur Dioxide}.
+\newblock \url{http://www.bcairquality.ca/101/what-is-air-quality.html}.
+
+\bibitem{meaningsofenvironmentalterms}
+D.L. Johnson, S.H. Ambrose, T.J. Basset, M.L. Bowen, D.E. Crummey, J.S.
+  Isaacson, D.N. Johnson, P.~Lamb, M.~Saul, and A.E. Winter-Nelson.
+\newblock {Meanings of Environmental Terms}.
+\newblock {\em {Journal of Environmental Quality}}, (26):581--589.
 
 \bibitem{practicalguidesplines}
 Carl De~Boor, Carl De~Boor, Carl De~Boor, and Carl De~Boor.

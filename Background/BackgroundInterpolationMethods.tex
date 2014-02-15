@@ -19,13 +19,29 @@
 
     \subsection{Regular Grid Algorithms}\label{background_interpolation_methods_regulargrid}
 
-        These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to conform to this the data into ``buckets''. Buckets of around $5m^{2}$ will allow us to have a reasonable resolution for data without our calculations taking too long. The boxed area which the trams cover in Zurich is roughly $5km^{2}$. This gives us a grid resolution of 1,000*1,000, for a total of 800,000 data points. 
+        \tdi{This should be in the PredictionEvaluation Section}
+        These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to conform to this the data into ``buckets''. Buckets of area $100m^{2}$ will allow us to have a reasonable resolution for data without sacrificing calculation speed. The two furthest points of the Zurich tram network are roughly $5km$ apart and so we shall use a map which is the square of this distance, which results in a grid resolution of 500*500, for a total of 250,000 data points. 
 
         \subsubsection{Bicubic}\label{background_interpolation_methods_bicubic}
 
-            Bicubic interpolation is the simplest of the grid interpolation algorithms which will be evaluated. As a cubic Hermite spline~\cite{practicalguidesplines} the output is smoother than linear interpolation methods such as bilinear interpolation, as we can see in figure~\ref{fig:bicubicvsbilinear}. The bicubic algorithm achieves this by taking into account the 16 points surrounding the point to be interpolated rather than just 4. 
+            Bicubic interpolation is the simplest of the grid interpolation algorithms which will be evaluated. As a cubic Hermite spline~\cite{practicalguidesplines} the output is smoother than linear interpolation methods such as bilinear interpolation, as we can see in figure~\ref{fig:bicubic_vs_bilinear}. The bicubic algorithm achieves this by taking into account the 16 points surrounding the point to be interpolated rather than just 4. 
 
-            \centerimage{\textwidth}{images/Bicubic_vs_Bilinear_Interpolation.png}{This figure, created by Wikipedia user \emph{Berland}, shows the difference between bicubic interpolation (left) and bilinear interpolation (right) on the same dataset.}{fig:bicubicvsbilinear}\mahesh{Should this be in italics?}
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \includegraphics[width=0.9\linewidth]{./images/Bicubic_Interpolation_Example.png}
+                    \caption{}
+                    \label{fig:example_bicubic}
+                \end{subfigure}%DO NOT REMOVE THIS COMMENT
+                \begin{subfigure}{.5\textwidth}
+                    \includegraphics[width=0.9\linewidth]{./images/Bilinear_Interpolation_Example.png}
+                    \caption{}
+                    \label{fig:example_bilinear}
+                \end{subfigure}
+                \caption{These examples, created by Wikipedia user \emph{Berland}, shows the difference between bicubic interpolation, figure~\ref{fig:example_bicubic}, and bilinear interpolation, figure~\ref{fig:example_bilinear}, on the same dataset.}
+                \label{fig:bicubic_vs_bilinear}
+            \end{figure}\mahesh{Should this be in italics?}
 
             The algorithm for bicubic interpolation is relatively simple, with the result being given by the calculation:
 
@@ -79,10 +95,7 @@
 
             with $\Gamma$ as a convergence parameter normally set in the range 0.2-0.3.
 
-            The created Python code for this algorithm is as follows:
 
-            \tdi{Fix this code and make it nice.}
-            \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{../Data/OpenSense/barnes.py}
 
         
         \subsubsection{Natural Neighbor}\label{background_interpolation_methods_naturalneighbour}
@@ -105,21 +118,52 @@
         %http://en.wikipedia.org/wiki/Nearest-neighbor_interpolation
         \subsubsection{Nearest Neighbour}\label{background_interpolation_methods_nearest_neighbour}
 
-            Nearest neighbour interpolation is the simplest interpolation we will see in that it is not really interpolation at all. Instead the value of each point is the value of the closest data point we have. A na\"{\i}ve version of the algorithm in Python, with \emph{known\_points} being a list of tuples containing the co-ordinates and value of each known point, is as follows\:
+            Nearest neighbour interpolation is the simplest interpolation we will see in that it is not really interpolation at all. Instead the value of each point is the value of the closest data point we have. This algorithm can work reasonably well when there is a small amount of variation. However, as the results it produces are discontinuous, it cannot approximate well when there are large differences between adjacent data points.
 
-            \inputminted[mathescape,linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}{../Data/OpenSense/nearest_neighbour.py}
 
         \subsubsection{Inverse Distance Weighting}\label{background_interpolation_methods_inversedistanceweighting}
 
-            Inverse Distance Weighting, known as IDW, is the second simplest algorithm. Each point is a weighted average of all known points, where the weighting is the inverse of the distance. 
+            The key component of inverse distance weighting (IDW) is the calculation of new parameters as the weighted average of neighbouring parameters. The weighting is calculated as the inverse of the distance from the current point to the neighbour currently being checked and are normalised such that the total weighting is equal to one. Due to the requirement of checking all other points the time complexity of this algorithm, like many other interpolation algorithms, is $O(n^{2})$. However we can reduce this by some constant factor by imposing a maximum radius on all calculations. 
 
-            Each value is calculated as follows:
+            The general formula for calculating the value, $V$, at a point $X_{i}$ given samples $S$, where $S_{i}$ is the value of sample S, is:
 
             \begin{align*}
-                V = \frac{\sum_{i=1}^{n}{\frac{v_{i}}{d^{p}_{i}}}}{\sum_{i=1}^{n}{\frac{1}{d^{p}_{i}}}}
+                V = \sum_{i=1}^{N}{
+                        \frac{
+                            w_{i}(X_{i})S_{i}
+                        }{
+                            \sum_{j=0}^{N}{w_{j}(X_{j})}
+                        }
+                    },
             \end{align*}
 
-            Once again, there are parameters which must be supplied to the algorithm which are data dependent. In this case the parameter is the smoothing factor. A lower smoothing factor means that the interpolated value at a known data point is closer to the value of the known data point. A higher smoothing factor makes the rate of change smaller to give a smoother graph and the cost of some interpolated points being different to known values which are nearby.
+            where 
 
+            \begin{align*}
+                w_{i}(x) = \frac{1}{d(x,S_{i})^{p}}
+            \end{align*}
+
+            is a weighting function with $d(X_{1},X_{2})$ being a distance metric between points $X_{1}$ and $X_{2}$, and $p$ is the power parameter, which controls the rate of change at which distances affect the weighting.
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{.5\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{./images/IDW1.png}
+                    \caption{}
+                    \label{fig:example_idw_p2}
+                \end{subfigure}%DO NOT REMOVE THIS COMMENT
+                \begin{subfigure}{.5\textwidth}
+                    \includegraphics[width=\linewidth]{./images/IDW2.png}
+                    \caption{}
+                    \label{fig:example_idw_p4}
+                \end{subfigure}
+                \caption{These two figures show the IDW algorithm in one dimension at points -3,-1,1 and 3 where the values are 0,1,1 and 0 respectively. Figure~\ref{fig:example_idw_p2} has a power parameter of 2, while figure~\ref{fig:example_idw_p4} has a power parameter of 4.  }
+                \label{fig:example_idw}
+            \end{figure}
+
+            As we can see in figure~\ref{fig:example_idw} IDW's dependence on the surrounding values causes interesting effects. Between the x values of -1 and 1 we can see a local minima in the graph. This is due to the fact that the values at -3 and 3 are lower and are taken into account. Should these values be further away, such as we see in figure~\ref{fig:example_idw_distance}, the effect is less pronounced. A further way of mitigating this effect is to increase the power parameter as has been done in figure~\ref{fig:example_idw_p4}. It should be noted, however, that as the p factor goes to infinity, the IDW algorithm approaches the nearest neighbour algorithm. 
+
+            \centerimage{.5\textwidth}{./images/IDW3.png}{In this figure the two extreme points have been moved further from zero by a value of one, in order to demonstrate their effect on the value at zero decreasing compared to figure~\ref{fig:example_idw_p2}}{fig:example_idw_distance}
         %\subsubsection{Kriging}\label{background_interpolation_methods_kriging}
         % Very complicated and requires a lot of domain specific knowledge
