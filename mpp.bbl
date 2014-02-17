@@ -45,6 +45,12 @@ Carl De~Boor, Carl De~Boor, Carl De~Boor, and Carl De~Boor.
 \newblock {\em A practical guide to splines}, volume~27.
 \newblock Springer-Verlag New York, 1978.
 
+\bibitem{bicubicorigins}
+R.~Keys.
+\newblock Cubic convolution interpolation for digital image processing.
+\newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
+  29(6):1153--1160, Dec 1981.
+
 \bibitem{barnesinterpolation}
 S.~L. {Barnes}.
 \newblock {A Technique for Maximizing Details in Numerical Weather Map
@@ -56,6 +62,14 @@ Stefan~R. Falke.
 \newblock {PM Concentration Maps for MODELS-3 Comparison: Data Integration and
   Mapping Methodology}.
 \newblock July 2000.
+
+\bibitem{imageresamplingcomparison}
+J.~Anthony Parker, Robert~V. Kenyon, and D.~Troxel.
+\newblock Comparison of interpolating methods for image resampling.
+\newblock {\em Medical Imaging, IEEE Transactions on}, 2(1):31--39, March 1983.
+
+\bibitem{multivariatedata}
+
 
 \bibitem{opensensezurich}
 {Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.

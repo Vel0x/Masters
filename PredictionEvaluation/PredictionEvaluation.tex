@@ -39,3 +39,13 @@
 	In order to validate whether our results are correct or not, we will use the freely available data from the OpenSense project and perform our analysis on this. By performing our statistical methods on a dataset from the OpenSense project we will be able to predict the pollution levels at any point in Zurich to within some degree of accuracy. By comparing the values at the same locations as a static measurement station, with the results from said measurement station, we will obtain a metric which informs us of the accuracy of the interpolation method.
 
 
+
+
+
+
+
+
+
+
+
+        These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to conform to this the data into ``buckets''. Buckets of area $100m^{2}$ will allow us to have a reasonable resolution for data without sacrificing calculation speed. The two furthest points of the Zurich tram network are roughly $5km$ apart and so we shall use a map which is the square of this distance, which results in a grid resolution of 500*500, for a total of 250,000 data points. 
