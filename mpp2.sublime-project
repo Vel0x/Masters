@@ -11,7 +11,7 @@
     [
         {
             "name": "Full Build",
-            "cmd": ["sh build.sh"]
+            "cmd": ["/bin/bash \"$file_path/build.sh\""]
         }
     ]
 }

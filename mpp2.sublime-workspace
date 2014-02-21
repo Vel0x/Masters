@@ -27,7 +27,7 @@
 			"file": "Background/BackgroundInterpolationMethods.tex",
 			"settings":
 			{
-				"buffer_size": 16020,
+				"buffer_size": 15593,
 				"line_ending": "Windows"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "Appendix/Appendix.tex",
 			"settings":
 			{
-				"buffer_size": 617,
+				"buffer_size": 667,
 				"line_ending": "Unix"
 			}
 		},
@@ -219,7 +219,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -283,15 +283,15 @@
 					"file": "Background/BackgroundInterpolationMethods.tex",
 					"settings":
 					{
-						"buffer_size": 16020,
+						"buffer_size": 15593,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14094,
-								14094
+								0,
+								0
 							]
 						],
 						"settings":
@@ -337,15 +337,15 @@
 					"file": "Appendix/Appendix.tex",
 					"settings":
 					{
-						"buffer_size": 617,
+						"buffer_size": 667,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								313,
-								313
+								665,
+								665
 							]
 						],
 						"settings":

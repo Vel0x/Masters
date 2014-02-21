@@ -21,7 +21,7 @@
 
     \subsection{Irregular Grid Algorithms}\label{background_interpolation_methods_irregular_grid}
 
-        These algorithms work with arbitrary data points. They generally all work on regular grids however as these are a subset of irregular grid data points. 
+        These algorithms work with arbitrary data points in that we can specify a single point and calculate the interpolated value for it without being required to calculate an entire grid. They generally all work on regular grids however as these are a subset of irregular grid data points. 
 
         \subsubsection{Nearest Neighbour}\label{background_interpolation_methods_nearest_neighbour}
 
@@ -53,7 +53,7 @@
             A possible improvement to nearest neighbour is to apply a convolution filter to the data such as that done in figure~\ref{fig:example_nearest_neighbour}. In this figure we originally started with a 4 by 4 pixel image. Using a nearest neighbour algorithm we scaled this up to 128 by 128 pixels as seen in figure~\ref{fig:example_nearest_neighbour_normal}. When we apply a 10 pixel Gaussian Blur, a type of convolution filter, as in figure~\ref{fig:example_nearest_neighbour_blur}, we see that we achieve results similar to that of applying a bicubic interpolation algorithm as in figure~\ref{fig:example_nearest_neighbour_bicubic}.
 
 
-        \subsubsection{Inverse Distance Weighting}\label{background_interpolation_methods_inversedistanceweighting}
+        \subsubsection{Inverse Distance Weighting}\label{background_interpolation_methods_inverse_distance_weighting}
 
             The key component of inverse distance weighting (IDW) is the calculation of new parameters as the weighted average of neighbouring parameters. The weighting is calculated as the inverse of the distance from the current point to the neighbour currently being checked and are normalised such that the total weighting is equal to one. Due to the requirement of checking all other points the time complexity of this algorithm, like many other interpolation algorithms, is $O(n^{2})$. However it is possible to reduce this by some constant factor by imposing a maximum radius on all calculations. 
 
@@ -108,7 +108,7 @@
 
     \subsection{Regular Grid Algorithms}\label{background_interpolation_methods_regulargrid}
 
-        Regular grid algorithms require the known data points to be on a regular grid. This can be achieved with irregular data by making the grid sufficiently large and ``snapping'' data points to it.
+        Regular grid algorithms require the known data points to be on a regular grid and can not easily only calculate the interpolated value of a single point. This can be achieved with irregular data by making the grid sufficiently large and ``snapping'' data points to it.
 
         \subsubsection{Bilinear}\label{background_interpolation_methods_bilinear}
 
@@ -148,7 +148,7 @@
 
             As with the bilinear interpolation algorithm, we cannot extrapolate, only interpolate. 
 
-        \subsubsection{Natural Neighbour}\label{background_interpolation_methods_naturalneighbour}
+        \subsubsection{Natural Neighbour}\label{background_interpolation_methods_natural_neighbour}
 
             Natural neighbour interpolation is based on Voronoi tessellation~\cite{multivariatedata}. The basic method is very similar to that of IDW in that the basic form of the equation is:
 

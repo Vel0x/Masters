@@ -1,51 +1,75 @@
 \chapter{Prediction Evaluation}\label{prediction_evaluation}
-	
-	
-	\tdic[Prediction is inevitable]{Intro talks about no matter how we do it the data will be spatially incomplete. Prediction is inevitable
+
+	\section{Motivation}\label{prediction_evaluation_motivation}
+
+		In sampling data it is almost inevitable that information will be missed. In order to accurately reconstruct the original data we must take certain precautions. One of these precautions is making sure that we sample at a rate high enough to reconstruct all information. This rate goes by the term \emph{Nyquist rate}~\cite{nyquistrate}. The Nyquist rate is the rate of taking measurements such that the original information can be reconstructed without aliasing occurring. This essentially means that we need to have a sample rate of twice the rate of the smallest changes in a signal. If we do not have this sampling rate then it is possible for us to lose information during the sampling process. 
+
+		\centerimagewide{./images/Nyquist_Example.png}{Here we can see an example of a sample rate on the function $y = sin(4x)$ being insufficient. This sample rate of 1.2 is insufficient for the graph since it's period is $\frac{2\pi}{4} \equiv 1.570$. A sample rate of $\frac{1.570}{2} \equiv 0.785$ is required to be sufficient.}{fig:nyquist_example}
+
+		When measuring air quality we almost certainly will not meet the Nyquist rate and therefore need to compensate. Without any interpolation or extrapolation methods the best we can do is generate data similar to that seen in figure~\ref{fig:stationarypollutantbuildup}. In this figure we see that we only have information where pollutants were measured. In this case it was done with a sensor on a bus and therefore limited to the roads. 
+
+		\centerimagewide{./images/StationaryPollutantBuildUp.png}{A map of air pollution around Edinburgh city centre. Image uses \emph{Open Street Map}.}{fig:stationarypollutantbuildup}
+
+		\centerimage{.5\textwidth}{./images/zurichpm.jpg}{A heatmap of particulate matter in Zurich. The higher pollution levels can clearly be seen to follow transport infrastructure.~\cite{opensensezurich}}{fig:zurichheatmap}
+
+		The solution is to interpolate and extrapolate our data so that what we see in figure~\ref{fig:stationarypollutantbuildup} can be converted into something similar to figure~\ref{fig:zurichheatmap} where we have estimations of pollutant levels in areas where we did not take measurements. 
+
+		With air quality data many institutes and organisations use complex methods of interpolating the data such as \emph{Land Use Regression (LUR)}~\cite{lurtraffic}. LUR and other advanced models~\cite{reviewofaqmodels} have advantages over simple interpolation models in that they can take other information into account. By feeding in information about sources of pollution, terrain, buildings, etc. we can greatly improve the estimations of these models. However, the disadvantage of these models is the complexity. As such it would be useful to determine if simple interpolation algorithms, such as those designed for image or sound processing, are effective at interpolation air quality data sets. The algorithms which will be tested are those discussed in section~\ref{background_interpolation_methods}. These algorithms are: 
+
 		\begin{itemize}
-			\item Explain different ones here (can link to background section). Are they any use? Can simple things work?
-			\item Extra stuff is beyond the scope of this work
-		\end{itemize}
-	}
-	\tdi{Explain how I will study the performance of the data set}
-	\tdi{Present and discuss results}
+	        \item Bilinear interpolation
+	        \item Bicubic interpolation
+	        \item Natural neighbour interpolation
+	        \item Barnes interpolation
+	        \item Nearest neighbour interpolation
+	        \item Inverse distance weighting interpolation
+	    \end{itemize}
+
+	    The bilinear and bicubic algorithms are generally used for interpolating pixels in images when resized. Natural neighbour, nearest neighbour and inverse distance weighted are more generic interpolation algorithms, and Barnes interpolation has seen application in weather forecasting~\cite{barnesinterpolation}. 
 
 
 
+	\section{Methodology}\label{prediction_evaluation_methodology}
 
-	The remaining part of the project is evaluating whether the implementation would provide useful data or not. As mentioned in section ??\todo{Fill in this reference} a similar project is currently running in Zurich. The \emph{OpenSense}~\cite{opensensezurich} project places sensors on trams and is designed to provide data to the general public with minimal cost. The project uses cheap hardware and accurate stationary measurement stations for calibration. If we look at their maps of information we can see that the readings they provide are only along the tram routes. An example of this, but in Edinburgh, can be seen in figure~\ref{fig:stationarypollutantbuildup}. In order for the data that we would potentially collect, should the project be physically realised, to be useful we would have to be able to accurately predict what the concentrations of chemicals are in areas where we do not have sensor readings. 
+		In order to evaluate the efficiency of these algorithms we will employ a simple approach. This approach will use a data set with complimentary values. We will run the data set through the interpolation algorithms and compare the interpolated values to known values from the complimentary data set. The difference between these values will provide a metric as to the accuracy of our interpolation algorithms. 
 
-	\begin{figure}[H]
-	    \begin{center}
-	        \includegraphics[width=\textwidth]{./images/StationaryPollutantBuildUp.png}
-	        \caption{A map of air pollution around Edinburgh city centre. Image uses \emph{Open Street Map}.}
-	        \label{fig:stationarypollutantbuildup}
-	    \end{center}
-	\end{figure}
+		\subsection{Data Sets}\label{prediction_evaluation_methodology_data_sets}
 
-	If were were to use some statistical method on a dataset similar to that seen in figure~\ref{fig:stationarypollutantbuildup}, we could estimate with some degree of certainty what the pollution levels are in areas where there are no recordings. By doing this we could produce a map similar to the one in figure~\ref{fig:zurichheatmap}.
+			\subsubsection{OpenSense}\label{prediction_evaluation_methodology_data_sets_opensense}
+				The first data set, provided by the \emph{OpenSense} group at \emph{ETH Zurich}, provides ozone concentrations based on measurements taken from trams moving around the city of Zurich, Switzerland. This data set only has measurements along the tram tracks. We will perform our interpolation on this data set giving a two dimensional map covering the city of estimated ozone concentrations. We will then use information taken from static sensors, which are not along tram tracks, to measure the accuracy of these interpolation algorithms. 
 
-	\begin{figure}[H]
-	    \begin{center}
-	        \includegraphics[width=\textwidth]{./images/zurichpm.jpg}
-	        \caption{A heatmap of particulate matter in Zurich. The higher pollution levels can clearly be seen to follow transport infrastructure.~\cite{opensensezurich}}
-	        \label{fig:zurichheatmap}
-	    \end{center}
-	\end{figure}
+				\tdi{Put in image of zurich data set here}
 
-	
-	In order to solve this problem and accurately predict the pollution levels, advanced statistical techniques, with a great deal of domain specific information, are required. Doing this would be impractical for the \emph{City of Edinburgh Council}. Instead we will employ existing tools and simpler statistical methods to help us perform this task. By using well known and understood methods, avoiding complex methods such as regression kriging~\cite{regressionkriging}, which are provided in a single tool or package, such as R or Python libraries, we will attempt to prove that this data is at least accurate enough to provide a high level overview of pollution across the city. 
-
-	In order to validate whether our results are correct or not, we will use the freely available data from the OpenSense project and perform our analysis on this. By performing our statistical methods on a dataset from the OpenSense project we will be able to predict the pollution levels at any point in Zurich to within some degree of accuracy. By comparing the values at the same locations as a static measurement station, with the results from said measurement station, we will obtain a metric which informs us of the accuracy of the interpolation method.
+				This data set poses certain problems. The main issue is that we only have two static sensors which we can use to determine the accuracy of our algorithms. Ideally we would have many more. Two sensors is enough to show whether some algorithms perform better than others, but only for those points. Their usefulness across an entire city should be reviewed carefully in further experimentation with a more comprehensive data set. A second issue arises from the temporal changes in the data. If we were to take the measurements at any given point in time we would only have as many data points as there are sensors. By selecting a temporal window of measurements we can increase the number of readings we have, which are at different locations due to the motion of the trams, and as such give a denser set of data points to the algorithms, which will allow for more accurate calculations. In taking this temporal window we risk missing out on some information. Should a pollutant change rapidly in the space of a single window, this information would be lost, and may indeed skew our results. Experimentation revealed that a window of 30 minutes is enough to cover as much area as possible, with minimal overlap of tram routes. 
 
 
+			\subsubsection{Air Quality Scotland}\label{prediction_evaluation_methodology_data_sets_air_quality_scotland}
+
+				The data set from \emph{Air Quality Scotland} is much simpler, and therefore less useful, than the OpenSense data set. This data set consists of eight static air quality monitoring stations across Edinburgh. Out of these eight stations, five form the convex hull of the data set, and one of them is in a high traffic zone. The result of this is that we only have three points which we can use to check our calculations, and one of these is going to have a large discrepancy between the actual values and the estimated values. Furthermore, this data set only has the means at one hour intervals and so the temporal drift mentioned in the above section still applies. However, one advantage that this data set does provide is three different chemical readings to use. 
+
+		\subsection{Data Structure}\label{prediction_evaluation_methodology_data_structure}
+			
+			In order to use these data sets in the various algorithms we must change the data structure slightly. Two of the algorithms, bilinear interpolation, and bilinear interpolation, work when the data is on a regular grid, which these data sets are not. As such we need to map them onto a regular grid. For the algorithms which are not limited to a grid we do not have to
+
+			With the Zurich data set the area which we are taking measurements from is roughly $5km$ by $5km$. By setting a resolution of 200 by 200 for the grid we can calculate the interpolated values in regions roughly $25m$ by $25m$. Using the same resolution on the Edinburgh data we move our data points from a map of size $15km$ by $9km$ to a grid with cells of size $75m$ by $45m$. 
 
 
+		
 
+    \section{Results}\label{prediction_evaluation_results}
 
+    	\tdi{Remember, instead of just stating which is better, we need to know if it is good enough}
 
+        \subsection{Nearest Neighbour}\label{prediction_evaluation_results_nearest_neighbour}
 
+        \subsection{Inverse Distance Weighting}\label{prediction_evaluation_results_inverse_distance_weighting}
 
+        \subsection{Bilinear}\label{prediction_evaluation_results_bilinear}
 
+        \subsection{Bicubic}\label{prediction_evaluation_results_bicubic}
 
-        These interpolation methods require a regular grid with data points placed onto them and will calculate all missing values. In order to conform to this the data into ``buckets''. Buckets of area $100m^{2}$ will allow us to have a reasonable resolution for data without sacrificing calculation speed. The two furthest points of the Zurich tram network are roughly $5km$ apart and so we shall use a map which is the square of this distance, which results in a grid resolution of 500*500, for a total of 250,000 data points. 
+        \subsection{Natural Neighbour}\label{prediction_evaluation_results_natural_neighbour}
+
+        \subsection{Barnes}\label{prediction_evaluation_results_barnes}
+
+           

@@ -40,6 +40,11 @@ D.L. Johnson, S.H. Ambrose, T.J. Basset, M.L. Bowen, D.E. Crummey, J.S.
 \newblock {Meanings of Environmental Terms}.
 \newblock {\em {Journal of Environmental Quality}}, (26):581--589.
 
+\bibitem{imageresamplingcomparison}
+J.~Anthony Parker, Robert~V. Kenyon, and D.~Troxel.
+\newblock Comparison of interpolating methods for image resampling.
+\newblock {\em Medical Imaging, IEEE Transactions on}, 2(1):31--39, March 1983.
+
 \bibitem{practicalguidesplines}
 Carl De~Boor, Carl De~Boor, Carl De~Boor, and Carl De~Boor.
 \newblock {\em A practical guide to splines}, volume~27.
@@ -50,6 +55,13 @@ R.~Keys.
 \newblock Cubic convolution interpolation for digital image processing.
 \newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
   29(6):1153--1160, Dec 1981.
+
+\bibitem{multivariatedata}
+R~Sibson.
+\newblock Interpreting multivariate data / edited by vic barnett.
+\newblock Wiley series in probability and mathematical statistics, chapter A
+  brief description of natural neighbor interpolation (Chapter 2), page
+  21–36. Chichester [West Sussex] ; New York : Wiley, 1981., 1981.
 
 \bibitem{barnesinterpolation}
 S.~L. {Barnes}.
@@ -63,13 +75,23 @@ Stefan~R. Falke.
   Mapping Methodology}.
 \newblock July 2000.
 
-\bibitem{imageresamplingcomparison}
-J.~Anthony Parker, Robert~V. Kenyon, and D.~Troxel.
-\newblock Comparison of interpolating methods for image resampling.
-\newblock {\em Medical Imaging, IEEE Transactions on}, 2(1):31--39, March 1983.
+\bibitem{nyquistrate}
+Ulf Grenander.
+\newblock {\em Probability and Statistics: The Harald Cram\'{e}r Volume}.
+\newblock Alqvist \& Wiksell, 1959.
 
-\bibitem{multivariatedata}
+\bibitem{lurtraffic}
+Jane Clougherty, Rosalind Wright, Lisa Baxter, and Jonathan Levy.
+\newblock Land use regression modeling of intra-urban residential variability
+  in multiple traffic-related air pollutants.
+\newblock {\em Environmental Health}, 7(1):17, 2008.
 
+\bibitem{reviewofaqmodels}
+Michael Jerrett, Altaf Arain, Pavlos Kanaroglou, Bernardo Beckerman, Dimitri
+  Potoglou, Talar Sahsuvaroglu, Jason Morrison, and Chris Giovis.
+\newblock A review and evaluation of intraurban air pollution exposure models.
+\newblock {\em Journal Of Exposure Analysis And Environmental Epidemiology},
+  15(2):185 -- 204, 2005.
 
 \bibitem{opensensezurich}
 {Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.

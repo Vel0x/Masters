@@ -1,17 +1,51 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mpp.aux
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mpp.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 953 of file references.bib
- :  
- :  Author = {Sibson, R},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Warning--there's a number but no volume in meaningsofenvironmentalterms
 Warning--empty year in meaningsofenvironmentalterms
-Warning--empty journal in pmconcentrationmaps
-Warning--empty author in multivariatedata
-Warning--empty title in multivariatedata
 Warning--empty booktitle in multivariatedata
-Warning--empty publisher in multivariatedata
-Warning--empty year in multivariatedata
-(There was 1 error message)
+Warning--empty journal in pmconcentrationmaps
+You've used 18 entries,
+            1791 wiz_defined-function locations,
+            544 strings with 6634 characters,
+and the built_in function-call counts, 3537 in all, are:
+= -- 288
+> -- 156
+< -- 3
++ -- 62
+- -- 44
+* -- 205
+:= -- 561
+add.period$ -- 55
+call.type$ -- 18
+change.case$ -- 16
+chr.to.int$ -- 0
+cite$ -- 22
+duplicate$ -- 154
+empty$ -- 380
+format.name$ -- 44
+if$ -- 801
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 13
+newline$ -- 93
+num.names$ -- 18
+pop$ -- 68
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 84
+stack$ -- 0
+substring$ -- 164
+swap$ -- 33
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 4
+while$ -- 26
+width$ -- 20
+write$ -- 183
+(There were 4 warnings)

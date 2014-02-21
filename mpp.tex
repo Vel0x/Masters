@@ -85,7 +85,7 @@
 
 \begin{document}
 
-\pagenumbering{Alph} %This suppresses an error with the hyperref package
+\pagenumbering{gobble} %This suppresses an error with the hyperref package
 
 \abstract{
     This is an example of {\tt infthesis} style.
@@ -100,25 +100,18 @@
 }
 
 \maketitle
-\thispagestyle{empty}
 \newpage
 
 \section*{Acknowledgements}
 Acknowledgements go here. 
 
 \tableofcontents
-\thispagestyle{empty}
-
 \newpage
 
 \listoftodos
-\thispagestyle{empty}
-
 \newpage
 
 \pagenumbering{arabic}
-
-\setcounter{page}{1}
 
 
 \input{Introduction/Introduction}
