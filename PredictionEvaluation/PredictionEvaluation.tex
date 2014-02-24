@@ -38,7 +38,7 @@
 			\subsubsection{OpenSense}\label{prediction_evaluation_methodology_data_sets_opensense}
 				The first data set, provided by the \emph{OpenSense} group at \emph{ETH Zurich}, provides ozone concentrations based on measurements taken from trams moving around the city of Zurich, Switzerland. This data set only has measurements along the tram tracks. We will perform our interpolation on this data set giving a two dimensional map covering the city of estimated ozone concentrations. We will then use information taken from static sensors, which are not along tram tracks, to measure the accuracy of these interpolation algorithms. 
 
-				\tdi{Put in image of zurich data set here}
+				\centerimagewide{./images/Zurich_Ozone.png}{A scatter plot of the Zurich data points. The hue of the colour of the points is directly proportional to the Ozone concentration.}{fig:zurich_ozone} \todo{Reference this somewhere?}
 
 				This data set poses certain problems. The main issue is that we only have two static sensors which we can use to determine the accuracy of our algorithms. Ideally we would have many more. Two sensors is enough to show whether some algorithms perform better than others, but only for those points. Their usefulness across an entire city should be reviewed carefully in further experimentation with a more comprehensive data set. A second issue arises from the temporal changes in the data. If we were to take the measurements at any given point in time we would only have as many data points as there are sensors. By selecting a temporal window of measurements we can increase the number of readings we have, which are at different locations due to the motion of the trams, and as such give a denser set of data points to the algorithms, which will allow for more accurate calculations. In taking this temporal window we risk missing out on some information. Should a pollutant change rapidly in the space of a single window, this information would be lost, and may indeed skew our results. Experimentation revealed that a window of 30 minutes is enough to cover as much area as possible, with minimal overlap of tram routes. 
 
@@ -58,9 +58,63 @@
 
     \section{Results}\label{prediction_evaluation_results}
 
-    	\tdi{Remember, instead of just stating which is better, we need to know if it is good enough}
-
         \subsection{Nearest Neighbour}\label{prediction_evaluation_results_nearest_neighbour}
+
+
+        \centerimagewide{./images/Nearest_Neighbour_Zurich.png}{The result of applying the nearest neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}.}{fig:nearest_neighbour_zurich}
+
+        When we apply the nearest neighbour algorithm to the data set seen in figure~\ref{fig:zurich_ozone} we get a result similar to that seen in figure~\ref{fig:nearest_neighbour_zurich}. When we apply it to the Edinburgh data set we get results seen in table~\ref{tab:nearest_neighbour_difference_results} and in figure~\ref{fig:nearest_neighbour_difference_results}. 
+
+        \begin{table}[H]
+        	\centering
+    		\begin{tabular}{|l|l|l|l|l|l|l|}
+    			\hline
+		        Pollutant & Time & Actual & Estimated & Difference & Absolute Difference & Difference (\%) \\ \hline
+				NO & 1 & 19.00 & 20.67 & 1.67 & 1.67 & 8.77 \\
+				NO & 2 & 10.67 & 10.00 & -0.67 & 0.67 & 6.25 \\
+				NO & 3 & 26.00 & 12.33 & -13.67 & 13.67 & 52.56 \\
+				NO & 4 & 17.00 & 12.33 & -4.67 & 4.67 & 27.45 \\
+				NO & 5 & 33.00 & 20.67 & -12.33 & 12.33 & 37.37 \\
+				NO & 6 & 42.00 & 37.00 & -5.00 & 5.00 & 11.90 \\
+				NO & 7 & 138.00 & 97.67 & -40.33 & 40.33 & 29.23 \\
+				NO & 8 & 226.00 & 186.67 & -39.33 & 39.33 & 17.40 \\
+				NO$_{2}$ & 1 & 40.67 & 41.33 & 0.67 & 0.67 & 1.64 \\
+				NO$_{2}$ & 2 & 39.00 & 40.67 & 1.67 & 1.67 & 4.27 \\
+				NO$_{2}$ & 3 & 42.00 & 42.67 & 0.67 & 0.67 & 1.59 \\
+				NO$_{2}$ & 4 & 42.00 & 41.00 & -1.00 & 1.00 & 2.38 \\
+				NO$_{2}$ & 5 & 42.33 & 39.00 & -3.33 & 3.33 & 7.87 \\
+				NO$_{2}$ & 6 & 44.67 & 45.33 & 0.67 & 0.67 & 1.49 \\
+				NO$_{2}$ & 7 & 63.00 & 66.33 & 3.33 & 3.33 & 5.29 \\
+				NO$_{2}$ & 8 & 85.67 & 90.33 & 4.67 & 4.67 & 5.45 \\
+				NO$_{X}$ & 1 & 70.00 & 73.33 & 3.33 & 3.33 & 4.76 \\
+				NO$_{X}$ & 2 & 55.67 & 56.33 & 0.67 & 0.67 & 1.20 \\
+				NO$_{X}$ & 3 & 82.33 & 61.67 & -20.67 & 20.67 & 25.10 \\
+				NO$_{X}$ & 4 & 68.33 & 60.00 & -8.33 & 8.33 & 12.20 \\
+				NO$_{X}$ & 5 & 93.00 & 70.67 & -22.33 & 22.33 & 24.01 \\
+				NO$_{X}$ & 6 & 108.67 & 101.67 & -7.00 & 7.00 & 6.44 \\
+				NO$_{X}$ & 7 & 274.67 & 216.00 & -58.67 & 58.67 & 21.36 \\
+				NO$_{X}$ & 8 & 431.67 & 376.33 & -55.33 & 55.33 & 12.82 \\ \hline
+			\end{tabular}
+			\caption{The results of running the nearest neighbour algorithm, averaged across three different measurement points.}
+			\label{tab:nearest_neighbour_difference_results}
+		\end{table}
+
+		\centerimagewide{./images/Nearest_Neighbour_Percentage_Differences.png}{The results of running the nearest neighbour algorithm as a scatter plot, averaged across three different measurement points.}{fig:nearest_neighbour_difference_results}
+
+		However, the most important information we can glean from this, the information which we will use for our comparison, is the mean across all time periods. That data is shown in table~\ref{tab:nearest_neighbour_difference_results_mean}
+
+		\begin{table}[H]
+			\centering
+    		\begin{tabular}{|l|l|l|l|l|l|l|}
+    			\hline
+		        Pollutant & Difference (\%) \\ \hline
+				NO & 23.87 \\
+				NO$_{2}$ & 3.75 \\
+				NO$_{X}$ & 13.49 \\ \hline
+			\end{tabular}
+			\caption{The mean results of table~\ref{tab:nearest_neighbour_difference_results}.}
+			\label{tab:nearest_neighbour_difference_results_mean}
+		\end{table}
 
         \subsection{Inverse Distance Weighting}\label{prediction_evaluation_results_inverse_distance_weighting}
 
@@ -72,4 +126,23 @@
 
         \subsection{Barnes}\label{prediction_evaluation_results_barnes}
 
-           
+        	Barnes interpolation, rather than just being evaluated for suitability, also has parameters which need to be tuned. In order to do this multiple experiments need to be run in which we vary these parameters for data sets in order to determine which parameters are optimal. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. 
+
+        	In order to determine the optimal number of passes for this algorithm we used the datasets. By running the algorithm with a varying number of passes, but with the same distance constant, we can see how these subsequent passes alter the results. Figure~\ref{fig:barnes_no_passes_results} shows a scatter plot of the absolute percentage difference between the estimated value and the actual value. These results were calculated for all 3 data points in the Edinburgh data set which can be used and the mean taken. We plot the results for each different pass in the range of zero through to twenty-four. 
+
+        	\centerimagewide{./images/Barnes_Mean_Difference_NO.png}{A scatter plot showing the difference for 25 different passes for each data time frame. The distance constant is 1024.}{fig:barnes_no_passes_results}
+
+        	As we can see, with no error correcting passes, we have a reasonable approximation of the result. The first subsequent pass corrects this error, however all subsequent passes do very little to improve the results. In the interest of computation time it would be reasonable to limit the number of passes to no more than five. 
+
+        	We now need to consider how the error field of the Barnes interpolation algorithm changes with respect to the distance factor. In order to achieve this a similar test to the above was run, with the number of passes remaining constant and the distance factor changing. 
+
+        	\centerimagewide{./images/Barnes_Distance_Factor_NO.png}{A scatter plot showing the error field difference for the ten different distance factors.}{fig:barnes_distance_factor_results}
+
+        	Figure~\ref{fig:barnes_distance_factor_results} shows us these effects. As we can see, the greater the distance factor, the greater the difference successive passes make. This appears to continue until a distance of around $2^{17}$. At this point the differences start to decrease again. Furthermore we can see that the difference between passes decreases as the number of passes increases. Due to computational time requirements these results were only calculated to 24 passes. However, increasing the runtime by 5 more passes, a run time increase of 20\% would only yield a potential accuracy increase of around a one hundredth of one percent. 
+
+        	\tdi{Continue this. Get the results.}
+        
+
+        \subsection{Conclusion}
+
+        	\tdi{Remember, instead of just stating which is better, we need to know if it is good enough}
