@@ -11,7 +11,7 @@
 			"file": "mpp.tex",
 			"settings":
 			{
-				"buffer_size": 3142,
+				"buffer_size": 3054,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,23 +27,15 @@
 			"file": "Background/BackgroundInterpolationMethods.tex",
 			"settings":
 			{
-				"buffer_size": 15593,
+				"buffer_size": 15804,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/My Documents/Dropbox/Uni/Masters Project/mpp1/mpp1interpolation.tex",
-			"settings":
-			{
-				"buffer_size": 9147,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "Appendix/Appendix.tex",
 			"settings":
 			{
-				"buffer_size": 667,
+				"buffer_size": 925,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +51,7 @@
 			"file": "references.bib",
 			"settings":
 			{
-				"buffer_size": 46463,
+				"buffer_size": 46805,
 				"line_ending": "Unix"
 			}
 		}
@@ -140,6 +132,7 @@
 	},
 	"file_history":
 	[
+		"/H/My Documents/Dropbox/Uni/Masters Project/mpp1/mpp1interpolation.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/AirQuality.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/airquality.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/mpp1/mpp1.tex",
@@ -219,7 +212,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -227,15 +220,15 @@
 					"file": "mpp.tex",
 					"settings":
 					{
-						"buffer_size": 3142,
+						"buffer_size": 3054,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								854,
-								854
+								606,
+								606
 							]
 						],
 						"settings":
@@ -283,7 +276,7 @@
 					"file": "Background/BackgroundInterpolationMethods.tex",
 					"settings":
 					{
-						"buffer_size": 15593,
+						"buffer_size": 15804,
 						"regions":
 						{
 						},
@@ -301,51 +294,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4233.0,
+						"translation.y": 3043.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/H/My Documents/Dropbox/Uni/Masters Project/mpp1/mpp1interpolation.tex",
-					"settings":
-					{
-						"buffer_size": 9147,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2959,
-								2959
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "Appendix/Appendix.tex",
 					"settings":
 					{
-						"buffer_size": 667,
+						"buffer_size": 925,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								665,
-								665
+								0,
+								0
 							]
 						],
 						"settings":
@@ -361,7 +328,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "Background/Background.tex",
 					"settings":
 					{
@@ -387,19 +354,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "references.bib",
 					"settings":
 					{
-						"buffer_size": 46463,
+						"buffer_size": 46805,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								46445,
-								46445
+								0,
+								0
 							]
 						],
 						"settings":

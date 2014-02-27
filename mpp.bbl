@@ -80,6 +80,11 @@ Ulf Grenander.
 \newblock {\em Probability and Statistics: The Harald Cram\'{e}r Volume}.
 \newblock Alqvist \& Wiksell, 1959.
 
+\bibitem{opensensezurich}
+{Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.
+\newblock {OpenSense at ETH Zurich}.
+\newblock \url{http://www.opensense.ethz.ch/trac/}.
+
 \bibitem{lurtraffic}
 Jane Clougherty, Rosalind Wright, Lisa Baxter, and Jonathan Levy.
 \newblock Land use regression modeling of intra-urban residential variability
@@ -93,14 +98,9 @@ Michael Jerrett, Altaf Arain, Pavlos Kanaroglou, Bernardo Beckerman, Dimitri
 \newblock {\em Journal Of Exposure Analysis And Environmental Epidemiology},
   15(2):185 -- 204, 2005.
 
-\bibitem{opensensezurich}
-{Eidgen\"{o}ssische Technische Hochschule Z\"{u}rich}.
-\newblock {OpenSense at ETH Zurich}.
-\newblock \url{http://www.opensense.ethz.ch/trac/}.
-
-\bibitem{regressionkriging}
-Tomislav Hengl, Gerard~B.M. Heuvelink, and David~G. Rossiter.
-\newblock {About regression-kriging: From equations to case studies}.
-\newblock {\em {Computers and Geosciences}}, 33(10):1301 -- 1315, 2007.
+\bibitem{gaussianblur}
+Mark Nixon and Alberto~S Aguado.
+\newblock {\em Feature extraction \& image processing}.
+\newblock Academic Press, 2008.
 
 \end{thebibliography}

@@ -1,5 +1,8 @@
 \chapter{Prediction Evaluation}\label{prediction_evaluation}
 
+	\maheshi{This currently only mentions the Edinburgh data set as that's all I have for now.}
+	\tdi{I can probably remove all tables in this except for the final results.}
+
 	\section{Motivation}\label{prediction_evaluation_motivation}
 
 		In sampling data it is almost inevitable that information will be missed. In order to accurately reconstruct the original data we must take certain precautions. One of these precautions is making sure that we sample at a rate high enough to reconstruct all information. This rate goes by the term \emph{Nyquist rate}~\cite{nyquistrate}. The Nyquist rate is the rate of taking measurements such that the original information can be reconstructed without aliasing occurring. This essentially means that we need to have a sample rate of twice the rate of the smallest changes in a signal. If we do not have this sampling rate then it is possible for us to lose information during the sampling process. 
@@ -60,89 +63,440 @@
 
         \subsection{Nearest Neighbour}\label{prediction_evaluation_results_nearest_neighbour}
 
+	        \centerimagewide{./images/Nearest_Neighbour_Zurich.png}{The result of applying the nearest neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}.}{fig:nearest_neighbour_zurich}
 
-        \centerimagewide{./images/Nearest_Neighbour_Zurich.png}{The result of applying the nearest neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}.}{fig:nearest_neighbour_zurich}
+	        The nearest neighbour algorithm is our simplest interpolation method, and due to that it almost acts as a baseline to compare to. We would expect this algorithm to have the worst performance on most data sets. When we apply the nearest neighbour algorithm to the data set seen in figure~\ref{fig:zurich_ozone} we get a result similar to that seen in figure~\ref{fig:nearest_neighbour_zurich}. When we apply it to the Edinburgh data set we get results seen in table~\ref{tab:nearest_neighbour_difference_results} and in figure~\ref{fig:nearest_neighbour_difference_results}. 
 
-        When we apply the nearest neighbour algorithm to the data set seen in figure~\ref{fig:zurich_ozone} we get a result similar to that seen in figure~\ref{fig:nearest_neighbour_zurich}. When we apply it to the Edinburgh data set we get results seen in table~\ref{tab:nearest_neighbour_difference_results} and in figure~\ref{fig:nearest_neighbour_difference_results}. 
+	        \begin{table}[H]
+	        	\centering
+	    		\begin{tabular}{|c|c|c|c|c|c|c|}
+	    			\hline
+			        Pollutant & Time & Actual & Estimated & Difference & Absolute Difference & Difference (\%) \\ \hline
+					$NO$ & 1 & 19.00 & 20.67 & 1.67 & 1.67 & 8.77 \\
+					$NO$ & 2 & 10.67 & 10.00 & -0.67 & 0.67 & 6.25 \\
+					$NO$ & 3 & 26.00 & 12.33 & -13.67 & 13.67 & 52.56 \\
+					$NO$ & 4 & 17.00 & 12.33 & -4.67 & 4.67 & 27.45 \\
+					$NO$ & 5 & 33.00 & 20.67 & -12.33 & 12.33 & 37.37 \\
+					$NO$ & 6 & 42.00 & 37.00 & -5.00 & 5.00 & 11.90 \\
+					$NO$ & 7 & 138.00 & 97.67 & -40.33 & 40.33 & 29.23 \\
+					$NO$ & 8 & 226.00 & 186.67 & -39.33 & 39.33 & 17.40 \\
+					$NO_{2}$ & 1 & 40.67 & 41.33 & 0.67 & 0.67 & 1.64 \\
+					$NO_{2}$ & 2 & 39.00 & 40.67 & 1.67 & 1.67 & 4.27 \\
+					$NO_{2}$ & 3 & 42.00 & 42.67 & 0.67 & 0.67 & 1.59 \\
+					$NO_{2}$ & 4 & 42.00 & 41.00 & -1.00 & 1.00 & 2.38 \\
+					$NO_{2}$ & 5 & 42.33 & 39.00 & -3.33 & 3.33 & 7.87 \\
+					$NO_{2}$ & 6 & 44.67 & 45.33 & 0.67 & 0.67 & 1.49 \\
+					$NO_{2}$ & 7 & 63.00 & 66.33 & 3.33 & 3.33 & 5.29 \\
+					$NO_{2}$ & 8 & 85.67 & 90.33 & 4.67 & 4.67 & 5.45 \\
+					$NO_{X}$ & 1 & 70.00 & 73.33 & 3.33 & 3.33 & 4.76 \\
+					$NO_{X}$ & 2 & 55.67 & 56.33 & 0.67 & 0.67 & 1.20 \\
+					$NO_{X}$ & 3 & 82.33 & 61.67 & -20.67 & 20.67 & 25.10 \\
+					$NO_{X}$ & 4 & 68.33 & 60.00 & -8.33 & 8.33 & 12.20 \\
+					$NO_{X}$ & 5 & 93.00 & 70.67 & -22.33 & 22.33 & 24.01 \\
+					$NO_{X}$ & 6 & 108.67 & 101.67 & -7.00 & 7.00 & 6.44 \\
+					$NO_{X}$ & 7 & 274.67 & 216.00 & -58.67 & 58.67 & 21.36 \\
+					$NO_{X}$ & 8 & 431.67 & 376.33 & -55.33 & 55.33 & 12.82 \\ \hline
+				\end{tabular}
+				\caption{The results of running the nearest neighbour algorithm, averaged across three different measurement points.}
+				\label{tab:nearest_neighbour_difference_results}
+			\end{table}
 
-        \begin{table}[H]
-        	\centering
-    		\begin{tabular}{|l|l|l|l|l|l|l|}
-    			\hline
-		        Pollutant & Time & Actual & Estimated & Difference & Absolute Difference & Difference (\%) \\ \hline
-				NO & 1 & 19.00 & 20.67 & 1.67 & 1.67 & 8.77 \\
-				NO & 2 & 10.67 & 10.00 & -0.67 & 0.67 & 6.25 \\
-				NO & 3 & 26.00 & 12.33 & -13.67 & 13.67 & 52.56 \\
-				NO & 4 & 17.00 & 12.33 & -4.67 & 4.67 & 27.45 \\
-				NO & 5 & 33.00 & 20.67 & -12.33 & 12.33 & 37.37 \\
-				NO & 6 & 42.00 & 37.00 & -5.00 & 5.00 & 11.90 \\
-				NO & 7 & 138.00 & 97.67 & -40.33 & 40.33 & 29.23 \\
-				NO & 8 & 226.00 & 186.67 & -39.33 & 39.33 & 17.40 \\
-				NO$_{2}$ & 1 & 40.67 & 41.33 & 0.67 & 0.67 & 1.64 \\
-				NO$_{2}$ & 2 & 39.00 & 40.67 & 1.67 & 1.67 & 4.27 \\
-				NO$_{2}$ & 3 & 42.00 & 42.67 & 0.67 & 0.67 & 1.59 \\
-				NO$_{2}$ & 4 & 42.00 & 41.00 & -1.00 & 1.00 & 2.38 \\
-				NO$_{2}$ & 5 & 42.33 & 39.00 & -3.33 & 3.33 & 7.87 \\
-				NO$_{2}$ & 6 & 44.67 & 45.33 & 0.67 & 0.67 & 1.49 \\
-				NO$_{2}$ & 7 & 63.00 & 66.33 & 3.33 & 3.33 & 5.29 \\
-				NO$_{2}$ & 8 & 85.67 & 90.33 & 4.67 & 4.67 & 5.45 \\
-				NO$_{X}$ & 1 & 70.00 & 73.33 & 3.33 & 3.33 & 4.76 \\
-				NO$_{X}$ & 2 & 55.67 & 56.33 & 0.67 & 0.67 & 1.20 \\
-				NO$_{X}$ & 3 & 82.33 & 61.67 & -20.67 & 20.67 & 25.10 \\
-				NO$_{X}$ & 4 & 68.33 & 60.00 & -8.33 & 8.33 & 12.20 \\
-				NO$_{X}$ & 5 & 93.00 & 70.67 & -22.33 & 22.33 & 24.01 \\
-				NO$_{X}$ & 6 & 108.67 & 101.67 & -7.00 & 7.00 & 6.44 \\
-				NO$_{X}$ & 7 & 274.67 & 216.00 & -58.67 & 58.67 & 21.36 \\
-				NO$_{X}$ & 8 & 431.67 & 376.33 & -55.33 & 55.33 & 12.82 \\ \hline
-			\end{tabular}
-			\caption{The results of running the nearest neighbour algorithm, averaged across three different measurement points.}
-			\label{tab:nearest_neighbour_difference_results}
-		\end{table}
+			\centerimagewide{./images/Nearest_Neighbour_Percentage_Differences.png}{The results of running the nearest neighbour algorithm as a scatter plot, averaged across three different measurement points.}{fig:nearest_neighbour_difference_results} \todo{This title says ``Natural'' instead of ``Nearest''}
 
-		\centerimagewide{./images/Nearest_Neighbour_Percentage_Differences.png}{The results of running the nearest neighbour algorithm as a scatter plot, averaged across three different measurement points.}{fig:nearest_neighbour_difference_results}
+			However, the most important information we can glean from this, the information which we will use for our comparison, is the mean across all time periods. That data is shown in table~\ref{tab:nearest_neighbour_difference_results_mean}
 
-		However, the most important information we can glean from this, the information which we will use for our comparison, is the mean across all time periods. That data is shown in table~\ref{tab:nearest_neighbour_difference_results_mean}
+			\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|c|c|c|c|c|}
+	    			\hline
+			        Pollutant & Difference (\%) \\ \hline
+					$NO$ & 23.87 \\
+					$NO_{2}$ & 3.75 \\
+					$NO_{X}$ & 13.49 \\ \hline
+				\end{tabular}
+				\caption{The mean results of table~\ref{tab:nearest_neighbour_difference_results}.}
+				\label{tab:nearest_neighbour_difference_results_mean}
+			\end{table}
 
-		\begin{table}[H]
-			\centering
-    		\begin{tabular}{|l|l|l|l|l|l|l|}
-    			\hline
-		        Pollutant & Difference (\%) \\ \hline
-				NO & 23.87 \\
-				NO$_{2}$ & 3.75 \\
-				NO$_{X}$ & 13.49 \\ \hline
-			\end{tabular}
-			\caption{The mean results of table~\ref{tab:nearest_neighbour_difference_results}.}
-			\label{tab:nearest_neighbour_difference_results_mean}
-		\end{table}
+		\subsection{Nearest Neighbour with Convolution Filter}\label{prediction_evaluation_results_nearest_neighbour_convolution_filter}
+
+			As was mentioned in section~\ref{background_interpolation_methods_nearest_neighbour}, a possible optimisation to the nearest neighbour algorithm is to apply a convolution filter to it. In this case we will use a Gaussian blur as our convolution filter. The formula for applying a Gaussian blur in two dimension~\cite{gaussianblur} is:
+
+			\begin{align*}
+				G(x,y) = \frac{1}{2\pi\sigma^{2}} e^{-\frac{x^{2} + y^{2}}{2\sigma^{2}}}
+			\end{align*}
+
+			As we can see from this equation, we have introduced a new parameter $\sigma$. In order to evaluate the effectiveness of this algorithm we must also have an optimal value of $\sigma$. To find this optimal value, the tests were run the same way as they were in the previous section, but this time we also had $\sigma$ as a variable. By taking the mean of the results in the same way as before we are left with the results seen in table~\ref{tab:nearest_neighbour_convolution_sigma_results} and figure~\ref{fig:nearest_neighbour_convolution_sigma_results}. 
+
+			\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|c|c|c|c|c|}
+	    			\hline
+					Pollutant & Sigma & Difference \\ \hline
+					$NO$ & 1 & 202.40 \\
+					$NO$ & 2 & 200.90 \\
+					$NO$ & 4 & 189.34 \\
+					$NO$ & 8 & 182.73 \\
+					$NO$ & 16 & 189.79 \\
+					$NO$ & 32 & 187.60 \\
+					$NO$ & 64 & 174.09 \\
+					$NO$ & 128 & 166.21 \\
+					$NO$ & 256 & 163.23 \\
+					$NO$ & 512 & 163.22 \\
+					$NO_{2}$ & 1 & 167.43 \\
+					$NO_{2}$ & 2 & 166.80 \\
+					$NO_{2}$ & 4 & 157.71 \\
+					$NO_{2}$ & 8 & 147.90 \\
+					$NO_{2}$ & 16 & 145.19 \\
+					$NO_{2}$ & 32 & 144.66 \\
+					$NO_{2}$ & 64 & 133.29 \\
+					$NO_{2}$ & 128 & 127.46 \\
+					$NO_{2}$ & 256 & 126.20 \\
+					$NO_{2}$ & 512 & 126.20 \\
+					$NO_{x}$ & 1 & 166.89 \\
+					$NO_{x}$ & 2 & 166.13 \\
+					$NO_{x}$ & 4 & 156.69 \\
+					$NO_{x}$ & 8 & 146.44 \\
+					$NO_{x}$ & 16 & 143.22 \\
+					$NO_{x}$ & 32 & 142.87 \\
+					$NO_{x}$ & 64 & 132.21 \\
+					$NO_{x}$ & 128 & 126.95 \\
+					$NO_{x}$ & 256 & 125.87 \\
+					$NO_{x}$ & 512 & 125.87 \\ \hline
+				\end{tabular}
+				\caption{The mean results of varying the value of $\sigma$ in applying a Gaussian blur to the nearest neighbour results.}
+				\label{tab:nearest_neighbour_convolution_sigma_results}
+			\end{table}
+
+			\centerimagewide{./images/Nearest_Neighbour_Gaussian_Blur.png}{The mean results of varying the value of $\sigma$ in applying a Gaussian blur to the nearest neighbour results.}{fig:nearest_neighbour_convolution_sigma_results}
+
+			This data shows a clear downward trend of the data, which appears to level out where sigma has a value somewhere between 128 and 512. As such, a suggested value of $\sigma$ would be 256. 
+
+			After finding this optimal value of sigma, the tests from section~\ref{prediction_evaluation_results_nearest_neighbour} will be run once again, but with the Gaussian blur applied with $\sigma$ having the value 256. The results of this test are as follows:
+
+			\tdi{Should replace this with a scatter plot instead}
+
+			\begin{longtable}{|c|c|c|c|c|c|c|c|}
+				\hline
+				Location & Time & Pollutant & Actual & Estimated & Absolute Difference & Difference \% \\
+				\hline
+				\endhead
+				\hline %Do not remove space
+				\endfoot
+				St Johns Road & 1 & $NO$ & 6 & 49 & 43 & 816.67\% \\
+				St Johns Road & 2 & $NO$ & 7 & 15 & 8 & 214.29\% \\
+				St Johns Road & 3 & $NO$ & 21 & 6 & 15 & 28.57\% \\
+				St Johns Road & 4 & $NO$ & 24 & 6 & 18 & 25.00\% \\
+				St Johns Road & 5 & $NO$ & 52 & 6 & 46 & 11.54\% \\
+				St Johns Road & 6 & $NO$ & 87 & 14 & 73 & 16.09\% \\
+				St Johns Road & 7 & $NO$ & 182 & 70 & 112 & 38.46\% \\
+				St Johns Road & 8 & $NO$ & 429 & 79 & 350 & 18.41\% \\
+				St Johns Road & 1 & $NO_{2}$ & 31 & 55 & 24 & 177.42\% \\
+				St Johns Road & 2 & $NO_{2}$ & 33 & 48 & 15 & 145.45\% \\
+				St Johns Road & 3 & $NO_{2}$ & 46 & 40 & 6 & 86.96\% \\
+				St Johns Road & 4 & $NO_{2}$ & 48 & 38 & 10 & 79.17\% \\
+				St Johns Road & 5 & $NO_{2}$ & 48 & 33 & 15 & 68.75\% \\
+				St Johns Road & 6 & $NO_{2}$ & 54 & 36 & 18 & 66.67\% \\
+				St Johns Road & 7 & $NO_{2}$ & 69 & 65 & 4 & 94.20\% \\
+				St Johns Road & 8 & $NO_{2}$ & 111 & 77 & 34 & 69.37\% \\
+				St Johns Road & 1 & $NO_{X}$ & 40 & 130 & 90 & 325.00\% \\
+				St Johns Road & 2 & $NO_{X}$ & 44 & 71 & 27 & 161.36\% \\
+				St Johns Road & 3 & $NO_{X}$ & 78 & 50 & 28 & 64.10\% \\
+				St Johns Road & 4 & $NO_{X}$ & 84 & 48 & 36 & 57.14\% \\
+				St Johns Road & 5 & $NO_{X}$ & 128 & 42 & 86 & 32.81\% \\
+				St Johns Road & 6 & $NO_{X}$ & 187 & 57 & 130 & 30.48\% \\
+				St Johns Road & 7 & $NO_{X}$ & 348 & 172 & 176 & 49.43\% \\
+				St Johns Road & 8 & $NO_{X}$ & 769 & 197 & 572 & 25.62\% \\
+				Gorgie Road & 1 & $NO$ & 49 & 6 & 43 & 12.24\% \\
+				Gorgie Road & 2 & $NO$ & 15 & 7 & 8 & 46.67\% \\
+				Gorgie Road & 3 & $NO$ & 6 & 21 & 15 & 350.00\% \\
+				Gorgie Road & 4 & $NO$ & 6 & 24 & 18 & 400.00\% \\
+				Gorgie Road & 5 & $NO$ & 6 & 52 & 46 & 866.67\% \\
+				Gorgie Road & 6 & $NO$ & 14 & 87 & 73 & 621.43\% \\
+				Gorgie Road & 7 & $NO$ & 70 & 182 & 112 & 260.00\% \\
+				Gorgie Road & 8 & $NO$ & 79 & 429 & 350 & 543.04\% \\
+				Gorgie Road & 1 & $NO_{2}$ & 55 & 31 & 24 & 56.36\% \\
+				Gorgie Road & 2 & $NO_{2}$ & 48 & 33 & 15 & 68.75\% \\
+				Gorgie Road & 3 & $NO_{2}$ & 40 & 46 & 6 & 115.00\% \\
+				Gorgie Road & 4 & $NO_{2}$ & 38 & 48 & 10 & 126.32\% \\
+				Gorgie Road & 5 & $NO_{2}$ & 33 & 48 & 15 & 145.45\% \\
+				Gorgie Road & 6 & $NO_{2}$ & 36 & 54 & 18 & 150.00\% \\
+				Gorgie Road & 7 & $NO_{2}$ & 65 & 69 & 4 & 106.15\% \\
+				Gorgie Road & 8 & $NO_{2}$ & 77 & 111 & 34 & 144.16\% \\
+				Gorgie Road & 1 & $NO_{X}$ & 130 & 40 & 90 & 30.77\% \\
+				Gorgie Road & 2 & $NO_{X}$ & 71 & 44 & 27 & 61.97\% \\
+				Gorgie Road & 3 & $NO_{X}$ & 50 & 78 & 28 & 156.00\% \\
+				Gorgie Road & 4 & $NO_{X}$ & 48 & 84 & 36 & 175.00\% \\
+				Gorgie Road & 5 & $NO_{X}$ & 42 & 128 & 86 & 304.76\% \\
+				Gorgie Road & 6 & $NO_{X}$ & 57 & 187 & 130 & 328.07\% \\
+				Gorgie Road & 7 & $NO_{X}$ & 172 & 348 & 176 & 202.33\% \\
+				Gorgie Road & 8 & $NO_{X}$ & 197 & 769 & 572 & 390.36\% \\
+				Queen Street & 1 & $NO$ & 2 & 7 & 5 & 350.00\% \\
+				Queen Street & 2 & $NO$ & 10 & 8 & 2 & 80.00\% \\
+				Queen Street & 3 & $NO$ & 51 & 10 & 41 & 19.61\% \\
+				Queen Street & 4 & $NO$ & 21 & 7 & 14 & 33.33\% \\
+				Queen Street & 5 & $NO$ & 41 & 4 & 37 & 9.76\% \\
+				Queen Street & 6 & $NO$ & 25 & 10 & 15 & 40.00\% \\
+				Queen Street & 7 & $NO$ & 162 & 41 & 121 & 25.31\% \\
+				Queen Street & 8 & $NO$ & 170 & 52 & 118 & 30.59\% \\
+				Queen Street & 1 & $NO_{2}$ & 36 & 38 & 2 & 105.56\% \\
+				Queen Street & 2 & $NO_{2}$ & 36 & 41 & 5 & 113.89\% \\
+				Queen Street & 3 & $NO_{2}$ & 40 & 42 & 2 & 105.00\% \\
+				Queen Street & 4 & $NO_{2}$ & 40 & 37 & 3 & 92.50\% \\
+				Queen Street & 5 & $NO_{2}$ & 46 & 36 & 10 & 78.26\% \\
+				Queen Street & 6 & $NO_{2}$ & 44 & 46 & 2 & 104.55\% \\
+				Queen Street & 7 & $NO_{2}$ & 55 & 65 & 10 & 118.18\% \\
+				Queen Street & 8 & $NO_{2}$ & 69 & 83 & 14 & 120.29\% \\
+				Queen Street & 1 & $NO_{X}$ & 40 & 50 & 10 & 125.00\% \\
+				Queen Street & 2 & $NO_{X}$ & 52 & 54 & 2 & 103.85\% \\
+				Queen Street & 3 & $NO_{X}$ & 119 & 57 & 62 & 47.90\% \\
+				Queen Street & 4 & $NO_{X}$ & 73 & 48 & 25 & 65.75\% \\
+				Queen Street & 5 & $NO_{X}$ & 109 & 42 & 67 & 38.53\% \\
+				Queen Street & 6 & $NO_{X}$ & 82 & 61 & 21 & 74.39\% \\
+				Queen Street & 7 & $NO_{X}$ & 304 & 128 & 176 & 42.11\% \\
+				Queen Street & 8 & $NO_{X}$ & 329 & 163 & 166 & 49.54\% \\
+				\hline
+			\end{longtable}
+
+			Taking the mean across all time frames and locations we get the following results:
+
+			\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Difference (\%) \\ \hline
+					$NO$ & 24.52 \\
+					$NO_{2}$ & 13.05 \\
+					$NO_{X}$ & 18.99 \\
+					\hline 
+				\end{tabular}
+				\caption{The mean results of the nearest neighbour algorithm when applying a Gaussian blur with $\sigma$ equal to 256}
+				\label{tab:nearest_neighbour_convolution_results}
+			\end{table}
+
+			Comparing this table, \ref{tab:nearest_neighbour_convolution_results}, to the non-Gaussian blur results in table~\ref{tab:nearest_neighbour_difference_results_mean}, we can see that Gaussian blurring has in fact lowered the accuracy of our interpolation methods. This is an unexpected result, however it can be attributed to the fact that the density of our measurements is extremely low and that we only have three potential points to check against. With a greater density of points, it is likely that applying a Gaussian blur would improve the results as expected from the discussion in section~\ref{background_interpolation_methods_nearest_neighbour}.
+
+			\tdi{Improve this argument}
 
         \subsection{Inverse Distance Weighting}\label{prediction_evaluation_results_inverse_distance_weighting}
 
+        	Similarly to nearest neighbour with Gaussian blurring, we have an extra parameter with inverse distance weighting (IDW). This parameter is the power parameter. Due to the fact that as the power parameter approaches infinity, the algorithm approaches nearest neighbour, we expect to see an improvement over nearest neighbour for lower values of p.
+
+        	Running the same tests as before, with IDW and a variable power parameter the results are as follows:
+
+        	\centerimagewide{./images/IDW_P_All.png}{The mean of all pollutants across all times across all locations, with a varying power parameter}{fig:idw_power_all}
+
+        	We can clearly see from this graph that there is a minima with a power rating of around 3. As such we can take 3 to be the optimal and run the tests again. The results of this are as follows:
+
+        	\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Mean Difference (\%) \\ \hline
+					$NO$ & 145.18 \\
+					$NO_{2}$ & 17.54 \\
+					$NO_{X}$ & 55.45 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of IDW with power parameter equal to 256}
+				\label{tab:idw_results}
+			\end{table} \todo{Make sure that all tables refer to ``Mean Difference''}
+
+			When we compare these results to that of the simpler nearest neighbour algorithm we see that this algorithm is many times worse. As stated in section~\ref{prediction_evaluation_results_nearest_neighbour_convolution_filter} it is likely that this is due to a lack of data points. 
+
+			One further thing which we must pay attention to, particularly in this algorithm, is the varying parameters for different pollutants. Figure~\ref{fig:idw_power_all} shows the mean of all pollutants across all times and locations. If we separate the pollutants then we get very different charts as seen in figure~\ref{fig:idw_pollutant_compare}.
+
+			\begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{./images/IDW_P_NO.png}
+                    \caption{}
+                    \label{fig:idw_power_NO}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                    \includegraphics[width=\linewidth]{./images/IDW_P_NO2.png}
+                    \caption{}
+                    \label{fig:idw_power_NO2}
+                \end{subfigure}
+                \begin{subfigure}{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{./images/IDW_P_NOx.png}
+                    \caption{}
+                    \label{fig:idw_power_NOx}
+                \end{subfigure}
+                \caption{These figures show how the optimal power parameter varies depending on the pollutant being measured.}
+                \label{fig:example_idw}
+            \end{figure}
+
+            The minima seen in figure~\ref{fig:idw_power_all} is missing in two out of the three charts here. As such, the $NO_{2}$ reading is clearly dominating the others in the mean chart. From this it is clear that, at least for IDW, we must pay attention to all pollutants separately when testing with variable algorithm parameters. 
+
+            If we run the tests once more, this time keeping pollutants separate, a very different picture is presented:
+
+			\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|c|}
+	    			\hline
+					Pollutant & Non\-Optimal Mean Difference (\%) & Mean Difference (\%) \\ \hline
+					$NO$ & 145.18 & 24.98 \\
+					$NO_{2}$ & 17.54 & 7.59 \\
+					$NO_{X}$ & 55.45 & 18.98 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of IDW with the optimal power parameter for each pollutant.}
+				\label{tab:idw_results_2}
+			\end{table} 
+
+			From table~\ref{tab:idw_results_2} we can see that having a power parameter specified for each pollutant is an extreme improvement on the overall performance of the algorithm. Unfortunately, the results are worse than that of the baseline nearest neighbour algorithm. As mentioned in the previous section, this is most likely attributed to the small data set being used. 
+
+			\tdi{Discuss further}
+
+
         \subsection{Bilinear}\label{prediction_evaluation_results_bilinear}
+
+        	With the bilinear interpolation algorithm, we have no optional parameters and the results are much simpler to calculate. We run the same tests, and average across all locations and time frames to get the results in table~\ref{tab:bilinear_results}.
+
+        	\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Mean Difference (\%) \\ \hline
+					$NO$ & 29.37 \\
+					$NO_{2}$ & 5.08 \\
+					$NO_{X}$ & 18.62 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of bilinear interpolation.}
+				\label{tab:bilinear_results}
+			\end{table} 
+
 
         \subsection{Bicubic}\label{prediction_evaluation_results_bicubic}
 
+			As with the bilinear interpolation algorithm, we have no optional parameters in the bicubic interpolation algorithm and as such the results are simple to calculate. Again, running the same tests, and average across all locations and time frames to get the results in table~\ref{tab:bicubic_results}.
+
+        	\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Mean Difference (\%) \\ \hline
+					$NO$ & 18.38 \\
+					$NO_{2}$ & 4.10 \\
+					$NO_{X}$ & 11.22 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of bicubic interpolation.}
+				\label{tab:bicubic_results}
+			\end{table} 
+
         \subsection{Natural Neighbour}\label{prediction_evaluation_results_natural_neighbour}
+
+        	Natural neighbour interpolation is also simple to get the results for. We use the same methodology as above to produce the results seen in table~\ref{tab:natural_neighbour_results}.
+
+        	\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Mean Difference (\%) \\ \hline
+					$NO$ & 25.37 \\
+					$NO_{2}$ & 5.89 \\
+					$NO_{X}$ & 16.84 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of natural neighbour interpolation.}
+				\label{tab:natural_neighbour_results}
+			\end{table} 
+
 
         \subsection{Barnes}\label{prediction_evaluation_results_barnes}
 
-        	Barnes interpolation, rather than just being evaluated for suitability, also has parameters which need to be tuned. In order to do this multiple experiments need to be run in which we vary these parameters for data sets in order to determine which parameters are optimal. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. 
+        	As with the nearest neighbour algorithm with Gaussian blurring and IDW, Barnes interpolation has parameters which need to be tuned in order to get the best performance. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. As we have seen in previous sections \todo{should this be plural?}, we should measure the result for each pollutant separately in order to achieve the best results. 
 
-        	In order to determine the optimal number of passes for this algorithm we used the datasets. By running the algorithm with a varying number of passes, but with the same distance constant, we can see how these subsequent passes alter the results. Figure~\ref{fig:barnes_no_passes_results} shows a scatter plot of the absolute percentage difference between the estimated value and the actual value. These results were calculated for all 3 data points in the Edinburgh data set which can be used and the mean taken. We plot the results for each different pass in the range of zero through to twenty-four. 
+        	\centerimagewide{./images/Barnes_Mean_Difference_NO.png}{A scatter plot showing the difference for 23 different passes for each data time frame. The distance constant is 1024.}{fig:barnes_no_passes_results}
 
-        	\centerimagewide{./images/Barnes_Mean_Difference_NO.png}{A scatter plot showing the difference for 25 different passes for each data time frame. The distance constant is 1024.}{fig:barnes_no_passes_results}
+        	In order to determine the optimal number of passes for this algorithm we used the datasets. By running the algorithm with a varying number of passes, but with the same distance constant, in this case 1024, we can see how these subsequent passes alter the results. Figure~\ref{fig:barnes_no_passes_results} shows a scatter plot of the absolute percentage difference between the estimated value and the actual value. These results were calculated as the mean of the 3 usable data points in the Edinburgh data set. While we can see that there are differences depending on time, the relative difference between the initial calculation and the result after 24 passes is relatively constant. It should be point out at this time that, as discussed in section~\ref{background_interpolation_methods_barnes}, the greater the number of error correcting passes, the more the result converges to a single value. In the interest of calculation time the number of passes has been limited to 24. 
 
-        	As we can see, with no error correcting passes, we have a reasonable approximation of the result. The first subsequent pass corrects this error, however all subsequent passes do very little to improve the results. In the interest of computation time it would be reasonable to limit the number of passes to no more than five. 
+        	
 
-        	We now need to consider how the error field of the Barnes interpolation algorithm changes with respect to the distance factor. In order to achieve this a similar test to the above was run, with the number of passes remaining constant and the distance factor changing. 
+        	As we can see, with no error correcting passes, we have a reasonable approximation of the result. The first subsequent pass corrects this error, however all subsequent passes do very little to improve the results. In the interest of computation time it would be reasonable to limit the number of passes to no more than five, however this only applies to a distance constant of 1024. In order to determine the changes for different distance factors a similar test to the above was run, with the number of passes remaining constant and the distance factor changing. The results of this test can be seen in figure~\ref{fig:barnes_distance_factor_results_NO}.
 
-        	\centerimagewide{./images/Barnes_Distance_Factor_NO.png}{A scatter plot showing the error field difference for the ten different distance factors.}{fig:barnes_distance_factor_results}
+        	\centerimagewide{./images/Barnes_Distance_Factor_NO.png}{A scatter plot showing the error field difference for the ten different distance factors with the $NO$ pollutant.}{fig:barnes_distance_factor_results_NO}
 
-        	Figure~\ref{fig:barnes_distance_factor_results} shows us these effects. As we can see, the greater the distance factor, the greater the difference successive passes make. This appears to continue until a distance of around $2^{17}$. At this point the differences start to decrease again. Furthermore we can see that the difference between passes decreases as the number of passes increases. Due to computational time requirements these results were only calculated to 24 passes. However, increasing the runtime by 5 more passes, a run time increase of 20\% would only yield a potential accuracy increase of around a one hundredth of one percent. 
+        	From this graph it is clear that the greater the distance factor, the greater the difference successive passes make. This appears to continue until a distance of around $2^{17}$, which is also result with the lowest difference. At this point the difference made by applying many passes begins to decrease again. Furthermore we can see that the difference between passes decreases as the number of passes increases. As mentioned previously, due to computational time requirements these results were only calculated to 24 passes. However, increasing the runtime by 5 more passes, a run time increase of 20\% would only yield a potential accuracy increase of around a one hundredth of one percent. 
 
-        	\tdi{Continue this. Get the results.}
-        
+        	When we apply the same analysis to the pollutants $NO_{2}$ and $NO_{X}$, we get the results seen in figure~\ref{fig:barnes_distance_factor_results_NO2_NOx}. 
 
-        \subsection{Conclusion}
+        	\begin{figure}[H]
+                \centering
+                \begin{subfigure}{\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{./images/Barnes_Distance_Factor_NO2.png}
+                    \caption{Differences when applied to the $NO_{2}$ data in the Edinburgh data set.}
+                    \label{fig:barnes_distance_factor_results_NO2}
+                \end{subfigure}
+                \begin{subfigure}{\textwidth}
+                    \includegraphics[width=\linewidth]{./images/Barnes_Distance_Factor_NOx.png}
+                    \caption{Differences when applied to the $NO_{X}$ data in the Edinburgh data set.}
+                    \label{fig:barnes_distance_factor_results_NOx}
+                \end{subfigure}
+                \caption{The difference between successive error correcting passes in Barnes interpolation when applied to the $NO_{2}$ and $NO_{X}$ data from the Edinburgh data set.}
+                \label{fig:barnes_distance_factor_results_NO2_NOx}
+            \end{figure}
 
-        	\tdi{Remember, instead of just stating which is better, we need to know if it is good enough}
+
+        	The pollutants $NO$ and $NO_{X}$ appear to have the same tipping point in the distance factor, which is $2^{17}$. $NO_{2}$ is half of that distance at $2^{16}$. The graph also has a very different shape. 
+
+        	With this new information of the distance factors and the optimal number of passes, that is to say for $NO$, $NO_{2}$ and $NO_{X}$ the distance factors are $2^{17}$,$2^{16}$ and $2^{17}$ respectively, we must run the tests once again. The results of these runs are seen in table~\ref{barnes_results}.
+
+        	\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Mean Difference (\%) \\ \hline
+					$NO$ & 15.73 \\
+					$NO_{2}$ & 4.27 \\
+					$NO_{X}$ & 10.33 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of natural neighbour interpolation.}
+				\label{tab:barnes_results}
+			\end{table} 
+
+	\section{Conclusion}
+
+		\tdi{Remember, instead of just stating which is better, we need to know if it is good enough}
+
+		As has been stated multiple times in section~\ref{prediction_evaluation_results}, some results are unexpected and we are attributing those to a poor data set. However, we can still analyse the results we have:
+
+		\begin{table}[H]
+			\centering
+    		\begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|}
+    			\hline
+				Pollutant & Nearest Neighbour & Blurred Neighbour & IDW & Bilinear & Bicubic & Natural Neighbour & Barnes \\ \hline
+				$NO$ & 23.87\% & 24.52\% & 24.98\% & 29.37\% & 18.38\% & 25.37\% & 15.73\% \\
+				$NO_{2}$ & 3.75\% & 13.05\% & 7.59\% & 5.08\% & 4.10\% & 5.89\% & 4.27\% \\
+				$NO_{X}$ & 13.49\% & 18.99\% & 18.98\% & 18.62\% & 11.22\% & 16.84\% & 10.33\% \\
+				\hline
+			\end{tabularx}
+			\caption{The mean results of various interpolation method.}
+			\label{tab:all_results}
+		\end{table}
+
+		Alone this data provides very little information, as we have no way of comparing algorithms should one be better at a particular pollutant than the other. As such, we can create a table which states the ratios of the percentage of a pollutant compared to the total. For example if algorithm A has a percentage of pollutant 1 of 5\% and algorithm B has 15\%, then the ratio of algorithm A for pollutant 1 would be 0.25.
+
+		\begin{table}[H]
+			\centering
+    		\begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|}
+    			\hline
+				Pollutant & Nearest Neighbour & Blurred Neighbour & IDW & Bilinear & Bicubic & Natural Neighbour & Barnes \\ \hline
+				$NO$ & 0.14714 & 0.15113 & 0.15398 & 0.18105 & 0.11328 & 0.15642 & 0.09700 \\
+				$NO_{2}$ & 0.08571 & 0.29845 & 0.17360 & 0.11613 & 0.09370 & 0.13476 & 0.09764\\
+				$NO_{X}$ & 0.12434 & 0.17507 & 0.17504 & 0.17164 & 0.10345 & 0.15525 & 0.09521 \\ \hline
+				Mean & 0.11906 & 0.20822 & 0.16754 & 0.15627 & 0.10348 & 0.14881 & 0.09662 \\
+				\hline
+			\end{tabularx}
+			\caption{The ratio results of various interpolation method.}
+			\label{tab:all_ratio_results}
+		\end{table}
+
+		Table~\ref{tab:all_ratio_results} shows the results much more cleanly. Using these mean ratio metrics we can see that our best performing algorithm, for the Edinburgh data set is the Barnes algorithm. This result is followed closely by the bicubic algorithm and then nearest neighbour. These results are not representative however of a data set which would be returned  by a physical implementation of the sensors on buses and therefore cannot be used to show utility. Furthermore, due to the low number of data points, we cannot confirm that the comparisons of these algorithms for pollutant data is correct with any high degree of certainty. We can however state that it is likely that Barnes interpolation would perform the best given that research indicated its accuracy in these applications. Barnes interpolation is also the slowest method of interpolation unfortunately. As such it may be wise to use a slightly faster algorithm in a real world approach. Without a better data set, it is difficult to say which of the algorithms this would be. 
