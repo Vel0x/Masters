@@ -345,7 +345,7 @@
 
         	\centerimagewide{./images/Barnes_Zurich.png}{The result of applying the nearest neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}. This is the result of a single pass with a distance parameter of $2^{15}$.}{fig:barnes_zurich}
 
-        	As with the nearest neighbour algorithm with Gaussian blurring and IDW, Barnes interpolation has parameters which need to be tuned in order to get the best performance. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. As we have seen in previous sections \todo{should this be plural?}, we should measure the result for each pollutant separately in order to achieve the best results. 
+        	As with the nearest neighbour algorithm with Gaussian blurring and IDW, Barnes interpolation has parameters which need to be tuned in order to get the best performance. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. As we have seen previously, we should measure the result for each pollutant separately in order to achieve the best results. 
 
         	\centerimagewideanywhere{./images/Barnes_Mean_Difference_NO.png}{A scatter plot showing the difference for 23 different passes for each data time frame. The distance constant is 1024.}{fig:barnes_no_passes_results}
 
@@ -433,7 +433,7 @@
                     \caption{Bilinear}
                     \label{fig:edinburgh_removed_bilinear}
                 \end{subfigure}
-                \caption{The results of applying interpolation algorithms to all points in the Edinburgh data set.}
+                \caption{The results of applying interpolation algorithms to all points, excluding one, in the Edinburgh data set.}
                 \label{fig:edinburgh_removed_example}
             \end{figure}
 
