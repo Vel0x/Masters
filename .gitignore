@@ -5,5 +5,7 @@
 *.tdo
 *.toc
 *.pyg
+*.bbl
+*.blg
 *.synctex.gz
 .DS_Store
