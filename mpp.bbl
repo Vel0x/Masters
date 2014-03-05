@@ -98,6 +98,14 @@ Michael Jerrett, Altaf Arain, Pavlos Kanaroglou, Bernardo Beckerman, Dimitri
 \newblock {\em Journal Of Exposure Analysis And Environmental Epidemiology},
   15(2):185 -- 204, 2005.
 
+\bibitem{spatiotemporalresolution}
+David Hasenfratz, Olga Saukh, Christoph Walser, Christoph Hueglin, Martin
+  Fierz, and Lothar Thiele.
+\newblock Pushing the spatio-temporal resolution limit of urban air pollution
+  maps.
+\newblock In {\em Proceedings of the 12th International Conference on Pervasive
+  Computing and Communications (PerCom 2014)}, Budapest, Hungary, Mar 2014.
+
 \bibitem{gaussianblur}
 Mark Nixon and Alberto~S Aguado.
 \newblock {\em Feature extraction \& image processing}.

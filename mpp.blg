@@ -1,8 +1,51 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mpp.aux
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mpp.aux
 The style file: unsrt.bst
 Database file #1: references.bib
 Warning--there's a number but no volume in meaningsofenvironmentalterms
 Warning--empty year in meaningsofenvironmentalterms
 Warning--empty booktitle in multivariatedata
 Warning--empty journal in pmconcentrationmaps
+You've used 19 entries,
+            1791 wiz_defined-function locations,
+            547 strings with 6881 characters,
+and the built_in function-call counts, 3658 in all, are:
+= -- 291
+> -- 173
+< -- 3
++ -- 68
+- -- 49
+* -- 203
+:= -- 585
+add.period$ -- 58
+call.type$ -- 19
+change.case$ -- 16
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 167
+empty$ -- 394
+format.name$ -- 49
+if$ -- 830
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 15
+newline$ -- 98
+num.names$ -- 19
+pop$ -- 81
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 85
+stack$ -- 0
+substring$ -- 131
+swap$ -- 34
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 4
+while$ -- 26
+width$ -- 21
+write$ -- 193
 (There were 4 warnings)
