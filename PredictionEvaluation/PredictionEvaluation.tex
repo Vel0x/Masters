@@ -403,26 +403,50 @@
 
 			\begin{figure}[H]
                 \centering
-                \begin{subfigure}{0.45\textwidth}
+                \begin{subfigure}{0.7\textwidth}
                     \centering
-                    \includegraphics[width=0.9\linewidth]{./images/Edinburgh_Nearest_Neighbour.png}
-                    \caption{The result of applying the nearest neighbour algorithm to all points in the Edinburgh data set.}
+                    \includegraphics[width=\linewidth]{./images/Edinburgh_Nearest_Neighbour.png}
+                    \caption{Nearest Neighbour}
                     \label{fig:edinburgh_nearest_neighbour}
-                \end{subfigure}%
-                \begin{subfigure}{0.45\textwidth}
-                    \includegraphics[width=0.9\linewidth]{./images/Edinburgh_Bilinear.png}
-                    \caption{The result of applying the bilinear interpolation algorithm to all points in the Edinburgh data set.}
+                \end{subfigure}
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{./images/Edinburgh_Bilinear.png}
+                    \caption{Bilinear}
                     \label{fig:edinburgh_bilinear}
                 \end{subfigure}
+                \caption{The results of applying interpolation algorithms to all points in the Edinburgh data set.}
+                \label{fig:edinburgh_example}
             \end{figure}
 
+            Our data set also shows interesting characteristics as mentioned in section~\ref{prediction_evaluation_methodology_data_sets_air_quality_scotland}. One of the points in particular, the one closest to the centre of the image, has a much higher value than the surrounding points. This applies across all time frames and all pollutants. The reason for this is that the sensor is located next to a rather busy intersection and the others are not. As has been stated previously in this report, advanced interpolation models such as LUR would take this information into account. Our simple models cannot do this. Should we remove this point and create similar graphs to the above using nearest neighbour and bilinear interpolation the results are as follows:
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}{0.7\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{./images/Edinburgh_Removed_Nearest_Neighbour.png}
+                    \caption{Nearest Neighbour}
+                    \label{fig:edinburgh_removed_nearest_neighbour}
+                \end{subfigure}
+                \begin{subfigure}{0.7\textwidth}
+                    \includegraphics[width=\linewidth]{./images/Edinburgh_Removed_Bilinear.png}
+                    \caption{Bilinear}
+                    \label{fig:edinburgh_removed_bilinear}
+                \end{subfigure}
+                \caption{The results of applying interpolation algorithms to all points in the Edinburgh data set.}
+                \label{fig:edinburgh_removed_example}
+            \end{figure}
+
+            The value at the removed point was 23.92$\mu gm^{-3}$, and this point has been marked as a red square on each of the maps. It should be noted that the colour scale has changed slightly as this point had this highest value, however the results are still obvious. In figure~\ref{fig:edinburgh_removed_bilinear} we can see that the value has been interpolated to a result similar to the light blue point at approximately -3.18,55.94. However, in figure~\ref{fig:edinburgh_removed_nearest_neighbour} which uses the nearest neighbour, it has interpolated to the slightly darker blue point at approximately -3.22,55.94. This result is closer to our original value. Due to the fact that with bilinear interpolation we can get gradients we would expect the bilinear algorithm to give the better result on average, however this is not the case as shown by the above example. The reasons for this are the lack of data points in the data set. If we were to have a higher number of data points, nearest neighbour would be more accurate, but more importantly, the bilinear algorithm would perform better. Missing out a single data point changed the view completely. With more data points, the effect that a single data point has is less and less pronounced. By having smooth gradients between these points we are more likely to predict the true values of unknown data points. With the small number we have, it is reduced to a probability calculation. 
 
 
 	\section{Conclusion}
 
 		\tdi{Talk more about being able to control parameters for different pollutants}
 
-		As has been stated multiple times in section~\ref{prediction_evaluation_results}, some results are unexpected and we are attributing those to a poor data set. However, we can still analyse the results we have:
+		One of the most important observations from section~\ref{prediction_evaluation_results} is the fact that tuning parameters to different pollutants can produce dramatically different results. Being able to control the distance parameter in IDW for example, increase the accuracy measurement almost 6 fold for one of the pollutants. Due to this we can propose the view that algorithms which give us control over parameters will generally out perform those where we cannot control the parameters. Applying a Gaussian blur algorithm to the nearest neighbour algorithm was hoped to prove this. It was shown in figure~\ref{fig:example_nearest_neighbour} that nearest neighbour with a Gaussian blur approximates bicubic interpolation. As we will show below, bicubic interpolation was one of the best contenders. However nearest neighbour, with Gaussian blur, did not perform as hoped, and in fact was the worst of the algorithms tested. Due to the data set, it is not believed that this result shows the failure of an algorithm with variable parameters out performing a similar algorithm with no parameters. Instead it is believed that we do not have enough data yet to prove in general this it is the case. Further experimentation is necessary to confirm this. 
+
+		In terms of the relative performance of the algorithms the results are as follows:
 
 		\begin{table}[H]
 			\centering
@@ -438,7 +462,7 @@
 			\label{tab:all_results}
 		\end{table}
 
-		Alone this data provides very little information, as we have no way of comparing algorithms should one be better at a particular pollutant than the other. As such, we can create a table which states the ratios of the percentage of a pollutant compared to the total. For example if algorithm A has a percentage of pollutant 1 of 5\% and algorithm B has 15\%, then the ratio of algorithm A for pollutant 1 would be 0.25.
+		Alone this data provides very little information, as we have no way of comparing algorithms should one be better at a particular pollutant than the other. As such, we can create a table with the normalised difference percentages across pollutants. 
 
 		\begin{table}[H]
 			\centering
@@ -457,5 +481,5 @@
 
 		\centerimagewide{./images/Algorithm_Performance_Ratio.png}{The relative performance of the interpolation methods.}{fig:all_ratio_results}
 
-		Table~\ref{tab:all_ratio_results} and figure~\ref{fig:all_ratio_results} show the results much more cleanly. Using these mean ratio metrics we can see that our best performing algorithm, for the Edinburgh data set is the Barnes algorithm. This result is followed closely by the bicubic algorithm and then nearest neighbour. These results are not representative however of a data set which would be returned  by a physical implementation of the sensors on buses and therefore cannot be used to show utility. Furthermore, due to the low number of data points, we cannot confirm that the comparisons of these algorithms for pollutant data is correct with any high degree of certainty. We can however state that it is likely that Barnes interpolation would perform the best given that research indicated its accuracy in these applications. Barnes interpolation is also the slowest method of interpolation unfortunately. As such it may be wise to use a slightly faster algorithm in a real world approach. Without a better data set, it is difficult to say which of the algorithms this would be. 
+		Table~\ref{tab:all_ratio_results} and figure~\ref{fig:all_ratio_results} show the results much more cleanly. By using the mean of these normalised results we can see that our best performing algorithm, for the Edinburgh data set is the Barnes algorithm. This result is followed closely by the bicubic algorithm and then nearest neighbour. These results are not representative however of a data set which would be returned  by a physical implementation of the sensors on buses and therefore cannot be used to show utility. Furthermore, due to the low number of data points, we cannot confirm that the comparisons of these algorithms for pollutant data is correct with any high degree of certainty. We can however state that it is likely that Barnes interpolation would perform the best given that research indicated its accuracy in these applications. Barnes interpolation is also the slowest method of interpolation unfortunately. As such it may be wise to use a slightly faster algorithm in a real world approach. Without a better data set, it is difficult to say which of the algorithms this would be. 
 
