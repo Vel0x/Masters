@@ -1,7 +1,10 @@
 \chapter{Simulation Environment}\label{simulation}
+    
+    One of the main goals of this project is to study the performance of an urban mobile air quality monitoring system leveraging public transport vehicles, including the effects of various parameters including number of roadside access points, storage capacity (queue size) on mobile sensor platforms. Due to various reasons, working with actual buses proved to be impossible. As such the decision was made to make simulation the mechanism through which the performance of this model would be evaluated. 
 
-    \tdi{State the goal of the chapter}
-    \plan[Simulation Environment]{Place all information about creating the simulation here.}
+    We wish to model buses moving around the city of Edinburgh with air quality sensors attached. These buses would communicate with open IEEE 802.11 wireless access points as they move around the city, uploading the data they recorded to a central server. In order to model these buses as accurately as possible we required data about existing buses. Initially the attempt was made to use the Lothian Buses API, which can be seen in action at the website: \href{http://www.mybustracker.co.uk/}{\nolinkurl{http://www.mybustracker.co.uk/}}. However, due to the lack of position information this approach was quickly discarded. Talks with Lothian Buses gave access to 24 hours worth of position data of their ``liveried'' fleet. These are the buses which have route specific colouring and graphics. In total we have access to 145 different buses with position data for each bus with a maximum of 30 seconds between position readings. In order to simplify the work with the simulator, where the movement steps happen every second, the data was interpolated using a simple linear interpolation algorithm to a 1 second resolution. We chose a resolution of 1 second for movement as we can approximate the movement between data points without doing extra calculations with little benefit. The interpolation can cause some deviation from the correct path around corners, however, due to the fact that buses in Edinburgh can travel no faster than 30mph, which is approximately 13.4m/s, the buses can travel at most 402m between readings. This will only happen should the bus be travelling in a straight line at this constant maximum speed. By adding in a corner, which is where we would see deviation from the actual path, we can be at most 142m, proven via trigonometry, from the true position. The chances of this happening are extremely low however and it is likely that we will be much closer. This error, while potentially lowering the efficiency of our algorithm slightly, is unlikely to have a large effect.
+
+    With regards to the data for the wireless points, this data was provided by Ph.D. student Arsham Farshad, who travelled around Edinburgh on various buses, recording the locations of wireless access points, and more importantly, those which are open. From the initial choice of roughly 2000 access points, the 82 with the strongest signal, when measured from a bus, were chosen. As will be seen in section~\ref{simulation_simulator_options_simulation_speed_optimisation}, the processing time of the simulation is heavily dependent on the number of access points. Due to this no simulation is run with more than 50 access points. 
 
     \section{Simulator Options}\label{simulation_simulator_options}
 
@@ -9,15 +12,26 @@
 
         \subsection{Simulator Choice}\label{simulation_simulator_options_simulator_choice}
 
-            \plan[Simulator Choice]{How I chose which simulator to use}
+            The initial simulator choice of \emph{NS-3} was recommend by Dr. Marina. NS-3 was recommended due to its reputation for being extremely powerful and realistic. This reputation has caused NS-3 to be used in various projects and experiments with great success~\cite{highperformancesimulatorofadhocnetworks}.  Further more, when compared with other well known network simulators, such as NS-2, Omnet++ and JiST, it performed the best overall~\cite{networksimulatorcomparison}. NS-3 was created as the successor to the older simulator NS-2. The main changes between versions was changing from using a scripting language to create simulations in a dedicated application, to becoming a framework which can be embedded in any application, with support for both C++ and Python. 
+
+            Initial simulation tests were completed with NS-3, however after almost 4 weeks of testing it became clear that the learning curve of NS-3 was significant, and was in danger of delaying the progress of the entire project. Due to this danger other simulators were explored. 
+
+            Omnet++ (\emph{Objective Modular Network Testbed in C++}) was the suggestion of Dr. Arvind and Dr. Viglas who have supervised students using this simulator. Research into the simulator showed that Omnet++ is not a network simulator in the same way that NS-3 is. Instead, it is a framework which uses discrete events as its basis. Simulations for Omnet++ are also written in C++, but follow a different approach. The simulator uses a collection of modules which follows a strict object oriented model. New modules can be created by sub-classing others, or simply connecting them together into a greater module. With respect to these modules, there are many different collections of these modules, known as ``models''. Many models exist for Omnet++ including, but not limited to, Castilla, INET and MiXiM, with the latter two being of particular interest. In terms of performance and accuracy, Omnet++ rivals NS-3~\cite{networksimulatorcomparison}.
+
+            MiXiM is used in Omnet++ for creating wireless networks with a particular focus on the lower layers of the network stack. The models provided in the MiXiM framework are extremely detailed and include radio wave propagation, interference estimation, radio transceiver power consumption and wireless MAC protocols~\cite{miximvision}. MiXiM has no support for the upper network layers and if you need these then you need to rely on another model such as INET, or create your own. The features in MiXiM are extremely advanced and it was therefore decided that it is more complex than required for this application. While it wouldn't change the results by using MiXiM, it would slow the simulation down considerably.
+
+            INET is very closely related to Omnet++ in that it is rare to use Omnet++ without using INET. INET provides models for the internet stack, as well as wired and wireless link layer protocols. It also contains many different application layer models, mainly for demonstration purposes.  
+
 
         \subsection{Data Collection}\label{simulation_simulator_options_data_collection}
 
-            \plan[Data Collection]{How to efficiently collect the data from the simulations? (logging framework)}
+            \todo{Wondering if this is worth even mentioning? It did form a significant part of the project.}
+
+            One of the further advantages of choosing Omnet++ was that it had a rather sophisticated data logging framework built in. This framework made it extremely easy to record information about the simulations, such as packet loss, latency and throughput. It was soon discovered however that this came at a price. After running a simple simulation with all 145 buses and 50 access points for a simulated time of 10,000 seconds, the output of this logging frame work was measured at over 40GB. Further more, it was not in an easily accessible format for further analysis using a scripting language. As such, the decision was made to create a logging framework which would reduce the size of these data files. Running the same simulation with the new framework reduced the file size to around 3GB, which when compressed came down to around 200MB. This huge space saving allowed for more simulations to be run as the data didn't have to be collected at the end of each simulation to avoid running out of disk space. 
 
         \subsection{Simulation Speed Optimisation}\label{simulation_simulator_options_simulation_speed_optimisation}
 
-            \plan[Simulation Speed Optimisation]{How did I make the simulation run quickly? (parallel stuff)}
+            
 
 
     \section{Opportunistic Forwarding}
