@@ -1,30 +1,114 @@
-\chapter{Data Gathering Performance}\label{data_gathering_performance} \todo{This title needs to reflect the first goal of the project}
+\chapter{Data Gathering Performance}\label{data_gathering_performance} 
 
-    
+    \todo{This title needs to reflect the first goal of the project}
+
+    The first and foremost goal of this project is to study the performance of an urban mobile air quality monitoring system which leverages public transport vehicles and the effects of various parameters. In order to do this we must decide on how we will measure the performance as well as what parameters we will vary. 
+
+    In order to measure the performance of the system, we must pay attention to the use of such a system. With air quality sensors on buses our priorities are receiving as much data as possible and receiving said data with minimal latency. These priorities define our metrics for us. Our metrics shall be the percentage of readings which are returned to the server, and the time which it takes for this to happen. In doing this we must consider how the effects of varying different parameters change the results. The parameters which we will vary are the storage space on the device, that is to say how many packets we can store in the queue at any one time, the number of access points scattered around the city, the power levels of the transmitter and receiver and finally the utility of using a priority queue instead of a regular queue when using opportunistic forwarding.
 	
-	\plan[Data Gathering Performance]{In this chapter we discuss the performance of the model.}
 
-    \section{Parameter Choices}\label{data_gathering_performance_parameter_choices}
+    \section{Queue Size}\label{data_gathering_performance_queue_size}
 
-        \plan[Parameter Choices]{Discuss how the performance changed with various parameter changes.}
+        \tdi{Reword the end of this.}
 
-        \subsection{Queue Size}\label{data_gathering_performance_parameter_choices_queue_size}
+        Varying the size of the queue was a simple change but one which would yield great insight. The queue size is how many packets or readings we can store on the sensor at any one time. When creating a physical implementation of this model one of the prohibiting factors is cost, and the storage size is almost directly correlated with the cost of the device. As such it is extremely important to evaluate the effectiveness of the model when using a smaller queue size. In order to test this, we ran the simulation with all 145 buses and 50 access points but a variable queue size. The sizes of queue checked were 10, 30, 100 and 2000. The results of running this simulation, a can be seen in table~\ref{tab:queue_size} and figure~\ref{fig:queue_size}. 
 
-            \plan[Queue Size]{Explain how queue size changed things}
+        From the data it is clear that having a larger queue size has a positive effect on the percentage of packets which are delivered. In fact, we can see that we more than triple the packet delivery rate by increasing the queue size from 10 packets to 2000. Tripling the queue size from 10 until 30 has a relatively small performance increase. Due to this, it is theorised that even if the queue were non existent we would not decrement our percentage of packets received by a significant amount. The reason for this is that 14\% is likely to be close to the mean amount of time that a bus is in contact with an access point for. When a bus is in contact with an access point it can send the packets immediately without losing them. With a buffer size of 10, we can only store packets for 10 seconds before contacting an access point. If the mean amount of time a bus is in contact with an access point is 10 seconds, then removing this queue size would halve the packet delivery rate. From this we can see that the smaller the queue size, the less effect it has on the packet delivery percentage. However, following the trend from this information, it would require a queue size of between 150,000 and 200,000 in order to get a 100\% packet delivery rate. In terms of storage space this is between 3.6MB and 4.8MB. However, 150,000 readings is just under 42 hours worth of data. We can expect an upload of at least every 24 hours or 86,400 seconds and so there is no need for the size to be greater than this, nor can we trust the results. 
 
-        \subsection{Number of Access Points}\label{data_gathering_performance_parameter_choices_number_of_access_points}
+        As the queue size increases we increase the ratio of packets delivered but also increase the latency. This is an expected behaviour due to the fact that more packets will be stored and therefore they have an effect on the latency. 
 
-            \plan[Number of Access Points]{Explain how \#APs changed things}
+        \begin{landscape}
+            \begin{table}
+                \centering
+                \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|}
+                    \hline
+                    \multicolumn{1}{|X|}{\centering Queue \\ Size} & 
+                    \multicolumn{1}{|X|}{\centering Number \\ of APs} & 
+                    \multicolumn{1}{|X|}{\centering Mean \\ Latency (s)} & 
+                    \multicolumn{1}{|X|}{\centering Standard \\ Deviation (s)} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Send} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Received} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Dropped} & 
+                    \multicolumn{1}{|X|}{\centering \% \\ Received} \\
+                    \hline
+                    10 & 50 & 0.485136283 & 0.482648346 & 2726636.5 & 207879.1667 & 1049162.833 & 14.34 \\
+                    30 & 50 & 3.075895053 & 3.067765 & 2757366.667 & 238289.5 & 1020537.167 & 16.43 \\
+                    100 & 50 & 16.72300115 & 16.72759292 & 2826758 & 307587.5 & 955076.8333 & 21.21 \\
+                    2000 & 50 & 419.8375185 & 420.5738133 & 3220432.833 & 700218.1667 & 537348.1667 & 48.29 \\
+                    \hline
+                \end{tabularx}
+                \caption{The results of changing the number of access points.}
+                \label{tab:num_aps}
+            \end{table}
+        \end{landscape}
 
-        \subsection{Transmitter and Receiver Power}\label{data_gathering_performance_parameter_choices_transmitter_and_reciever_power}
+        \tdi{Insert chart of this data here}
 
-            \plan[Transmitter and Receiver Power]{Explain how power settings changed things}
+    \section{Number of Access Points}\label{data_gathering_performance_number_of_access_points}
 
-        \subsection{Priority Queue}\label{data_gathering_performance_parameter_choices_priority_queue}
+        The interest in varying the number of access points (APs) stems from the fact that this is a variable which is outwith our control. By setting a performance target we can find the minimum number of access points we would need to meet this target. This will show us if our system could potentially work in a situation with less APs (in reality there are many more). The results of varying the number of APs under different queue sizes is shown in table~\ref{tab:num_aps} and figure~\ref{fig:num_aps}.
 
-            \plan[Priority Queue]{Explain how queue size changed things}
+        \begin{landscape}
+            \begin{table}
+                \centering
+                \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|}
+                    \hline
+                    \multicolumn{1}{|X|}{\centering Queue \\ Size} & 
+                    \multicolumn{1}{|X|}{\centering Number \\ of APs} & 
+                    \multicolumn{1}{|X|}{\centering Mean \\ Latency (s)} & 
+                    \multicolumn{1}{|X|}{\centering Standard \\ Deviation (s)} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Send} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Received} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Dropped} & 
+                    \multicolumn{1}{|X|}{\centering \% \\ Received} \\
+                    \hline
+                    10 & 10 & 0.641546601 & 0.628416482 & 2837154.833 & 77350 & 1166151.5 & 5.33 \\
+                    10 & 20 & 0.6377266 & 0.629448882 & 2806916.5 & 116009.5 & 1132689.333 & 8.00 \\
+                    10 & 30 & 0.591328457 & 0.581260675 & 2775618.5 & 153667.3333 & 1098895.167 & 10.60 \\
+                    10 & 40 & 0.557965006 & 0.552124348 & 2754254.5 & 179980.5 & 1076107.833 & 12.41 \\
+                    10 & 50 & 0.485136283 & 0.482648346 & 2726636.5 & 207879.1667 & 1049162.833 & 14.34 \\
+                    30 & 10 & 4.016328768 & 3.955641293 & 2851801 & 91969.33333 & 1151698.333 & 6.34 \\
+                    30 & 20 & 3.978558616 & 3.946152299 & 2829299.333 & 138289.1667 & 1111176 & 9.54 \\
+                    30 & 30 & 3.70040839 & 3.653918235 & 2802597.667 & 180843 & 1072978 & 12.47 \\
+                    30 & 40 & 3.468226904 & 3.445352797 & 2783234.5 & 209719.8333 & 1047929 & 14.46 \\
+                    30 & 50 & 3.075895053 & 3.067765 & 2757366.667 & 238289.5 & 1020537.167 & 16.43 \\
+                    100 & 10 & 25.04383636 & 24.87469435 & 2898691.5 & 138808.1667 & 1105236.667 & 9.57 \\
+                    100 & 20 & 23.43013378 & 23.36990619 & 2893541.833 & 202327.5 & 1049191 & 13.95 \\
+                    100 & 30 & 20.75840795 & 20.63997577 & 2872975.833 & 250772.3333 & 1005479.667 & 17.29 \\
+                    100 & 40 & 19.17159602 & 19.16736037 & 2856199.833 & 282431.8333 & 978600.3333 & 19.48 \\
+                    100 & 50 & 16.72300115 & 16.72759292 & 2826758 & 307587.5 & 955076.8333 & 21.21 \\
+                    2000 & 10 & 617.8010824 & 617.0399697 & 3369388.667 & 608908.8333 & 614393.3333 & 41.99 \\
+                    2000 & 20 & 518.9917672 & 519.4679392 & 3351993.5 & 660129.8333 & 570220.6667 & 45.53 \\
+                    2000 & 30 & 468.1774747 & 468.9056058 & 3302144.333 & 679437.8333 & 554234.8333 & 46.86 \\
+                    2000 & 40 & 436.3411623 & 436.5999819 & 3271823.667 & 697031.5 & 539818.6667 & 48.07 \\
+                    2000 & 50 & 419.8375185 & 420.5738133 & 3220432.833 & 700218.1667 & 537348.1667 & 48.29 \\
+                    \hline
+                \end{tabularx}
+                \caption{The results of changing the number of access points.}
+                \label{tab:num_aps}
+            \end{table}
+        \end{landscape}
 
+        \tdi{Insert chart of this}
+
+        From this data we can see that the greater the number of access points the lower the latency and the greater the packet delivery rate. When adding a larger queue size the packet delivery rate increases but there is no improvement in latency, which manifests as a latency increase overall. With increasing the number of APs that disadvantage is no longer present. At smaller queue sizes we can double or even triple the packet delivery rate with more access points. It should be noted that as discussed in chapter~\ref{simulation} simulation time was one of the main factors for limiting the simulations to at most 50 access points. With the dataset we had over 2,000 access points. As such we can expect a much greater packet delivery rate with a significantly lower mean latency in an actual realisation of this model. 
+
+
+
+    \section{Transmitter and Receiver Power}\label{data_gathering_performance_transmitter_and_reciever_power}
+
+        \plan[Transmitter and Receiver Power]{Explain how power settings changed things}
+
+    \section{Opportunistic Forwarding}\label{data_gathering_performance_opportunistic_forwarding}
+
+        \plan[Opportunistic Forwarding]{Explain how OF changed things}
+
+    \section{Priority Queue}\label{data_gathering_performance_priority_queue}
+
+        \plan[Priority Queue]{Explain how queue size changed things}
+        %Only 125 buses
 
     \section{Conclusions}\label{data_gathering_performance_conclusions}
 
         \plan[Conclusions]{Conclude with summary}
+        %Remember that this is just 145 buses
