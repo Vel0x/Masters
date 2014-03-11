@@ -26,7 +26,7 @@
                     \multicolumn{1}{|X|}{\centering Number \\ of APs} & 
                     \multicolumn{1}{|X|}{\centering Mean \\ Latency (s)} & 
                     \multicolumn{1}{|X|}{\centering Standard \\ Deviation (s)} & 
-                    \multicolumn{1}{|X|}{\centering Packets \\ Send} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Sent} & 
                     \multicolumn{1}{|X|}{\centering Packets \\ Received} & 
                     \multicolumn{1}{|X|}{\centering Packets \\ Dropped} & 
                     \multicolumn{1}{|X|}{\centering \% \\ Received} \\
@@ -57,7 +57,7 @@
                     \multicolumn{1}{|X|}{\centering Number \\ of APs} & 
                     \multicolumn{1}{|X|}{\centering Mean \\ Latency (s)} & 
                     \multicolumn{1}{|X|}{\centering Standard \\ Deviation (s)} & 
-                    \multicolumn{1}{|X|}{\centering Packets \\ Send} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Sent} & 
                     \multicolumn{1}{|X|}{\centering Packets \\ Received} & 
                     \multicolumn{1}{|X|}{\centering Packets \\ Dropped} & 
                     \multicolumn{1}{|X|}{\centering \% \\ Received} \\
@@ -94,10 +94,49 @@
         From this data we can see that the greater the number of access points the lower the latency and the greater the packet delivery rate. When adding a larger queue size the packet delivery rate increases but there is no improvement in latency, which manifests as a latency increase overall. With increasing the number of APs that disadvantage is no longer present. At smaller queue sizes we can double or even triple the packet delivery rate with more access points. It should be noted that as discussed in chapter~\ref{simulation} simulation time was one of the main factors for limiting the simulations to at most 50 access points. With the dataset we had over 2,000 access points. As such we can expect a much greater packet delivery rate with a significantly lower mean latency in an actual realisation of this model. 
 
 
-
     \section{Transmitter and Receiver Power}\label{data_gathering_performance_transmitter_and_reciever_power}
 
-        \plan[Transmitter and Receiver Power]{Explain how power settings changed things}
+        A simple way of increasing the access point coverage of the city is to increase the power levels of the access points and receivers. This increase in power level causes them to serve a greater area without the need for any more access points. European legislation restricts all 2.4GHz radios to an equivalent isotropically radiated power level of 100mW~\cite{rackley2011wireless}. Converting to dBm gives a value of 19.93dBm, or approximately 20dBm. In practice we cannot increase the power levels of the radios without breaking the law, however we can do this with a simulator. In order to determine the effect that power level has on the data collection performance we tested the model at 5 different power levels. These power levels were 18, 19, 20, 21 and 22 dBm, which corresponds to 64.00, 80.63, 101.59, 128.00 and 161.27 respectively. Furthermore, we also must acknowledge that this is in fact a simulation and therefore not identical to a physical implementation. As such we need to also acknowledge that the propagation model will not be perfect. In order to find the most realistic model for our simulation we tried using 2 different models for this test. These propagation models were the Rayleigh model and the Log Normal Shadowing model. The results of this test, using a queue size of 2000 and all 50 access points, are shown in table~\ref{tab:power_level} and figure~\ref{fig:power_level}. 
+
+        \begin{landscape}
+            \begin{table}
+                \centering
+                \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|X|}
+                    \hline
+                    \multicolumn{1}{|X|}{\centering Power} & 
+                    \multicolumn{1}{|X|}{\centering Model} & 
+                    \multicolumn{1}{|X|}{\centering Mean \\ Latency (s)} & 
+                    \multicolumn{1}{|X|}{\centering Standard \\ Deviation (s)} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Generated} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Sent} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Received} & 
+                    \multicolumn{1}{|X|}{\centering Packets \\ Dropped} & 
+                    \multicolumn{1}{|X|}{\centering \% \\ Received} \\
+                    \hline
+                    18 & Rayleigh & 154.12 & 323.82 & 294,743.60 & 522,092.80 & 238,455.20 & 1,986.40 & 80.74 \\
+                    18 & Log Normal Shadowing & 122.62 & 278.35 & 279,041.50 & 452,601.00 & 225,997.50 & 2,268.75 & 79.72 \\
+                    19 & Rayleigh & 128.94 & 281.37 & 270,759.00 & 473,615.20 & 213,552.20 & 933.20 & 78.72 \\
+                    19 & Log Normal Shadowing & 169.79 & 363.87 & 527,232.75 & 868,566.75 & 431,838.25 & 34,279.50 & 83.15 \\
+                    20 & Rayleigh & 150.13 & 322.72 & 299,218.50 & 525,681.25 & 240,421.75 & 1,445.50 & 80.26 \\
+                    20 & Log Normal Shadowing & 150.72 & 316.18 & 470,629.50 & 782,219.50 & 388,500.00 & 20,491.00 & 81.03 \\
+                    21 & Rayleigh & 116.22 & 255.51 & 220,911.00 & 383,434.50 & 169,469.00 & 0.00 & 76.79 \\
+                    21 & Log Normal Shadowing & 86.43 & 203.14 & 179,300.00 & 290,371.00 & 134,968.00 & 0.00 & 75.27 \\
+                    22 & Rayleigh & 135.75 & 294.37 & 270,957.00 & 471,525.67 & 218,749.33 & 977.33 & 80.54 \\
+                    22 & Log Normal Shadowing & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+                    \hline
+                \end{tabularx}
+                \caption{The results of changing the power level of the radios.}
+                \label{tab:power_level}
+            \end{table}
+        \end{landscape}
+
+        In terms of the propagation model a significant problem was found which may be apparent from the final row in table~\ref{tab:power_level}. There appeared to be a bug in the implementation in Omnet++ in which the simulation tended to crash when used with this simulation after some indeterminable period of time. Generally we did not get a simulation time of longer than 2,000 seconds which is significantly shorter than the 10,000 seconds we had been using previously. In some cases we did not get readings for particular runs using the Log Normal Shadowing model and therefore the mean result was made up of just 3 or 4 readings instead of 5. Furthermore, the effect that the software bugs had on the simulation when also trying the Log Normal Shadowing model also seemed to affect the simulation when going using the Rayleigh model, which is the model used for all other experiments. As such no further experiments were performed on propagation models. 
+
+        With the results we have we can still analyse the effect that power level has. The effect is almost non-existent. We would expect to see a decrease in latency and increase in packet delivery as the power level goes up, however we saw no such increase. It is theorised that the reason for this is that the packet upload time is dominated by the bandwidth of the connection. By increasing the power levels we may be in contact with an access point for an extra few seconds, however as we can upload 2000 packets in less than a second, which is an effective rate of 48Kbps, this extra time only limits the delivery time of a single packet or two. Over a greater period of time, should the simulation have not crashed, it is possible that we may have seen a very small correlation, however it is insignifcant at this time. 
+
+
+
+
 
     \section{Opportunistic Forwarding}\label{data_gathering_performance_opportunistic_forwarding}
 
