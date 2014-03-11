@@ -132,15 +132,44 @@
 
         In terms of the propagation model a significant problem was found which may be apparent from the final row in table~\ref{tab:power_level}. There appeared to be a bug in the implementation in Omnet++ in which the simulation tended to crash when used with this simulation after some indeterminable period of time. Generally we did not get a simulation time of longer than 2,000 seconds which is significantly shorter than the 10,000 seconds we had been using previously. In some cases we did not get readings for particular runs using the Log Normal Shadowing model and therefore the mean result was made up of just 3 or 4 readings instead of 5. Furthermore, the effect that the software bugs had on the simulation when also trying the Log Normal Shadowing model also seemed to affect the simulation when going using the Rayleigh model, which is the model used for all other experiments. As such no further experiments were performed on propagation models. 
 
-        With the results we have we can still analyse the effect that power level has. The effect is almost non-existent. We would expect to see a decrease in latency and increase in packet delivery as the power level goes up, however we saw no such increase. It is theorised that the reason for this is that the packet upload time is dominated by the bandwidth of the connection. By increasing the power levels we may be in contact with an access point for an extra few seconds, however as we can upload 2000 packets in less than a second, which is an effective rate of 48Kbps, this extra time only limits the delivery time of a single packet or two. Over a greater period of time, should the simulation have not crashed, it is possible that we may have seen a very small correlation, however it is insignifcant at this time. 
-
-
-
+        With the results we have we can still analyse the effect that power level has. The effect is almost non-existent. We would expect to see a decrease in latency and increase in packet delivery as the power level goes up, however we saw no such increase. It is theorised that the reason for this is that the packet upload time is dominated by the bandwidth of the connection. By increasing the power levels we may be in contact with an access point for an extra few seconds, however as we can upload 2000 packets in less than a second, which is an effective rate of 48Kbps, this extra time only limits the delivery time of a single packet or two. Over a greater period of time, should the simulation have not crashed, it is possible that we may have seen a very small correlation, however it is insignificant at this time. 
 
 
     \section{Opportunistic Forwarding}\label{data_gathering_performance_opportunistic_forwarding}
 
-        \plan[Opportunistic Forwarding]{Explain how OF changed things}
+        Opportunistic forwarding is the most significant change to the model that we will attempt. The implementation details are discussed in section~\ref{simulation_opportunistic_forwarding}. With the implementation discussed, the only way to evaluate the performance is to run a simulation both with and without opportunistic forwarding. The results of this are shown in table~\ref{tab:opportunistic_forwarding} and figure~\ref{fig:opportunistic_forwarding}.
+
+        \begin{landscape}
+            \begin{table}
+                \centering
+                \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|X|X|X|}
+                    \hline
+                    \multicolumn{1}{|X|}{\centering Queue Size} & \multicolumn{1}{|X|}{\centering Mean Latency (s)} & \multicolumn{1}{|X|}{\centering Standard Deviation} & \multicolumn{1}{|X|}{\centering AP Received} & \multicolumn{1}{|X|}{\centering AP Unique} & \multicolumn{1}{|X|}{\centering Packets Sent} & \multicolumn{1}{|X|}{\centering Packets Successful} & \multicolumn{1}{|X|}{\centering Packets Stored} & \multicolumn{1}{|X|}{\centering Packets Dropped} \\
+                    \hline
+                    10 & 0.23 & 1.39 & 463,908 & 421,622 & 2,160,545 & 463,239 & 57,673 & 833,967 \\
+                    30 & 1.52 & 5.96 & 626,482 & 499,921 & 2,200,064 & 598,384 & 128,859 & 759,144 \\
+                    100 & 12.02 & 30.38 & 829,123 & 513,153 & 2,490,028 & 733,816 & 341,718 & 753,631 \\
+                    1000 & 236.26 & 370.09 & 1,475,528 & 659,686 & 4,063,488 & 1,121,781 & 1,827,617 & 438,549 \\
+                    2000 & 344.52 & 633.09 & 1,534,024 & 648,545 & 4,825,887 & 1,109,934 & 2,605,998 & 289,271 \\
+                    \hline
+                \end{tabularx}
+            \end{table}
+            \begin{table}
+                \centering
+                \begin{tabularx}{\linewidth}{|X|X|X|X|X|X|X|X|X|X|X|}
+                    \hline
+                    \multicolumn{1}{|X|}{\centering Queue Size} & \multicolumn{1}{|X|}{\centering AP Received} & \multicolumn{1}{|X|}{\centering AP Unique} & \multicolumn{1}{|X|}{\centering Packets Sent} & \multicolumn{1}{|X|}{\centering Packets Successful} & \multicolumn{1}{|X|}{\centering Packets Stored} & \multicolumn{1}{|X|}{\centering Packets Dropped} & \multicolumn{1}{|X|}{\centering Queue Ignores Time} & \multicolumn{1}{|X|}{\centering Queue Ignores Space} & \multicolumn{1}{|X|}{\centering Queue Ignores Ratio} & \multicolumn{1}{|X|}{\centering \% Received} \\
+                    \hline
+                    10 & 463,908 & 421,623 & 2,160,545 & 463,239 & 57,673 & 833,967 & 8,183,045 & 8,567,042 & 0.955 & 33.73\% \\
+                    30 & 626,482 & 499,921 & 2,200,064 & 598,384 & 128,859 & 759,144 & 7,126,313 & 7,348,423 & 0.975 & 39.99\% \\
+                    100 & 829,123 & 513,153 & 2,490,028 & 733,816 & 341,718 & 753,631 & 8,189,153 & 8,429,989 & 0.971 & 41.05\% \\
+                    1000 & 1,475,528 & 659,686 & 4,063,488 & 1,121,781 & 1,827,617 & 438,549 & 6,906,153 & 6,976,392 & 0.990 & 52.77\% \\
+                    2000 & 1,534,025 & 648,545 & 4,825,887 & 1,109,934 & 2,605,998 & 289,271 & 5,808,998 & 5,644,930 & 1.030 & 51.88\% \\
+                    \hline
+                \end{tabularx}
+            \end{table}
+        \end{landscape}
+
 
     \section{Priority Queue}\label{data_gathering_performance_priority_queue}
 
