@@ -194,7 +194,7 @@
         With opportunistic forwarding, the same pattern is followed as with no opportunistic forwarding. When we increase the queue size, the packet delivery rate goes up, as does the latency. The interesting part is when we compare the two results. This is seen in table~\ref{tab:opportunistic_forwarding} and figure~\ref{fig:opportunistic_forwarding}. The results clearly show that using opportunistic forwarding increases the efficiency of our system. At low queue sizes, such as 10, it more than doubles the packet delivery ratio while also halving the mean latency. As we move to larger queue sizes the effect becomes less pronounced. With a queue size of 2000 we only increase the packet delivery rate from 48.29 to 51.88, however the average latency of a packet is over a minute less at just 344.5 seconds compared to 419.8 seconds. While the results seem to converge, it is unclear at this point if opportunistic forwarding would ever cause a detrimental effect to the results. 
 
 
-    \section{Priority Queue}\label{data_gathering_performance_priority_queue}
+    \section{Non-Deterministic Queue}\label{data_gathering_performance_non-deterministic_queue}
 
         Due to the apparent convergence of the results when using opportunistic forwarding a modification to the algorithm was proposed. In the initial runs, when bus $a$ received a packet from bus $b$ it would look at the time stamp on the packet from $b$ and use this to insert it into its own queue at the correct point. That is to say the queue of packets maintained by each bus is always in strict chronological order based on the packet generation time. In order to tell if any effects are caused because of this decision the same simulations as in section~\ref{data_gathering_performance_opportunistic_forwarding} were run once again, with the modification that any packets that $a$ receives from any other bus are simply placed at the end of the queue. The results of this compared to the original time stamp queued version are presented in table~\ref{tab:priority_queue} and figure~\ref{fig:priority_queue}.
 
@@ -202,10 +202,10 @@
             \begin{tabularx}{\linewidth}{|X|X|X|X|X|}
                 \hline
                 \multicolumn{1}{|X|}{\centering Queue Size} & 
-                \multicolumn{1}{|X|}{\centering PQ Latency (s)} & 
-                \multicolumn{1}{|X|}{\centering Non-PQ Latency (s)} & 
-                \multicolumn{1}{|X|}{\centering PQ \% Received} & 
-                \multicolumn{1}{|X|}{\centering Non-PQ \% Received} \\
+                \multicolumn{1}{|X|}{\centering Latency (s)} & 
+                \multicolumn{1}{|X|}{\centering Non-Det Latency (s)} & 
+                \multicolumn{1}{|X|}{\centering \% Received} & 
+                \multicolumn{1}{|X|}{\centering Non-Det \% Received} \\
                 \hline
                 10 & 0.23 & 0.20 & 33.73 & 37.71 \\
                 30 & 1.52 & 1.00 & 39.99 & 38.67 \\
@@ -214,7 +214,7 @@
                 2000 & 244.52 & 373.48 & 51.88 & 65.60 \\
                 \hline
             \end{tabularx}
-            \caption{This table shows the packet delivery ratio of using opportunistic forwarding with a priority queue based on time stamp (PQ) and the version which appends all received packets to the queue.}
+            \caption{This table shows the packet delivery ratio of using opportunistic forwarding with the original queue based on time stamp  and the non-deterministic version which appends all received packets to the queue.}
             \label{tab:priority_queue}
         \end{table}
 
@@ -224,8 +224,38 @@
 
         The unexpected effect is that appending to the end of the queue instead of inserting into the correct position has a positive effect on the delivery ratio. We would expect this to have no change at all. This effect is due to duplication of packets. If a bus, $a$, broadcasts a packet and there are 4 buses in the immediate vicinity who accept the packet then we have 4 duplicates. $a$ will receive a response and then move on to broadcasting the next packet in the queue, ignoring that 4 buses have the packet now. When a bus gets a full queue from a miscalculation of when it will encounter an access point it drops the packets at the front of the queue. In the priority queue version where we insert packets at the correct position, the oldest packets are penalised and since the duplicates all have the same time stamp they will tend to all be dropped, rather than the unique packets that the buses carry. 
 
+        When we compare this result to the base line, as in table~\ref{tab:opportunistic_queue_good} and figure~\ref{fig:opportunistic_queue_good}, without opportunistic forwarding, the results are striking. With a queue size of 10 we get 163\% and 145\% better performance in terms of packet delivery and latency respectively. With the largest queue size of 2,000 we get an increase of 37\% and 12\% in terms of packet delivery and latency respectively. Again, it seems like these two series will converge, but not until we reach 100\% packet delivery.
+
+        \begin{table}
+            \centering
+            \begin{tabularx}{0.8\linewidth}{|X|X|X|X|X|}
+                \hline
+                \multicolumn{1}{|X|}{\centering Queue Size} & 
+                \multicolumn{1}{|X|}{\centering Non OF Latency (s)} & 
+                \multicolumn{1}{|X|}{\centering OF Latency (s)} & 
+                \multicolumn{1}{|X|}{\centering Non OF \% Received} & 
+                \multicolumn{1}{|X|}{\centering OF \% Received} \\
+                \hline
+                10 & 0.49 & 0.20 & 14.34 & 37.71 \\
+                30 & 3.08 & 1.00 & 16.43 & 38.67 \\
+                100 & 16.72 & 6.98 & 21.21 & 42.75 \\
+                1000 & - & 184.07 & - & 58.86 \\
+                2000 & 419.84 & 373.48 & 48.29 & 65.60 \\
+                \hline
+            \end{tabularx}
+            \caption{This table shows the packet delivery ratio of using opportunistic forwarding versus not using opportunistic forwarding.}
+            \label{tab:opportunistic_forwarding}
+        \end{table}
         
+        \missingfigure{}
 
     \section{Conclusions}\label{data_gathering_performance_conclusions}
 
+        \tdi{Probably rewrite this conclusion from scratch. It is awful. I need to cover what optimisations were best, how much they improved things by and whether this system is of any use to Edinburgh.}
+
+        Some of the information we have learned from the simulation is expected, such as increasing the number of access points increases packet delivery and reduces latency, however some of it is unexpected. Increasing the queue size causing an increase in latency was not an obvious result before hand, however it has made it clear that there is a trade off between packet delivery rates and packet latency. Perhaps surprisingly transmitter power had almost no effect on the results due to the connection speed dominating the small increase in distance. 
+
+        The most effective optimisation was the introduction of opportunistic forwarding. When using the non-deterministic version of the queuing mechanism the results are extremely promising. In practice, we have many more access points within the city and from these results it is reasonable to estimate that in practice our packet delivery rate could be over 90\%. 
+
+        Due to using a simulation rather than real world tests it can be difficult to confirm that in reality we would get such good results. Unfortunately we almost definitely not see such good results. This simulation treats Edinburgh as a two dimensional map. There is no concept of terrain and buildings. The simulation assumes that there is line of sight between the sensors and the access points, however this is unlikely to always be the case. These access points will be in buildings, which has already partially been taken into account with the simulation as we had information about relative signal strength, and may be blocked by other structures. We know that in a physical implementation of this model we would spend less time in contact with access points than we currently do, and most likely be in contact with a smaller number of access points. It is important to remember that we have the data for over 2,000 access points around the city, not just the 50 that we can simulate at a time. If we only manage to contact half the access points that we manage in this simulation, then we have 1,000 useful access points across the city. This is twenty times the number of access points we use in the simulation. The results from this chapter are very encouraging, and show that implementing such a model in Edinburgh would be effective. 
         
