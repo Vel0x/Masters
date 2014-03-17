@@ -1,3 +1,24 @@
 \chapter{Conclusions}\label{conclusions}
 
-Some text here...
+\tdic[Conclusion]{
+    \begin{itemize}
+        \item Summarise content
+        \item Summarise results
+        \item Suggest implications
+        \item Significance of findings
+        \item Limitations of the research
+        \item Recommendations for future work
+        \item Implications for practice
+    \end{itemize}
+}
+
+The main goals of this project were to evaluate the performance of using public transport as the mechanism for mobile air quality monitoring systems, and to evaluate the effectiveness of using common spatial prediction methods to interpolate the results from such a system. This report looked at how to simulate such a model, methods of evaluating the performance of the model, and various interpolation methods for interpolation the data. In terms of evaluating the performance metric we learned some key pieces of information. 
+
+The first and foremost of these is that using the Lothian Bus services in Edinburgh, connecting to IEEE 802.11 access points, provides around 50\% of the total readings using a queue size which would be suitable in commodity hardware which would be used to build such a sensor. The mean time between these readings being taken and being returned to a central server is approximately seven minutes. This is within acceptable ranges for most applications, however we would hope to have a latency of under a minute for ``real-time'' applications. In terms of air quality measurements there is no definition of ``real-time'' however it is difficult to imagine applications which would require a smaller delay as minor fluctuations in measurements would distort the data so much that interpretation would be difficult. The results from varying parameters with this algorithm are consistent with what we would expect to see in that having more access points causes the packet delivery rate to go up and the latency to go down. We also showed that increasing the queue size increased the rate of packets being delivered, while also increasing the latency as more packets are stored for longer. 
+
+Adding opportunistic forwarding was an extremely successful approach. The effect of opportunistic forwarding was much greater at smaller queue sizes than at larger queue sizes. We improved the results over the non-opportunistic method by a factor of 2.6 and 1.4 at queue sizes of 10 and 2,000 respectively. These results were an approximate boost of 20\% of the total number of packets. With regards to the algorithm it was discovered that emulating the non-opportunistic model with the queues, by inserting received broadcast packets at the correct location based on measurement time, was in fact detrimental to the performance of the model. The performance of the model was improved by simply appending the received broadcast packets to the end of the queue. Finally we learned that with opportunistic forwarding we require many fewer access points in order to achieve the same performance as the non-opportunistic model. This requirement implies that we can use this mechanism in smaller cities or towns effectively. 
+
+The simulation was not without flaw however and the results we have are only relative performance metrics. The most important problem with this model was the inability to model all access points within the city. Despite having information about all access points in the city of Edinburgh which are discoverable on buses and open to public access, we were only able to simulate at most 50 of these before the simulation time was too long to realistically consider. The results however show in all cases that increasing the number of access points has a positive effect in terms of packet delivery rates and latency reduction. Due to this we can surmise that in practice this model would achieve better results than are shown in this report. In terms of boosting the results one of the implications we must consider is that we have data for 145 buses. 
+
+
+Limitations: Not clear if we miss certain areas
