@@ -1,16 +1,5 @@
 \chapter{Conclusions}\label{conclusions}
 
-\tdic[Conclusion]{
-    \begin{itemize}
-        \item Summarise content
-        \item Summarise results
-        \item Suggest implications
-        \item Significance of findings
-        \item Limitations of the research
-        \item Recommendations for future work
-        \item Implications for practice
-    \end{itemize}
-}
 
 The main goals of this project were to evaluate the performance of using public transport as the mechanism for mobile air quality monitoring systems, and to evaluate the effectiveness of using common spatial prediction methods to interpolate the results from such a system. This report looked at how to simulate such a model, methods of evaluating the performance of the model, and various interpolation methods for interpolation the data. In terms of evaluating the performance metric we learned some key pieces of information. 
 
@@ -20,12 +9,10 @@ Adding opportunistic forwarding was an extremely successful approach. The effect
 
 The simulation was not without flaw however and the results we have are only relative performance metrics. The most important problem with this model was the inability to model all access points within the city. Despite having information about all access points in the city of Edinburgh which are discoverable on buses and open to public access, we were only able to simulate at most 50 of these before the simulation time was too long to realistically consider. The results however show in all cases that increasing the number of access points has a positive effect in terms of packet delivery rates and latency reduction. Due to this we can surmise that in practice this model would achieve better results than are shown in this report. 
 
-In terms of boosting the results one of the implications we must consider is that we have data for 145 buses. Lothian Buses have a fleet of over 700 buses~\cite{lothianbusannualreport} and it is potentially the case, however unlikely, that all buses could be equipped with air quality sensors. Increasing the number of buses has an indeterminable effect currently. It is hypothesised that the increase in the number of buses would increase the number of successful packet deliveries while also reducing the latency, however packet duplication could become a major issue. This area requires further study. An alternative is using the same number of buses, or indeed fewer buses, but changing which buses are used. Currently the buses are limited to just 13 different routes. By changing the buses which we attach sensors to we can increase the area which our measurements cover. Lothian Buses currently offer 70 different routes which would give us a wide area of coverage. However, by having different routes, it is less likely that our buses will encounter each other as they move and as such the opportunistic forwarding may produce inferior results. 
+In terms of boosting the results one of the implications we must consider is that we have data for 145 buses. Lothian Buses have a fleet of over 700 buses~\cite{lothianbusannualreport} and it is potentially the case, however unlikely, that all buses could be equipped with air quality sensors. Increasing the number of buses has an indeterminable effect currently.\todo{This should be mentioned in the data collection chapter} It is hypothesised that the increase in the number of buses would increase the number of successful packet deliveries while also reducing the latency, however packet duplication could become a major issue. This area requires further study. An alternative is using the same number of buses, or indeed fewer buses, but changing which buses are used. Currently the buses are limited to just 13 different routes. By changing the buses which we attach sensors to we can increase the area which our measurements cover. Lothian Buses currently offer 70 different routes which would give us a wide area of coverage. However, by having different routes, it is less likely that our buses will encounter each other as they move and as such the opportunistic forwarding may produce inferior results. Further research into this area is still required.
+
+Looking to our evaluation of simple interpolation algorithms for generating continuous data sets we discovered that reasonable results are generated, however these would be unsuitable for any scientific purpose. We found that when comparing similar algorithms, the ones which have variable parameters tended to produce better results as they are trained to the nature of the data. 
 
 
+In summary, it has been shown that using Lothian Buses as the mechanism for mobile air quality measurements, uploading to IEEE 802.11 access points, with opportunistic forwarding would be a successful endeavour. The packet delivery rate is relatively high with a reasonable latency period. Using simple interpolation algorithms to gain more useful information was less successful, however we have seen that we can get reasonable results to some degree of certainty which is useful for a more broad overview, but of less use for more advanced applications. As discussed in the background section, there are existing models which generate useful results from such data sets and as such these should be used in practice. 
 
-
-
-
-
-Limitations: Not clear if we miss certain areas
