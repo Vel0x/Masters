@@ -7,5 +7,7 @@
 *.pyg
 *.bbl
 *.blg
+*.lof
+*.lot
 *.synctex.gz
 .DS_Store
