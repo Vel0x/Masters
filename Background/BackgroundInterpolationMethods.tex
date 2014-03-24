@@ -1,7 +1,7 @@
 \section{Interpolation Methods}\label{background_interpolation_methods}
-    This section focuses on the various statistical methods of interpolating and extrapolating data values at arbitrary points on a grid. These methods vary in their effectiveness on different data sets, however it is important to note that none of these methods take into account data which could be viewed as extremely important in this case. An example of this is the terrain. Initial research in the first year of this project showed that pollutants tend to build up in street where there are buildings on either side. This effect is known as ``canyoning'' and has large effects on readings. Unfortunately this information is not available at this time. 
+    This section focuses on the various statistical methods of interpolating and extrapolating data values at arbitrary points on a grid. These methods vary in their effectiveness on different data sets, however it is important to note that none of these methods take into account data which could be viewed as extremely important in the context of air quality measurements. An example of this is the topography of the area. Research in the first year of this project showed that pollutants tend to build up in streets where there are buildings on both sides. This effect is known as ``canyoning'' and has large effects on readings. Unfortunately the topological information about Edinburgh is not available at this time and so will not be taken into account, but is a direction worthy of exploration in the future.
 
-    A further crucial piece of information which needs to be taken into account is that these models do not take into account temporal changes of readings. In order to use our data sets we will have to have a way of ``snapshotting'' data. A choice needs to be made for the length of time each snapshot should be. A suggestion for a rough value is 30 minutes, however experimental results will reveal the best value to use. \todo{I don't think I mention this anywhere? }
+    A further crucial piece of information which needs to be taken into account is that these models do not take into account temporal changes of readings. In order to use a data set, there must be a method of ``snapshotting'' the data. A choice needs to be made for the length of time each snapshot should be. This choice will be made through experimental analysis.
 
     With regards to the models chosen, various possibilities were considered. Due to the fact that various algorithms are similar with minor differences, the decision was made to use only a single algorithm from each ``family''. As such the algorithms chosen to be evaluated are:
 
@@ -17,19 +17,17 @@
 
     These algorithms can be split into two categories, regular grid algorithms and irregular grid algorithms, based on the format of the input data expected. 
 
-    \tdi{Go over all of this. It has been moved around a lot and may not make sense any longer.}
-
     \tdi{Is this level of detail really required for a lot of these?}
 
     \subsection{Irregular Grid Algorithms}\label{background_interpolation_methods_irregular_grid}
 
-        These algorithms work with arbitrary data points in that we can specify a single point and calculate the interpolated value for it without being required to calculate an entire grid. They generally all work on regular grids however as these are a subset of irregular grid data points. 
+        These algorithms work with arbitrary data points in that we can specify a single point and calculate the interpolated value for it without being required to calculate an entire grid. As regular grids are a subset of irregular grids, these algorithms will also work on regular grid data sets.
 
         \subsubsection{Nearest Neighbour}\label{background_interpolation_methods_nearest_neighbour}
 
-            Nearest neighbour interpolation is the simplest interpolation we will see in that it is not really interpolation at all. Instead the value of each point is the value of the closest data point we have. This algorithm can work reasonably well when there is a small amount of variation. However, as the results it produces are discontinuous, it cannot approximate well when there are large differences between adjacent data points~\cite{imageresamplingcomparison}.
+            Nearest neighbour interpolation is the simplest possible interpolation method. The value of each point is calculated as the value of the closest know data point to the current one. This algorithm can work reasonably well when there is a small amount of variation. However, as the results it produces are discontinuous, it cannot approximate well when there are large differences between adjacent data points~\cite{imageresamplingcomparison}.
 
-            \begin{figure}[H]
+            \begin{figure}
                 \centering
                 \begin{subfigure}{.333\textwidth}
                     \centering
@@ -52,17 +50,17 @@
                 \label{fig:example_nearest_neighbour}
             \end{figure}
 
-            A possible improvement to nearest neighbour is to apply a convolution filter to the data such as that done in figure~\ref{fig:example_nearest_neighbour}. In this figure we originally started with a 4 by 4 pixel image. Using a nearest neighbour algorithm we scaled this up to 128 by 128 pixels as seen in figure~\ref{fig:example_nearest_neighbour_normal}. When we apply a 10 pixel Gaussian Blur, a type of convolution filter, as in figure~\ref{fig:example_nearest_neighbour_blur}, we see that we achieve results similar to that of applying a bicubic interpolation algorithm as in figure~\ref{fig:example_nearest_neighbour_bicubic}.
+            A possible improvement to nearest neighbour is to apply a convolution filter to the data such as that shown in figure~\ref{fig:example_nearest_neighbour}. In this figure we originally started with a 4 by 4 pixel image. Using a nearest neighbour algorithm we scaled this up to 128 by 128 pixels as seen in figure~\ref{fig:example_nearest_neighbour_normal}. When we apply a 10 pixel Gaussian Blur, a type of convolution filter, as in figure~\ref{fig:example_nearest_neighbour_blur}, we see that we achieve results similar to that of applying a bicubic interpolation algorithm as in figure~\ref{fig:example_nearest_neighbour_bicubic}.
 
 
         \subsubsection{Inverse Distance Weighting}\label{background_interpolation_methods_inverse_distance_weighting}
 
-            The key component of inverse distance weighting (IDW) is the calculation of new parameters as the weighted average of neighbouring parameters. The weighting is calculated as the inverse of the distance from the current point to the neighbour currently being checked and are normalised such that the total weighting is equal to one. Due to the requirement of checking all other points the time complexity of this algorithm, like many other interpolation algorithms, is $O(n^{2})$. However it is possible to reduce this by some constant factor by imposing a maximum radius on all calculations. 
+            The methodology of inverse distance weighting (IDW) is the calculation of new data points as the weighted average of neighbouring known data points. The weighting is calculated as the inverse of the distance from the current point to the neighbour currently being checked and are normalised such that the total weighting is equal to one. Due to the requirement of checking all other points the time complexity of this algorithm, like many other interpolation algorithms, is $O(n^{2})$. However it is possible to reduce this by some constant factor by imposing a maximum radius on all calculations, which also has the possibility of raising the accuracy of the algorithm.
 
             The general formula for calculating the value, $V$, at a point $X_{i}$, given samples $S$, where $f(S_{i})$ is the value of sample $S$, is:
 
             \begin{align*}
-                V = \sum_{i=1}^{N}{f(S_{i})\frac{w_{i}(X_{i})}{\sum_{j=0}^{N}{w_{j}(X_{j})}}},
+                V = \sum_{i=1}^{N}{f(S_{i})\frac{w_{i}(X_{i})}{\sum_{j=0}^{N}{w_{j}(X_{j})}}}
             \end{align*}
 
             where 
@@ -101,22 +99,34 @@
                 \label{fig:example_idw}
             \end{figure}
 
-            As we can see in figure~\ref{fig:example_idw_p1} IDW's dependence on the surrounding values causes interesting effects. Between the x values of -1 and 1 we can see a local minima in the graph. This is due to the fact that the values at -3 and 3 are lower and are taken into account. A way of mitigating this effect is to increase the power parameter as has been done in figures~\ref{fig:example_idw_p1},~\ref{fig:example_idw_p2},~\ref{fig:example_idw_p3} and ~\ref{fig:example_idw_p4}. It should be noted, however, that as the p factor goes to infinity, the IDW algorithm approaches the nearest neighbour algorithm. 
+            As we can see in figure~\ref{fig:example_idw_p1}, IDW's dependence on the surrounding values causes interesting effects. Between the x values of -1 and 1 we can see a local minima in the graph. This is due to the fact that the values at -3 and 3 are lower and are taken into account. A way of mitigating this effect is to increase the power parameter as has been done in figures~\ref{fig:example_idw_p2},~\ref{fig:example_idw_p3} and ~\ref{fig:example_idw_p4}. It should be noted that as the power parameter goes to infinity, the IDW algorithm approaches the nearest neighbour algorithm. 
 
             A further example of this effect is figure~\ref{fig:example_idw_distance}, which has the extreme values further away, causing the local minima to be less pronounced.
 
-            \centerimage{.5\textwidth}{./images/IDW_distance.png}{In this figure the two extreme points have been moved further from zero by a value of one, in order to demonstrate their effect on the value at zero decreasing compared to figure~\ref{fig:example_idw_p2}}{fig:example_idw_distance}
+            \centerimage{.5\textwidth}{./images/IDW_distance.png}{A modification of figure~\ref{fig:example_idw_p2} which demonstrates how moving the extreme points further from zero by a value of one, affects the interpolation.}{fig:example_idw_distance}
 
+
+        \subsubsection{Natural Neighbour}\label{background_interpolation_methods_natural_neighbour}
+
+            Natural neighbour interpolation is based on Voronoi tessellation~\cite{multivariatedata}. The basic method is very similar to that of IDW in that the basic form of the equation is:
+
+            \begin{align*}
+                G(x,y) = \sum_{i=1}^{n}{w_{i}f(x_{i},y_{i})}, 
+            \end{align*}
+
+            where $w_{i}$ is the weighting factor and $f(x_{i},y_{i})$ is the value at known point $(x_{i},y_{i})$. The main difference between natural neighbour and IDW is the method used to calculate the weighing. In natural neighbour the weighting is calculated as the ratio of area of the new region that originally belonged to the current known point in a Voronoi diagram. As such all weightings sum to one, which ensures that the original values do not change. An example of this can be seen in figure~\ref{fig:natural_neighbour}. 
+
+            \centerimageanywhere{0.6\textwidth}{./images/Natural_Neighbour.png}{An illustration of the method for calculating the weighing in natural neighbour. This figure was created by Wikipedia user \emph{Markluffel}.}{fig:natural_neighbour}
 
     \subsection{Regular Grid Algorithms}\label{background_interpolation_methods_regulargrid}
 
-        Regular grid algorithms require the known data points to be on a regular grid and can not easily only calculate the interpolated value of a single point. This can be achieved with irregular data by making the grid sufficiently large and ``snapping'' data points to it.
+        Regular grid algorithms require the known data points to be on a regular grid. This can be achieved with irregular data by making the grid sufficiently large and ``snapping'' data points to it.
 
         \subsubsection{Bilinear}\label{background_interpolation_methods_bilinear}
 
-            Bilinear interpolation, is the simplest of the grid interpolation algorithms which will be evaluated. The algorithm is the two dimensional equivalent of linear interpolation, and works by evaluating the linear interpolation in both the x and y directions and combining them. Essentially this calculates each pixel as a weighted average of the 4 nearest pixels.
+            Bilinear interpolation, is the simplest of the grid interpolation algorithms which will be evaluated. The algorithm is the two dimensional equivalent of linear interpolation, and works by evaluating the linear interpolation in both the x and y directions and combining them. Essentially this calculates each points as a weighted average of the nearest point in each direction. This algorithm is originally used in images, where the nearest points are pixels. 
 
-            The main disadvantage of bilinear interpolation is that if there is an outlier point nearby then this has a large effect on interpolated points. It also has the disadvantage that it cannot extrapolate any information. All points to be interpolated must be inside the convex hull of the known points.
+            The main disadvantage of bilinear interpolation is that if there is an outlier point nearby then this has a large effect on interpolated points and there is no way of controlling this. It also has the disadvantage that it cannot extrapolate any information. All points to be interpolated must be inside the convex hull of the known points.
 
 
         \subsubsection{Bicubic}\label{background_interpolation_methods_bicubic}
@@ -136,41 +146,15 @@
                     \caption{}
                     \label{fig:example_bilinear}
                 \end{subfigure}
-                \caption{These examples, created by Wikipedia user \emph{Berland}, shows the difference between bicubic interpolation, figure~\ref{fig:example_bicubic}, and bilinear interpolation, figure~\ref{fig:example_bilinear}, on the same dataset.}
+                \caption{The difference between bicubic interpolation, figure~\ref{fig:example_bicubic}, and bilinear interpolation, figure~\ref{fig:example_bilinear}, on the same dataset. These examples were created by Wikipedia user \emph{Berland}.}
                 \label{fig:bicubic_vs_bilinear}
             \end{figure}
 
-            The algorithm for bicubic interpolation is relatively simple, with the result being given by the calculation:
-
-            \begin{align*}
-                p(x,y) = \sum_{i=0}^{3}{\sum_{j=0}^{3}{a_{ij}x^{i}y^{j}}},
-            \end{align*}
-
-            with the values of $a_{ij}$ being determined by solving a system of linear equations~\cite{bicubicorigins}.
-
-            As with the bilinear interpolation algorithm, we cannot extrapolate, only interpolate. 
-
-        \subsubsection{Natural Neighbour}\label{background_interpolation_methods_natural_neighbour}
-
-            Natural neighbour interpolation is based on Voronoi tessellation~\cite{multivariatedata}. The basic method is very similar to that of IDW in that the basic form of the equation is:
-
-            \begin{align*}
-                G(x,y) = \sum_{i=1}^{n}{w_{i}f(x_{i},y_{i})}, 
-            \end{align*}
-
-            where $w_{i}$ is the weighting factor and $f(x_{i},y_{i})$ is the value at known point $(x_{i},y_{i})$. The main difference between natural neighbour and IDW is the method used to calculate the weighing. In natural neighbour the weighting is calculated as the ratio of area of the new region that originally belonged to the current known point in a Voronoi diagram. As such all weightings sum to one, which ensures that the original values do not change. An example of this can be seen in figure~\ref{fig:natural_neighbour}.
-
-            \begin{figure}[H]
-                \begin{center}
-                    \includegraphics[scale=0.66]{./images/Natural_Neighbour.png}
-                    \caption{An example of how the weighing in natural neighbour is calculated. This figure was created by Wikipedia user \emph{Markluffel}.}
-                    \label{fig:natural_neighbour}
-                \end{center}
-            \end{figure}
+            The algorithm for bicubic interpolation is more complicated than that of bilinear interpolation, requiring the solution to a system of linear equations~\cite{bicubicorigins}, but also cannot extrapolate, only interpolate. 
 
         \subsubsection{Barnes}\label{background_interpolation_methods_barnes}
 
-            Barnes interpolation uses a multi-pass approach to determine the new data points. The method has found success in calculating air pressure across the United States, providing results similar to careful analysis, however it depends on the data points be reasonably uniform~\cite{barnesinterpolation}.
+            Barnes interpolation uses a multi-pass approach to determine the new data points. The method has found success in calculating air pressure across the United States, providing results similar to measured data, however it depends on the data points be reasonably uniform~\cite{barnesinterpolation}.
 
             The algorithm works by calculating a simple distance weighted interpolation as the first result, and then iterating multiple times using a calculated error field to reduce the errors in the output. 
 
@@ -184,7 +168,7 @@
                 W_{i} &= e^{-(d/R^{2})}
             \end{align*}
             
-            where d is the distance between the known point and the current point to be interpolated, and R is the radius of influence. Using this weight, the initial guess of the grid points is calculated as: 
+            where d is the distance between the known point and the current point to be interpolated, and R is the radius of influence. Using this weight, the initial estimates of the unknown points are calculated as: 
             
             \begin{align*}
                 X_{g} &= \frac{\sum_{i}{W_{i}X_{i}}}{\sum_{i}{W_{i}}}
@@ -202,6 +186,6 @@
                 W'_{i} &= e^{-(d/\Gamma R)^{2}}
             \end{align*}
 
-            with $\Gamma$ as a convergence parameter normally set in the range 0.2-0.3.
+            with $\Gamma$ as a convergence parameter normally set in the range 0.2-0.3. In our experiments we will use a value of 0.29.
 
 

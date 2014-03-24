@@ -11,7 +11,7 @@
 			"file": "mpp.tex",
 			"settings":
 			{
-				"buffer_size": 4583,
+				"buffer_size": 5071,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "Introduction/Introduction.tex",
 			"settings":
 			{
-				"buffer_size": 1557,
+				"buffer_size": 5894,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "references.bib",
 			"settings":
 			{
-				"buffer_size": 49265,
+				"buffer_size": 51778,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "Simulation/Simulation.tex",
 			"settings":
 			{
-				"buffer_size": 23178,
+				"buffer_size": 24919,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "Background/AirQuality.tex",
 			"settings":
 			{
-				"buffer_size": 1787,
+				"buffer_size": 1540,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +51,7 @@
 			"file": "PredictionEvaluation/PredictionEvaluation.tex",
 			"settings":
 			{
-				"buffer_size": 33892,
+				"buffer_size": 34063,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,8 +59,32 @@
 			"file": "Performance/Performance.tex",
 			"settings":
 			{
-				"buffer_size": 34418,
+				"buffer_size": 35586,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Background/Background.tex",
+			"settings":
+			{
+				"buffer_size": 5982,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Appendix/Appendix.tex",
+			"settings":
+			{
+				"buffer_size": 925,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Background/BackgroundInterpolationMethods.tex",
+			"settings":
+			{
+				"buffer_size": 15868,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -140,11 +164,12 @@
 	},
 	"file_history":
 	[
+		"/H/My Documents/SkyDrive/OneDrive/test",
+		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/BackgroundInterpolationMethods.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Simulation/omnetpp.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Simulation/DataPacket.tex",
 		"/C/Users/Velox/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Introduction/Introduction.tex",
-		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/BackgroundInterpolationMethods.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Appendix/Appendix.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/Background.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/PredictionEvaluation/PredictionEvaluation.tex",
@@ -246,15 +271,15 @@
 					"file": "mpp.tex",
 					"settings":
 					{
-						"buffer_size": 4583,
+						"buffer_size": 5071,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1441,
-								1441
+								4352,
+								4352
 							]
 						],
 						"settings":
@@ -264,7 +289,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 720.0,
+						"translation.y": 2064.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -274,15 +299,15 @@
 					"file": "Introduction/Introduction.tex",
 					"settings":
 					{
-						"buffer_size": 1557,
+						"buffer_size": 5894,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								361,
-								361
+								4945,
+								4945
 							]
 						],
 						"settings":
@@ -292,7 +317,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 473.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -302,7 +327,7 @@
 					"file": "references.bib",
 					"settings":
 					{
-						"buffer_size": 49265,
+						"buffer_size": 51778,
 						"regions":
 						{
 						},
@@ -329,15 +354,15 @@
 					"file": "Simulation/Simulation.tex",
 					"settings":
 					{
-						"buffer_size": 23178,
+						"buffer_size": 24919,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16842,
-								16842
+								11793,
+								11793
 							]
 						],
 						"settings":
@@ -347,7 +372,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2801.0,
+						"translation.y": 1872.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -357,15 +382,15 @@
 					"file": "Background/AirQuality.tex",
 					"settings":
 					{
-						"buffer_size": 1787,
+						"buffer_size": 1540,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								51
+								1081,
+								1081
 							]
 						],
 						"settings":
@@ -383,7 +408,7 @@
 					"file": "PredictionEvaluation/PredictionEvaluation.tex",
 					"settings":
 					{
-						"buffer_size": 33892,
+						"buffer_size": 34063,
 						"regions":
 						{
 						},
@@ -400,7 +425,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1760.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -410,15 +435,99 @@
 					"file": "Performance/Performance.tex",
 					"settings":
 					{
-						"buffer_size": 34418,
+						"buffer_size": 35586,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								933,
-								933
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Background/Background.tex",
+					"settings":
+					{
+						"buffer_size": 5982,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5669,
+								5669
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 864.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Appendix/Appendix.tex",
+					"settings":
+					{
+						"buffer_size": 925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Background/BackgroundInterpolationMethods.tex",
+					"settings":
+					{
+						"buffer_size": 15868,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								38
 							]
 						],
 						"settings":
@@ -496,6 +605,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 262.0,
+	"side_bar_width": 253.0,
 	"status_bar_visible": true
 }

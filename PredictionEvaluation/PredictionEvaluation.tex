@@ -1,12 +1,8 @@
 \chapter{Prediction Evaluation}\label{prediction_evaluation}
 
-	\maheshi{This currently only mentions the Edinburgh data set as that's all I have for now.}
-	\tdi{I can probably remove all tables in this except for the final results.}\
-	\tdi{Probably going to have to go through all of this again and add in the variance/standard deviation.}
-
 	\section{Motivation}\label{prediction_evaluation_motivation}
 
-		In sampling data it is almost inevitable that information will be missed. In order to accurately reconstruct the original data we must take certain precautions. One of these precautions is making sure that we sample at a rate high enough to reconstruct all information. This rate goes by the term \emph{Nyquist rate}~\cite{nyquistrate}. The Nyquist rate is the rate of taking measurements such that the original information can be reconstructed without aliasing occurring. This essentially means that we need to have a sample rate of twice the rate of the smallest changes in a signal. If we do not have this sampling rate then it is possible for us to lose information during the sampling process. 
+		In sampling data it is almost inevitable that information will be missed. In order to accurately reconstruct the original data we must take certain precautions. One of these precautions is making sure that we sample at a rate high enough to reconstruct all information. This rate goes by the term \emph{Nyquist rate}~\cite{nyquistrate}. The Nyquist rate is the rate of taking measurements such that the original information can be reconstructed without aliasing occurring. This essentially means that we need to have a sample rate of twice the rate of the smallest changes in a signal. If we do not have this sampling rate then it is possible for us to lose information during the sampling process such as that seen in figure~\ref{fig:nyquist_example}.
 
 		\centerimagewideanywhere{./images/Nyquist_Example.png}{Here we can see an example of a sample rate on the function $y = sin(4x)$ being insufficient. This sample rate of 1.2 is insufficient for the graph since it's period is $\frac{2\pi}{4} \equiv 1.570$. A sample rate of $\frac{1.570}{2} \equiv 0.785$ is required to be sufficient.}{fig:nyquist_example}
 
@@ -35,15 +31,15 @@
 
 	\section{Methodology}\label{prediction_evaluation_methodology}
 
-		In order to evaluate the efficiency of these algorithms we will utilise an existing data set of air quality measurements. The initial step is to remove some known values from our data set. If we then apply the various interpolation algorithms to this data set, then we will have predicted values at the points which we removed. By comparing these predicted values and the actual values recorded we will have a metric for comparing the efficiency of the various algorithms. 
+		Our method of evaluation is simple. By applying the various interpolation algorithms to data sets, we will have predicted values at points where there are no measurements. By comparing these predicted values and the actual values recorded, either from other data sources or by removing select data points from the original data set, we will have a metric for comparing the efficiency of the various algorithms. 
 
 		\subsection{Data Sets}\label{prediction_evaluation_methodology_data_sets}
 
 			\subsubsection{OpenSense}\label{prediction_evaluation_methodology_data_sets_opensense}
 
-				\maheshi{Still waiting on this data set.}
-
 				This data set, provided by the \emph{OpenSense} group at \emph{ETH Zurich}, provides ozone concentrations based on measurements taken from trams moving around the city of Zurich, Switzerland. This data set only has measurements along the tram tracks, similar to how data would only be provided along bus routes with a physical implementation of this system. We will perform our interpolation on the entire data set giving a two dimensional map covering the city of estimated ozone concentrations. We will then use information taken from static sensors located in Zurich, which are not along tram tracks, to measure the accuracy of these interpolation algorithms. 
+
+				Unfortunately this data set arrived late in the project and as such was not available for the initial round of evaluation and writing of this report. The findings from this data set are shown in a sub-section at the end of the results section, numbered~\ref{prediction_evaluation_results_opensense_data_set}.
 
 				\centerimagewideanywhere{./images/Zurich_Ozone.png}{A scatter plot of the Zurich data points. The hue of the colour of the points is directly proportional to the Ozone concentration.}{fig:zurich_ozone}
 
@@ -51,7 +47,7 @@
 
 				A second problem, is one which affects all data sets we would use. That is the issues caused by the temporal changes in the data. If we were to take the measurements at any given point in time we would only have as many data points as there are sensors, which may not provide sufficient coverage. We can assume that pollutant levels do not change so quickly in that we would have extreme differences between readings. By making this assumption we can select a temporal window of measurements and so can increase the number of readings we have. These readings will also be at different locations due to the motion of the trams, giving a better representation of the actual data, and in so improving the accuracy of our algorithms. 
 
-				In taking this temporal window we risk missing out on some information. Should a pollutant change rapidly in the space of a single window, this information would be lost, and may indeed skew the results. Experimentation revealed that a window of 30 minutes is enough to cover as much area as possible, with minimal overlap of tram routes. \todo{Still not happy about this. I should show this somehow. }
+				In taking this temporal window we risk missing out on some information. Should a pollutant change rapidly in the space of a single window, this information would be lost, and may indeed skew the results. Experimentation revealed that a window of 30 minutes is enough to cover as much area as possible, with minimal overlap of tram routes. 
 
 
 			\subsubsection{Air Quality Scotland}\label{prediction_evaluation_methodology_data_sets_air_quality_scotland}
@@ -60,12 +56,14 @@
 
 		\subsection{Data Structure}\label{prediction_evaluation_methodology_data_structure}
 			
-			In order to use these data sets in the various algorithms we must change the data structure slightly. Two of the algorithms, bilinear interpolation, and bilinear interpolation, work when the data is on a regular grid, which these data sets are not. As such we need to map them onto a regular grid. For the algorithms which are not limited to a grid we do not have to
+			In order to use these data sets in the various algorithms we must change the data structure slightly. Two of the algorithms, bilinear interpolation, and bilinear interpolation, \emph{only} work when the data is on a regular grid, which these data sets are not. As such we need to map them onto a regular grid. For the algorithms which are not limited to a grid we do not have to
 
 			With the Zurich data set the area which we are taking measurements from is roughly $5km$ by $5km$. By setting a resolution of 200 by 200 for the grid we can calculate the interpolated values in regions roughly $25m$ by $25m$. Using the same resolution on the Edinburgh data we move our data points from a map of size $15km$ by $9km$ to a grid with cells of size $75m$ by $45m$. 
 
 
     \section{Results}\label{prediction_evaluation_results}
+
+    	\maheshi{These have all been shuffled around so certain comments may not make sense currently. I ran out of time for proof reading before sending to you.}
 
         \subsection{Nearest Neighbour}\label{prediction_evaluation_results_nearest_neighbour}
 
@@ -113,7 +111,7 @@
 
 			From this scatter plot we get the first information about our interpolation algorithm. Initially we can see that $NO_{2}$ has a much lower percentage difference on average than the other pollutants. We can also see that there seems to be some correlation between the percentage difference of the value of $NO$ and the value of $NO_{X}$. 
 
-			In order to have a metric which allows us to evaluate the performance we must take the mean across all time periods. \todo{Pretty sure I still need the standard deviation, but it would be huge} This data is shown in table~\ref{tab:nearest_neighbour_difference_results_mean}. 
+			In order to have a metric which allows us to evaluate the performance we must take the mean across all time periods. This data is shown in table~\ref{tab:nearest_neighbour_difference_results_mean}. 
 
 			\begin{table}[H]
 				\centering
@@ -132,7 +130,7 @@
 
 			\centerimagewide{./images/Nearest_Neighbour_Sigma_6_Zurich.png}{The result of applying the nearest neighbour with convolution filter algorithm to the data seen in figure~\ref{fig:zurich_ozone}. This is the result of setting $\sigma$ to the value of 6.}{fig:nearest_neighbour_blur_zurich}
 
-			As was mentioned in section~\ref{background_interpolation_methods_nearest_neighbour}, a possible optimisation to the nearest neighbour algorithm is to apply a convolution filter to it. In this case we will use a Gaussian blur as our convolution filter. The formula for applying a Gaussian blur in two dimension~\cite{gaussianblur} is:
+			As was mentioned in section~\ref{background_interpolation_methods_nearest_neighbour}, a possible optimisation to the nearest neighbour algorithm is to apply a convolution filter to it. In this case we will use a Gaussian blur as our convolution filter, and henceforth the algorithm will be known as ``blurry neighbour''. The formula for applying a Gaussian blur in two dimension~\cite{gaussianblur} is:
 
 			\begin{align*}
 				G(x,y) = \frac{1}{2\pi\sigma^{2}} e^{-\frac{x^{2} + y^{2}}{2\sigma^{2}}}
@@ -188,7 +186,7 @@
 
 			After finding this optimal value of sigma, the tests from section~\ref{prediction_evaluation_results_nearest_neighbour} will be run once again, but with the Gaussian blur applied with $\sigma$ having the value 256. The results of this test are as follows:
 
-			\centerimagewide{./images/Nearest_Neighbour_256.png}{The mean results of the different pollutants across time frames when a Gaussian blur is applied to the nearest neighbour results, with a value of $\sigma$ equal to 256.}{fig:nearest_neighbour_256}\todo{This is the only chart which doesn't have gridlines.}
+			\centerimagewide{./images/Nearest_Neighbour_256.png}{The mean results of the different pollutants across time frames when a Gaussian blur is applied to the nearest neighbour results, with a value of $\sigma$ equal to 256.}{fig:nearest_neighbour_256}\todo{This is the only chart which does not have grid lines.}
 
 			Taking the mean of the absolute value across all time frames and locations we get the following results:
 
@@ -232,7 +230,7 @@
 				\end{tabular}
 				\caption{The mean results of IDW with power parameter equal to 256}
 				\label{tab:idw_results}
-			\end{table} \todo{Make sure that all tables refer to ``Mean Difference''}
+			\end{table}
 
 			When we compare these results to that of the simpler nearest neighbour algorithm we see that this algorithm is many times worse. As stated in section~\ref{prediction_evaluation_results_nearest_neighbour_convolution_filter} it is likely that this is due to a lack of data points. 
 
@@ -281,6 +279,26 @@
 
 			From table~\ref{tab:idw_results_2} we can see that having a power parameter specified for each pollutant is an extreme improvement on the overall performance of the algorithm. 
 
+		\subsection{Natural Neighbour}\label{prediction_evaluation_results_natural_neighbour}
+
+        	\centerimagewide{./images/Natural_Neighbour_Zurich.png}{The result of applying the natural neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}.}{fig:natural_neighbour_zurich}
+
+        	Natural neighbour interpolation is also simple to get the results for. We use the same methodology as above to produce the results seen in table~\ref{tab:natural_neighbour_results}.
+
+        	\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Pollutant & Mean Difference (\%) \\ \hline
+					$NO$ & 25.37 \\
+					$NO_{2}$ & 5.89 \\
+					$NO_{X}$ & 16.84 \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of natural neighbour interpolation.}
+				\label{tab:natural_neighbour_results}
+			\end{table} 
+
         \subsection{Bilinear}\label{prediction_evaluation_results_bilinear}
 
         	\centerimagewide{./images/Bilinear_Zurich.png}{The result of applying the bilinear algorithm to the data seen in figure~\ref{fig:zurich_ozone}.}{fig:bilinear_zurich}
@@ -321,33 +339,11 @@
 				\label{tab:bicubic_results}
 			\end{table} 
 
-        \subsection{Natural Neighbour}\label{prediction_evaluation_results_natural_neighbour}
-
-        	\centerimagewide{./images/Natural_Neighbour_Zurich.png}{The result of applying the natural neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}.}{fig:natural_neighbour_zurich}
-
-        	Natural neighbour interpolation is also simple to get the results for. We use the same methodology as above to produce the results seen in table~\ref{tab:natural_neighbour_results}.
-
-        	\begin{table}[H]
-				\centering
-	    		\begin{tabular}{|c|c|}
-	    			\hline
-					Pollutant & Mean Difference (\%) \\ \hline
-					$NO$ & 25.37 \\
-					$NO_{2}$ & 5.89 \\
-					$NO_{X}$ & 16.84 \\
-					\hline
-				\end{tabular}
-				\caption{The mean results of natural neighbour interpolation.}
-				\label{tab:natural_neighbour_results}
-			\end{table} 
-
         \subsection{Barnes}\label{prediction_evaluation_results_barnes}
-
-        	\tdi{I don't mention the convergence parameter}
 
         	\centerimagewide{./images/Barnes_Zurich.png}{The result of applying the nearest neighbour algorithm to the data seen in figure~\ref{fig:zurich_ozone}. This is the result of a single pass with a distance parameter of $2^{15}$.}{fig:barnes_zurich}
 
-        	As with the nearest neighbour algorithm with Gaussian blurring and IDW, Barnes interpolation has parameters which need to be tuned in order to get the best performance. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. As we have seen in previous sections \todo{should this be plural?}, we should measure the result for each pollutant separately in order to achieve the best results. 
+        	As with the nearest neighbour algorithm with Gaussian blurring and IDW, Barnes interpolation has parameters which need to be tuned in order to get the best performance. These parameters are the number of error correcting passes we make over the data, and the distance constant which we use to weight the values we use to interpolate. As we have seen in previously, we should measure the result for each pollutant separately in order to achieve the best results. 
 
         	\centerimagewideanywhere{./images/Barnes_Mean_Difference_NO.png}{A scatter plot showing the difference for 23 different passes for each data time frame. The distance constant is 1024.}{fig:barnes_no_passes_results}
 
@@ -383,7 +379,7 @@
 
         	The pollutants $NO$ and $NO_{X}$ appear to have the same tipping point in the distance factor, which is $2^{17}$. $NO_{2}$ is half of that distance at $2^{16}$. The graph also has a very different shape. 
 
-        	With this new information of the distance factors and the optimal number of passes, that is to say for $NO$, $NO_{2}$ and $NO_{X}$ the distance factors are $2^{17}$,$2^{16}$ and $2^{17}$ respectively, we must run the tests once again. The results of these runs are seen in table~\ref{barnes_results}.
+        	With this new information of the distance factors and the optimal number of passes, that is to say for $NO$, $NO_{2}$ and $NO_{X}$ the distance factors are $2^{17}$,$2^{16}$ and $2^{17}$ respectively, we must run the tests once again. The results of these runs are seen in table~\ref{tab:barnes_results}.
 
         	\begin{table}[H]
 				\centering
@@ -398,6 +394,56 @@
 				\caption{The mean results of natural neighbour interpolation.}
 				\label{tab:barnes_results}
 			\end{table} 
+
+		\subsection{OpenSense Data Set}\label{prediction_evaluation_results_opensense_data_set}
+
+			As mentioned previously, the OpenSense data set, arrived much later and was unable to be included in initial tests. However, running the same tests as above for each algorithm revealed the results shown in table~\ref{tab:opensense_interpolation_results}.
+
+			\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|}
+	    			\hline
+					Algorithm & Mean Difference (\%) \\ \hline
+					Nearest Neighbour & 22.57\% \\
+					Blurry Neighbour & 22.96\% \\
+					IDW & 22.57\% \\
+					Natural Neighbour & 24.44\% \\
+					Bilinear & 23.33\% \\
+					Bicubic & 22.66\% \\
+					Barnes & 21.77\% \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of the various interpolation algorithms on the OpenSense data set.}
+				\label{tab:opensense_interpolation_results}
+			\end{table} 
+
+			These results immediate show that while the results are in the approximate range of the Edinburgh data set results, the ordering is different. From this our greatest performance, with the lowest deviation from the actual values, is the Barnes interpolation algorithm, followed by nearest neighbour, IDW, bicubic, blurry neighbour, bilinear and finally natural neighbour. These results show that further analysis is needed. 
+
+			In terms of the blurry neighbour algorithm, we get our best results when sigma is equal to 1. The only better performance is when sigma is equal to 0, which is the same algorithm as nearest neighbour. As such we can immediately discount this algorithm. With respect to the IDW algorithm, the performance improved as the power parameter tended towards infinity. As discussed previously, this also approximates the nearest neighbour algorithm, and can therefore also discount IDW.
+
+			One of the possible ways of breaking this analysis down is to split the mean results into their two separate results. These are the differences for each of the measurement stations. The results of this are shown in table~\ref{tab:opensense_interpolation_split}.
+
+			\begin{table}[H]
+				\centering
+	    		\begin{tabular}{|c|c|c|}
+	    			\hline
+					Algorithm & Station 1 (\%) & Station 2 (\%) \\ \hline
+					Nearest Neighbour & 41.48 & 3.66\% \\
+					Natural Neighbour & 42.70 & 6.18\% \\
+					Bilinear & 42.64 & 4.02\% \\
+					Bicubic & 42.42 & 2.90\% \\
+					Barnes & 41.49 & 2.05\% \\
+					\hline
+				\end{tabular}
+				\caption{The mean results of the various interpolation algorithms on the OpenSense data set.}
+				\label{tab:opensense_interpolation_results}
+			\end{table} 
+
+			From these results, the ordering for each station slightly changes, with Barnes moving to second, and nearest neighbour in first place, followed by bicubic, bilinear and natural neighbour, for the first station. With respect to the second station, Barnes is the clear winner, followed by bicubic, nearest neighbour, bilinear and then natural neighbour. The second stations results much more closely mimic the Edinburgh data set in terms of performance. 
+
+			We can also see from this data set that we have a large discrepancy between the first stations results and the second stations results. The hypothesised reason for this is due to the time discrepancies. The temporal window for this data set is 36 minutes, however at station 2, our closest data point is only around 2-3 minutes old. At station 1, the difference is roughly 15 minutes. 
+
+			Something which all algorithms have in common, is that the closest points have the greatest effects on the data generated. With this data set, the 
 
 	\section{Conclusion}
 
