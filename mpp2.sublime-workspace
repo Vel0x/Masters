@@ -11,7 +11,7 @@
 			"file": "mpp.tex",
 			"settings":
 			{
-				"buffer_size": 5071,
+				"buffer_size": 4920,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "Introduction/Introduction.tex",
 			"settings":
 			{
-				"buffer_size": 5894,
+				"buffer_size": 5895,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "references.bib",
 			"settings":
 			{
-				"buffer_size": 51778,
+				"buffer_size": 53684,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "Simulation/Simulation.tex",
 			"settings":
 			{
-				"buffer_size": 24919,
+				"buffer_size": 25517,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +51,7 @@
 			"file": "PredictionEvaluation/PredictionEvaluation.tex",
 			"settings":
 			{
-				"buffer_size": 34063,
+				"buffer_size": 37671,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +59,7 @@
 			"file": "Performance/Performance.tex",
 			"settings":
 			{
-				"buffer_size": 35586,
+				"buffer_size": 37409,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +67,7 @@
 			"file": "Background/Background.tex",
 			"settings":
 			{
-				"buffer_size": 5982,
+				"buffer_size": 6023,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +75,7 @@
 			"file": "Appendix/Appendix.tex",
 			"settings":
 			{
-				"buffer_size": 925,
+				"buffer_size": 794,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "Background/BackgroundInterpolationMethods.tex",
 			"settings":
 			{
-				"buffer_size": 15868,
+				"buffer_size": 15651,
 				"line_ending": "Windows"
 			}
 		}
@@ -164,6 +164,7 @@
 	},
 	"file_history":
 	[
+		"/H/My Documents/Dropbox/Public/Jobs/CV/cv.tex",
 		"/H/My Documents/SkyDrive/OneDrive/test",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/BackgroundInterpolationMethods.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Simulation/omnetpp.tex",
@@ -174,7 +175,6 @@
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/Background/Background.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/PredictionEvaluation/PredictionEvaluation.tex",
 		"/H/My Documents/Dropbox/Uni/Masters Project/thesis/PredictionEvaluation/DataValidation.tex",
-		"/H/My Documents/Dropbox/Public/Jobs/CV/cv.tex",
 		"/H/My Documents/Dropbox/Uni/5th Year/SP/SP.tex",
 		"/H/My Documents/Dropbox/Public/Jobs/CV/cv2.tex",
 		"/H/My Documents/Dropbox/Public/Jobs/CV/email.tex",
@@ -229,6 +229,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"NO_\\{x\\}",
+			"NO_{x}",
+			"NOx",
 			"opportunistic",
 			"\\n",
 			"\\r\\r",
@@ -271,15 +274,15 @@
 					"file": "mpp.tex",
 					"settings":
 					{
-						"buffer_size": 5071,
+						"buffer_size": 4920,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4352,
-								4352
+								161,
+								161
 							]
 						],
 						"settings":
@@ -289,7 +292,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2064.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -299,15 +302,15 @@
 					"file": "Introduction/Introduction.tex",
 					"settings":
 					{
-						"buffer_size": 5894,
+						"buffer_size": 5895,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4945,
-								4945
+								0,
+								0
 							]
 						],
 						"settings":
@@ -327,7 +330,7 @@
 					"file": "references.bib",
 					"settings":
 					{
-						"buffer_size": 51778,
+						"buffer_size": 53684,
 						"regions":
 						{
 						},
@@ -354,15 +357,15 @@
 					"file": "Simulation/Simulation.tex",
 					"settings":
 					{
-						"buffer_size": 24919,
+						"buffer_size": 25517,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11793,
-								11793
+								0,
+								0
 							]
 						],
 						"settings":
@@ -372,7 +375,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1872.0,
+						"translation.y": 368.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -408,15 +411,15 @@
 					"file": "PredictionEvaluation/PredictionEvaluation.tex",
 					"settings":
 					{
-						"buffer_size": 34063,
+						"buffer_size": 37671,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								35101,
+								35101
 							]
 						],
 						"settings":
@@ -425,7 +428,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 9660.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -435,15 +438,15 @@
 					"file": "Performance/Performance.tex",
 					"settings":
 					{
-						"buffer_size": 35586,
+						"buffer_size": 37409,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								35555,
+								35555
 							]
 						],
 						"settings":
@@ -453,7 +456,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7724.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -463,15 +466,15 @@
 					"file": "Background/Background.tex",
 					"settings":
 					{
-						"buffer_size": 5982,
+						"buffer_size": 6023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5669,
-								5669
+								0,
+								0
 							]
 						],
 						"settings":
@@ -491,15 +494,15 @@
 					"file": "Appendix/Appendix.tex",
 					"settings":
 					{
-						"buffer_size": 925,
+						"buffer_size": 794,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								133,
-								133
+								0,
+								0
 							]
 						],
 						"settings":
@@ -519,15 +522,15 @@
 					"file": "Background/BackgroundInterpolationMethods.tex",
 					"settings":
 					{
-						"buffer_size": 15868,
+						"buffer_size": 15651,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								70,
-								38
+								2052,
+								2052
 							]
 						],
 						"settings":
@@ -537,7 +540,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -578,7 +581,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 211.0
+		"height": 190.0
 	},
 	"replace":
 	{

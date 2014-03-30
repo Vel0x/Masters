@@ -95,13 +95,13 @@
 
         \begin{figure}
             \centering
-            \begin{subfigure}{\textwidth}
+            \begin{subfigure}{0.8\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{./images/Access_Point_Latency.png}
                 \caption{}
                 \label{fig:num_aps_latency}
             \end{subfigure}
-            \begin{subfigure}{\textwidth}
+            \begin{subfigure}{0.8\textwidth}
                 \includegraphics[width=\linewidth]{./images/Access_Point_Received.png}
                 \caption{}
                 \label{fig:num_aps_received}
@@ -152,7 +152,7 @@
             \end{landscape}
         }
 
-        \centerimagewide{./images/Power_Level.png}{A chart showing the small variations in latency and packet delivery when changing power level.}{fig:power_level}
+        \centerimage{0.7\linewidth}{./images/Power_Level.png}{A chart showing the small variations in latency and packet delivery when changing power level.}{fig:power_level}
 
         In terms of the propagation model a significant problem was found which may be apparent from the final row in table~\ref{tab:power_level}. There appeared to be a bug in the implementation in Omnet++ in which the simulation tended to crash when used with this simulation after some indeterminable period of time. Generally we did not get a simulation time of longer than 2,000 seconds which is significantly shorter than the 10,000 seconds we had been using previously. In some cases we did not get readings for particular runs using the Log Normal Shadowing model and therefore the mean result was made up of just 3 or 4 readings instead of 5. Furthermore, the effect that the software bugs had on the simulation when also trying the Log Normal Shadowing model also seemed to affect the simulation when using the Rayleigh model, which is the model used for all other experiments. As such no further experiments were performed on propagation models. 
 
@@ -226,13 +226,13 @@
 
         \begin{figure}
             \centering
-            \begin{subfigure}{\textwidth}
+            \begin{subfigure}{0.5\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{./images/OF_Latency.png}
                 \caption{}
                 \label{fig:of_latency}
-            \end{subfigure}
-            \begin{subfigure}{\textwidth}
+            \end{subfigure}%
+            \begin{subfigure}{0.5\textwidth}
                 \includegraphics[width=\linewidth]{./images/OF_Received.png}
                 \caption{}
                 \label{fig:of_recieved}
@@ -270,13 +270,13 @@
 
         \begin{figure}
             \centering
-            \begin{subfigure}{\textwidth}
+            \begin{subfigure}{0.5\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{./images/OF_Non_Chron_Latency.png}
                 \caption{}
                 \label{fig:of_non_chron_latency}
-            \end{subfigure}
-            \begin{subfigure}{\textwidth}
+            \end{subfigure}%
+            \begin{subfigure}{0.5\textwidth}
                 \includegraphics[width=\linewidth]{./images/OF_Non_Chron_Received.png}
                 \caption{}
                 \label{fig:of_non_chron_received}
@@ -314,13 +314,13 @@
         
         \begin{figure}
             \centering
-            \begin{subfigure}{\textwidth}
+            \begin{subfigure}{0.5\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{./images/OF_Complete_Latency.png}
                 \caption{}
                 \label{fig:of_complete_latency}
-            \end{subfigure}
-            \begin{subfigure}{\textwidth}
+            \end{subfigure}%
+            \begin{subfigure}{0.5\textwidth}
                 \includegraphics[width=\linewidth]{./images/OF_Complete_Received.png}
                 \caption{}
                 \label{fig:of_complete_received}
@@ -331,20 +331,35 @@
 
     \subsection{Number of Access Points}\label{data_gathering_performance_number_of_access_points}
 
-        \tdi{Complete this section with the data}
-        \maheshi{This section will be completed when the simulations finish. I have preliminary results but nothing concrete yet.}
+        In order to test the relative efficiency of the opportunistic forwarding algorithm a simulation was run with varying numbers of access points. In doing this we can find the number of access points which are required when using opportunistic forwarding to equal the performance of the non-opportunistic forwarding algorithm using fifty access points. The simulation was run with five different queue sizes and give different numbers of access points. It was determined with some preliminary tests that twenty-five was the approximate cross over point as as such the number of access points tested were 15, 20, 25, 30 and 35. However, upon completion of the simulation and the aggregation of the results, it was clear that the initial check was a statistical anomaly. When charting the latency, seen in figure~\ref{fig:of_num_aps_latency}, we can see that the actual cross over point, that is to say the number of access points with opportunistic forwarding which matches the performance of no opportunistic forwarding with 50 access points, is closer to 10 access points. When we look at the percentage of packets delivered, figure~\ref{fig:of_num_aps_percentage} the results are even more pronounced, with a queue size of 10 and 15 access points performing better than a queue size of 100 and 50 access points when not using opportunistic forwarding.
 
-        In order to test the relative efficiency of the opportunistic forwarding algorithm a simulation was run with varying numbers of access points. In doing this we can find the number of access points which are required when using opportunistic forwarding to equal the performance of the non-opportunistic forwarding algorithm using fifty access points. The simulation was run with five different queue sizes and give different numbers of access points. It was determined with some preliminary tests that twenty-five was the approximate cross over point as as such the number of access points tested were 15, 20, 25, 30 and 35. 
+        \begin{figure}
+            \centering
+            \begin{subfigure}{0.5\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{./images/OF_vs_No_OF_Latency.png}
+                \caption{}
+                \label{fig:of_num_aps_latency}
+            \end{subfigure}%
+            \begin{subfigure}{0.5\textwidth}
+                \includegraphics[width=\linewidth]{./images/OF_vs_No_OF_Percentage.png}
+                \caption{}
+                \label{fig:of_num_aps_percentage}
+            \end{subfigure}
+            \caption{These figures compare the algorithm without opportunistic forwarding and 50 access points against the opportunistic algorithm with a varying number of access points. The results without opportunistic forwarding are denoted by the coloured lines, with the corresponding queue sizes with opportunistic forwarding having corresponding colours. Please note that the data points for 20 access points are missing due to a hardware fault which caused a loss of data.}
+            \label{fig:of_num_aps}
+        \end{figure}
 
-        The results of this test are shown in figure~\ref{fig:of_num_aps}. We can see that when we have lower queue sizes, the approximate number of access points which matches the non-opportunistic forwarding algorithm is \todo{Fill in this figure}. When using a queue size of 2,000 this changes to. These results confirm our earlier results of smaller queue sizes being more affected by opportunistic forwarding than larger queue sizes. 
 
     \section{Conclusions}\label{data_gathering_performance_conclusions}
 
-        \tdi{This still feels weak and doesn't give a great emphasis on how much OF improves things}
+        \tdi{Still feels weak. Definitely just summarising the above results.}
 
-        Some of the information we have learned from the simulation is expected, such as increasing the number of access points increases packet delivery and reduces latency, however some of it is unexpected. Increasing the queue size causing an increase in latency was not an obvious result before hand, however it has made it clear that there is a trade off between packet delivery rates and packet latency. Perhaps surprisingly, transmitter power had almost no effect on the results due to the connection speed dominating the small increase in transmission distance. 
+        Some of the information we have learned from the simulation was expected, such as increasing the number of access points increases packet delivery and reduces latency, however some of it is unexpected. Increasing the queue size causing an increase in latency was not an obvious result before hand, however it has made it clear that there is a trade off between packet delivery rates and packet latency. It was also found that, surprisingly, transmitter power had almost no effect on the results due to the connection speed dominating the small increase in transmission distance, theorised to be caused by the transmission speed dominating the other factors.
 
-        The most effective optimisation was the introduction of opportunistic forwarding. When using the non-chronological version of the queuing mechanism the results are extremely promising. We also found that we can use a much smaller number of access points when using opportunistic forwarding and achieve comparable performance to non-opportunistic forwarding examples.\todo{Fill in an actual figure here} This means that it is possible to use the opportunistic forwarding data collections system in more rural areas with a smaller number of available access points.
+        The most effective optimisation was the introduction of opportunistic forwarding. When using the non-chronological version of the queuing mechanism the results are extremely promising. We also found that we can use many fewer access points when using opportunistic forwarding and achieve comparable performance to non-opportunistic forwarding examples, with 15 access points and opportunistic forwarding achieving better performance than 50 access points without opportunistic forwarding, for all queue sizes tested. The implications of this are the greatest. It illustrates that it may be possible to use such a system in a more rural setting, one where there is much poorer coverage of wifi access points, unfortunately in such a scenario we would likely have fewer buses, and the effects of fewer buses have yet to be determined. 
 
-        Due to using a simulation rather than real world tests it can be difficult to confirm that in reality we would get such good results. Unfortunately we almost definitely not see such good results. This simulation treats Edinburgh as a two dimensional map. There is no concept of terrain and buildings. The simulation assumes that there is line of sight between the sensors and the access points, however this is unlikely to always be the case. These access points will be in buildings, which has already partially been taken into account with the simulation as we had information about relative signal strength, and may be blocked by other structures and vehicles. The important information from these results is that even though we can expect lower results in practice, 50 access points give very reasonable results, and we have shown that increasing the number of access points is beneficial to both the latency and packet delivery. As such, with the 2,000 known access points around the city, we would almost certainly see even better results.
+        While the results are promising, we also must address the nature of the method of acquiring the results. Simulation, by its nature, requires that we use approximations in some areas. Due to this, we cannot confirm that in reality the model would behave exactly as the above results dictate. However, due to the use of an advanced networking simulator, the results should be representative of reality. One of the key issues with the simulation, which would cause our results to improve, is that the simulation treats Edinburgh as a two dimensional map, which results in there being no concept of terrain or buildings. The simulation assumes that there is line of sight between the sensors and the access points, however this is unlikely to always be the case. The access points will also be in buildings, a fact which has already partially been taken into account with the simulation as we had information about relative signal strength, and may be blocked by other structures and vehicles. 
+
+        Despite the flaws above, these results are very reasonable, and combined with the knowledge we learned, that increasing the number of access points is beneficial to both the latency and packet delivery, it is likely that with the 2,000 known access points around the city, we would almost certainly see even better results.
 
