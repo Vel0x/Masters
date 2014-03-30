@@ -1,4 +1,4 @@
-\chapter{Prediction Evaluation}\label{prediction_evaluation}
+\chapter{Spatial Prediction of Air Quality}\label{prediction_evaluation}
 
 	\section{Motivation}\label{prediction_evaluation_motivation}
 
@@ -35,6 +35,12 @@
 
 		\subsection{Data Sets}\label{prediction_evaluation_methodology_data_sets}
 
+			\tdi{I reversed the order of these subsubsections. Check that they still make sense.}
+
+			\subsubsection{Air Quality Scotland}\label{prediction_evaluation_methodology_data_sets_air_quality_scotland}
+
+				The data set from \emph{Air Quality Scotland} is much simpler, and therefore less useful, than the OpenSense data set. This data set consists of eight static air quality monitoring stations across Edinburgh. Out of these eight stations, five form the convex hull of the data set, and one of the internal stations is in a high traffic zone. The result of this is that we only have three points which we can use to check our calculations, and one of these is going to have a large discrepancy between the actual values and the estimated values. Furthermore, this data set only has the means at one hour intervals and so the temporal drift mentioned in the above section still applies. However, one advantage that this data set does provide is three different chemical readings to use. 
+
 			\subsubsection{OpenSense}\label{prediction_evaluation_methodology_data_sets_opensense}
 
 				This data set, provided by the \emph{OpenSense} group at \emph{ETH Zurich}, provides ozone concentrations based on measurements taken from trams moving around the city of Zurich, Switzerland. This data set only has measurements along the tram tracks, similar to how data would only be provided along bus routes with a physical implementation of this system. We will perform our interpolation on the entire data set giving a two dimensional map covering the city of estimated ozone concentrations. We will then use information taken from static sensors located in Zurich, which are not along tram tracks, to measure the accuracy of these interpolation algorithms. 
@@ -48,12 +54,6 @@
 				In taking this temporal window we risk missing out on some information. Should a pollutant change rapidly in the space of a single window, this information would be lost, and may indeed skew the results. 
 
 				Unfortunately this data set arrived late in the project and as such was not available for the initial round of evaluation and writing of this report. The findings from this data set are shown in a sub-section at the end of the results section, numbered~\ref{prediction_evaluation_results_opensense_data_set}.
-
-
-			\subsubsection{Air Quality Scotland}\label{prediction_evaluation_methodology_data_sets_air_quality_scotland}
-
-				The data set from \emph{Air Quality Scotland} is much simpler, and therefore less useful, than the OpenSense data set. This data set consists of eight static air quality monitoring stations across Edinburgh. Out of these eight stations, five form the convex hull of the data set, and one of the internal stations is in a high traffic zone. The result of this is that we only have three points which we can use to check our calculations, and one of these is going to have a large discrepancy between the actual values and the estimated values. Furthermore, this data set only has the means at one hour intervals and so the temporal drift mentioned in the above section still applies. However, one advantage that this data set does provide is three different chemical readings to use. 
-
 		\subsection{Data Structure}\label{prediction_evaluation_methodology_data_structure}
 			
 			In order to use these data sets in the various algorithms we must change the data structure slightly. Two of the algorithms, bilinear interpolation, and bilinear interpolation, \emph{only} work when the data is on a regular grid, which these data sets are not. As such we need to map them onto a regular grid. For the algorithms which are not limited to a grid we do not have to

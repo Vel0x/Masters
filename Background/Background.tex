@@ -25,16 +25,18 @@
         Initially this project was intended to have a practical component, however external circumstances restricted this and the physical implementation was cancelled. Before this change, research was done into building a physical sensor using cheap, off the shelf parts, which would be dynamically calibrated using the techniques discussed in the D. Hasenfratz et al. paper titled ``On-the-fly calibration of low cost gas sensors''\cite{ontheflycalibration}. Individual sensors were researched and purchased in order to make a prototype, before the physical implementation was cancelled. 
     
 
+\section{Mobile Sensing and Air Quality Monitoring}\label{background_mobile_sensing_models}
+
+\plan{Write a paragraph discussing different mobile sensing models (sensors moving, sensors fixed but data collectors moving etc.) There was a survey I pointed you to during the earlier phase of your project and which cited in one of your earlier reports. After this discussion, state which specific model is adopted in your project with a reasonable justification. 
+
+Then write a paragraph discussing the OpenSense project and other air quality monitoring projects or systems you are aware of including Scottish Air Quality monitoring network. You can also mention the UrbanAir project from Microsoft Research Asia.}
+
+
 \input{Background/BackgroundInterpolationMethods}
 
-\section{Mobile Sensing Models}\label{background_mobile_sensing_models}
 
-\maheshi{Not sure about this section at all. In terms of mobile sensing models I could talk about some of the different experiments that have been done such as CarTel, Cafnet and OpenSense, but I would only be touching upon this again, and stating what they do?}
+\section{Radio Signal Propagation Models}
 
-
-\section{Wireless Propagation Models}
-
-    \maheshi{Not sure how much to write about this? It is a complex area and if I go into it any further I'd spend the remaining two weeks just reading up on this.}
 
     When implementing a simulation of wireless communications one of the decisions which must be made is which radio propagation model to use. These propagation models define how different signals behave under different conditions and are generally given in terms of a mathematical equation. Using these models we can enter information about our radio signal, such as frequency, transmitter power and receiver power,  and gain information such as the signal to noise ratio of the signal over some distance.
 
