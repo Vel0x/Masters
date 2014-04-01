@@ -1,8 +1,6 @@
 \chapter{Background and Related Work}\label{background}
 
 
-
-
 \section{Previous Work}\label{background_previous_work}
 
     %Talk about everything. Even the stuff I didn't use
@@ -14,22 +12,57 @@
 
     \subsection{Geostatistical Mapping}
     
-        It was discovered that when working with an actual data set, obtained by using a sensor built by a previous years student, \emph{Eric Staples}, work would have to be performed in order to make use of the data effectively. Generally, heat maps are used to show various concentrations and levels of variables in a two dimensional environment and so the same would be used in this project. The interpolation method which should be used was a more difficult problem. Initial research suggested that some form of convolution filter, or blur, when applied to a sufficiently dense data set would give a reasonable approximation, however this was later found to be incorrect, and would not apply to a sparse data set likely to be generated from any experiments. Further research showed that when interpolating environmental data such as pollutant levels, the most common method is kriging, a statistical method which fits a curve to the data set. Kriging is used as the basis for many advanced models~\cite{regressionkriging}.
+        It was discovered that when working with a sparse actual data set, obtained by using a sensor built by a previous years student, \emph{Eric Staples}, work would have to be performed in order to make use of the data effectively. Generally, heat maps are used to show various concentrations and levels of variables in a two dimensional environment and so the same would be used in this project. The interpolation method which should be used was a more difficult problem. Initial research suggested that some form of convolution filter, or blur, when applied to a sufficiently dense data set would give a reasonable approximation, however this was later found to be incorrect, and would not apply to a sparse data set likely to be generated from any experiments. Further research showed that when interpolating environmental data such as pollutant concentrations, the most common method is kriging, a statistical method which fits a curve to the data set. Kriging is used as the basis for many advanced models~\cite{regressionkriging}, including LUR.
 
     \subsection{Compressive Sampling}
 
-        Compressive sampling was looked into briefly as a method of enhancing our data collection methodology. The basis behind compressive sampling is that more measurements are taken in areas of high variance, with less measurements taken in areas of lower variance~\cite{compressivesampling}. Essentially this is a variable method of conforming to the Nyquist theorem, which is discussed further in section~\ref{prediction_evaluation_motivation}. The work on this area was discovered to involve much background research into the nature of the pollutants and the areas they build up and would not work if there were a change to this environment. As such this technique was not used in the final solution.
+        Compressive sampling was looked into briefly as a method of enhancing our data collection methodology. The basis behind compressive sampling is that more measurements are taken in areas of high variance, with less measurements taken in areas of lower variance~\cite{compressivesampling}. Essentially this is a variable method of conforming to the Nyquist theorem, which is discussed further in section~\ref{prediction_evaluation_motivation}. The work on this area was discovered to involve much background research into the nature of the pollutants and the areas they build up and would not work if there were a change to this environment. Furthermore it is outwith our control when using fixed schedule vehicles, such as public transport buses, and so this technique was not used in the final solution.
 
     \subsection{Sensor Creation}
 
-        Initially this project was intended to have a practical component, however external circumstances restricted this and the physical implementation was cancelled. Before this change, research was done into building a physical sensor using cheap, off the shelf parts, which would be dynamically calibrated using the techniques discussed in the D. Hasenfratz et al. paper titled ``On-the-fly calibration of low cost gas sensors''\cite{ontheflycalibration}. Individual sensors were researched and purchased in order to make a prototype, before the physical implementation was cancelled. 
+        Initially this project was intended to have a practical component, however external circumstances restricted this and the physical implementation was cancelled. Before this change, research was done into building a physical sensor using cheap, off the shelf parts, which would be dynamically calibrated using the techniques discussed by D. Hasenfratz et al. in~\cite{ontheflycalibration}. Individual sensors were researched and purchased in order to make a prototype, before the physical implementation was cancelled. 
+
+    \subsection{Current Work Context}
+
+        With the above work taking place last year, what remains is the work completed this year. This work includes the following:
+
+        \begin{itemize}
+            \item Researched different networking simulators.
+            \item Created a simulation of buses moving around Edinburgh using traces of actual bus movements, taking readings and sending these back to a central server through WiFi access points, using the Omnet++ simulator.
+            \item Optimised this simulation in terms of speed and data output size.
+            \item Created, implemented and tested an opportunistic forwarding algorithm.
+            \item Ran tests on various parameter changes in the simulation and aggregated and analysed the results.
+            \item Acquired and normalised data sets for use in the interpolation section.
+            \item Implemented the interpolation algorithms.
+            \item Used the data to run tests and aggregated and analysed the results.
+            \item Completed this report.
+        \end{itemize}
     
 
 \section{Mobile Sensing and Air Quality Monitoring}\label{background_mobile_sensing_models}
 
-\plan{Write a paragraph discussing different mobile sensing models (sensors moving, sensors fixed but data collectors moving etc.) There was a survey I pointed you to during the earlier phase of your project and which cited in one of your earlier reports. After this discussion, state which specific model is adopted in your project with a reasonable justification. 
+    Air quality, using mobility as a mechanism for data collection, can take one of four basic forms~\cite{datacollectionsurvey}. These forms are:
 
-Then write a paragraph discussing the OpenSense project and other air quality monitoring projects or systems you are aware of including Scottish Air Quality monitoring network. You can also mention the UrbanAir project from Microsoft Research Asia.}
+    \begin{itemize}
+        \item Meshed sensor network
+        \item Mobile sink nodes with static sensors
+        \item Static sink node with mobile sensors
+        \item Static sensors with data mules~\cite{datamulesthreeteir}
+    \end{itemize}
+
+    These designs are simple ideas with powerful applications. The first form, the meshed sensor network, uses constant connections with at least one other node at all times in order to create a fully connected mesh of nodes, which can route data from any point to any other. This implementation is extremely effective, as has been shown in project such as CitySense~\cite{citysense}, however this effectiveness comes at a cost. The range of radios are limited and so many sensors must be used in order to achieve a great enough density to have a connected network. The implementation is also significantly more complex than the other models as we must build in routing algorithms. 
+
+    As a contrast, the mobile sink nodes with static sensors model keeps the sensors in one location. This model is much simpler in that a sink node moves around and collects data from the sensors it comes within a certain distance to. This distance is dictated by the wireless communication range. This model also requires less sensors as it does not need to maintain a constant connectedness. Care must be taken to ensure that the sink node visits the other nodes before they fill up their storage space and start to drop readings.
+
+    The static sink node with mobile sensors is the inverse of the previous model. In this model we have stationary sink nodes which collect the data. The sensor nodes have mobility and as they move into range of a sink node, the data is transferred. Again, in order for this system to effectively work the sensor nodes must come into contact with a sink node within a reasonable period of time. It should be noted that we can have multiple sink nodes.
+
+    The final model is using static sensors with data mules. This model is a variation on the previous model in that the sensors are static, however the sink also remains static. In order for data to get from the sensors to the sink a \emph{data mule} moves around the sensors collecting data, before ferrying said data to a sink node. 
+
+    In our system we are using the static sink model with mobile sensors. The reason for this is that it allows us to exploit some of the natural mobility which exists in a city. In the case of this project this mobility is provided by buses. The sensors will be placed on these buses which will move around the city collecting data. As the buses pass open WiFi access points, i.e. the static sinks, they will upload the data. We could have used static sensors with the buses as data mules, however the buses in the city of Edinburgh provide fairly good coverage of the city with lower expenses than static sensors covering the city. 
+
+    Currently, standard methods of collecting air quality data depend on using static sensors and then collecting data in one of two ways. The first is that the sensors are visited by a person and the data loaded onto some form of removable storage. The second, and now much more popular method, is to have these sensors connected to the internet via some mechanism as seen by organisations such as \emph{Scottish Air Quality}~\cite{scottishairquality}. However, as static sensors have much poorer coverage than mobile sensors, alternative are still required. 
+
+    In terms of other projects which have a focus on air quality, many have adopted similar mobility strategies to the one in this project. In Zurich, the OpenSense\cite{opensensezurich} team have placed sensors on trams. Their project differs slightly from this project in that they use a cellular connection to return the data. This model more closely approximates the meshed sensor network model due to the constant connectedness. Other air quality projects with a similar model are shown by Devarakonda et al.~\cite{rtairquality} which uses cars as the vehicle and the CommonSense~\cite{commonsense} project which uses street sweepers. 
 
 
 \input{Background/BackgroundInterpolationMethods}
@@ -40,7 +73,7 @@ Then write a paragraph discussing the OpenSense project and other air quality mo
 
     When implementing a simulation of wireless communications one of the decisions which must be made is which radio propagation model to use. These propagation models define how different signals behave under different conditions and are generally given in terms of a mathematical equation. Using these models we can enter information about our radio signal, such as frequency, transmitter power and receiver power,  and gain information such as the signal to noise ratio of the signal over some distance.
 
-    In Omnet++, which is the simulator we end up using, there are six different models implemented. These models are ``Free Space Model'', ``Two Ray Ground Model'', ``Rice Model'', ``Rayleigh Model'', ``Nakagami Model'' and ``Log Normal Shadowing Model''. The Free Space model is the simplest of these models and acts the same way a signal would in ``free space''. That is to say, a space where there is no interference from external signals, or the original signal through reflection, refraction or diffraction. This model is usually used as a component of other models and formulae~\cite{friis1946note}.
+    In Omnet++, which is the simulator we use, there are six different models implemented. These models are ``Free Space Model'', ``Two Ray Ground Model'', ``Rice Model'', ``Rayleigh Model'', ``Nakagami Model'' and ``Log Normal Shadowing Model''. The Free Space model is the simplest of these models and acts the same way a signal would in ``free space''. That is to say, a space where there is no interference from external signals, or the original signal through reflection, refraction or diffraction. This model is usually used as a component of other models and formulae~\cite{friis1946note}.
 
     The two ray ground model is only slightly more advanced, in that it takes into account a singular reflection from some boundary, usually the ground~\cite{tworaygroundmodel}.
 
