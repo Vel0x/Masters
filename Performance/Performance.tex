@@ -1,7 +1,5 @@
 \chapter{Data Gathering Performance}\label{data_gathering_performance} 
 
-    \tdi{Could still do with some work}
-
     The first and foremost goal of this project is to study the performance of an urban mobile air quality monitoring system which leverages public transport vehicles and the effects of changing various system parameters. In order to do this we must decide on how we will measure the performance as well as which parameters we will vary. 
 
     In order to measure the performance of the system, we must pay attention to the use cases. With air quality sensors on buses our priorities are receiving as much data as possible and receiving said data with minimal latency. These priorities define our metrics which shall be the percentage of readings which are returned to the server out of those generated, and the mean time which it takes for this to happen. In doing this we must consider how the effects of varying different parameters change the results. The parameters which we will vary are the storage space on the device, that is to say how many packets we can store in the queue at any one time, the number of APs scattered around the city, the power levels of the transmitter and receiver and finally the utility of using a chronological priority queue instead of a regular queue when using opportunistic forwarding, as well as how varying the number of APs when using opportunistic forwarding affects performance.
