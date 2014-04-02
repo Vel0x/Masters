@@ -1,27 +1,10 @@
 \chapter{Introduction}\label{introduction}
 
-
-    %\plan[Introduction]{
-    %    \begin{itemize}
-    %        \item Indicate the goals of the project in crisp terms (simulation is a means)
-    %            \begin{itemize}
-    %                \item Performance study of an urban mobile air quality monitoring system leveraging public transport vehicles:
-    %                    \begin{itemize}
-    %                        \item Effects of various parameters including number of roadside access points, storage capacity (queue size) on mobile sensor platforms.
-    %                        \item The benefits of opportunistic forwarding between mobiles
-    %                    \end{itemize}
-    %                \item Comparative evaluation of common spatial prediction methods for blanket air quality estimation in a city.
-    %                \item Use Edinburgh as a case study and simulation as the methodology (specifically, OMNeT++)
-    %            \end{itemize}
-    %    \end{itemize}
-    %}    
-
-    %Paragraph about what is currently going on in air quality measurement
     Measuring urban air quality is becoming an increasingly important issue given the adverse effects of air pollution on citizens' health~\cite{beijing2point5high}. Current methods rely on sparsely distributed sets of static and expensive sensors that are not adequate for fine-grained, blanket air quality monitoring in a city. This can be remedied to a substantial extent via mobile sensors as Aoki et al. showed in \cite{vehicleforresearch}, which used street sweepers and cellular connections in a city in the United States. Many projects rely on cellular connectivity for returning data from large mobile networks, but recent trends shown a greater push towards using routing between nodes in the network to return the data~\cite{manetmessaging,cafnet,cartel,commonsense}, no doubt due to the costs of cellular connectivity and the need for a connection for \emph{each} sensor. As it is a relatively new area of research it remains active. 
 
     Currently, there is limited research on mobile air quality monitoring in cities. This project will look at this area, considering the city of Edinburgh as a case study. The success shown by the mobility model used by Aoki et al., and other similar models such as the OpenSense project~\cite{opensensezurich} in Zurich, strengthens the case for using mobile entities to monitor urban air quality. However, there are several research issues underlying this paradigm that are still not fully understood. This project aims to address two such issues. The first concerning the impact of various system parameters on data gathering performance, and the second estimating citywide air pollution maps with measurements from limited set of locations. 
 
-    In this project we will be simulating using public transport buses as mobile entities on which air quality sensors are installed and use movement traces of buses belonging to Lothian Buses as the mobility model for the sensors. The buses have a fairly good coverage of the city across their 70 different routes, as seen in figure~\ref{fig:lothian_bus_routes}. If air quality sensors were to be installed on some of these buses, we can expect to have spatially wider and finer measurement than with a handful of static sensors. Furthermore, in cities such as Edinburgh it is common to see a large number of \emph{open access} WiFi access points. Measurements by PhD student Arsham Farshad gave the location of over 2,000 WiFi access points (APs) across Edinburgh which had signals strong enough to be measured from a bus. Leveraging such open APs for transferring the measured sensor data from buses passing by would avoid the costs associated with cellular\footnote{Lothian Buses do provide WiFi on select routes, but currently this is not wide spread and is not as seamless in its use as one must register for an account and their device before use.} data connections. 
+    In this project we will be simulating using public transport buses as mobile entities on which air quality sensors are installed and use movement traces of buses belonging to Lothian Buses as the mobility model for the sensors. The buses have a fairly good coverage of the city across their 70 different routes, as seen in figure~\ref{fig:lothian_bus_routes}. If air quality sensors were to be installed on some of these buses, we can expect to have spatially wider and finer measurement than with a handful of static sensors. Furthermore, in cities such as Edinburgh it is common to see a large number of \emph{open access} WiFi access points (APs). Measurements by PhD student Arsham Farshad gave the location of over 2,000 WiFi APs across Edinburgh which had signals strong enough to be measured from a bus. Leveraging such open APs for transferring the measured sensor data from buses passing by would avoid the costs associated with cellular\footnote{Lothian Buses do provide WiFi on select routes, but currently this is not wide spread and is not as seamless in its use as one must register for an account and their device before use.} data connections. 
 
     \centerimagewideanywhere{./images/Lothian_Bus_Coverage_Pins.png}{A map of the coverage of the city of Edinburgh provided by Lothian Buses routes. The coloured lines represent the routes and the black circles are bus stops. The red arrows denote the position of static air quality stations. This image uses \emph{Google Maps}.}{fig:lothian_bus_routes}
 
@@ -30,12 +13,12 @@
     \begin{itemize}
         \item There is an inherent trade-off between the packet latency and the packet delivery rate.
         \item The larger the buffer size on the sensor, the greater the packet delivery rate and the higher the latency.
-        \item Increasing the number of access points increases the packet delivery rate and decreases latency.
+        \item Increasing the number of APs increases the packet delivery rate and decreases latency.
         \item The effects of the transmitter and receiver radios power level has a negligible effect.
         \item The addition of opportunistic forwarding improves packet delivery rates and reduces latency by considerable amounts.
         \begin{itemize}
             \item Using a non-chronological queue for the packet buffer increases performance.
-            \item Opportunistic forwarding has better performance than non-opportunistic forwarding algorithms with less than one third of the number of access points.
+            \item Opportunistic forwarding has better performance than non-opportunistic forwarding algorithms with less than one third of the number of APs.
         \end{itemize}
     \end{itemize}
 

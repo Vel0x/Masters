@@ -28,7 +28,7 @@
 
         \begin{itemize}
             \item Researched different networking simulators.
-            \item Created a simulation of buses moving around Edinburgh using traces of actual bus movements, taking readings and sending these back to a central server through WiFi access points, using the Omnet++ simulator.
+            \item Created a simulation of buses moving around Edinburgh using traces of actual bus movements, taking readings and sending these back to a central server through WiFi APs, using the Omnet++ simulator.
             \item Optimised this simulation in terms of speed and data output size.
             \item Created, implemented and tested an opportunistic forwarding algorithm.
             \item Ran tests on various parameter changes in the simulation and aggregated and analysed the results.
@@ -58,7 +58,7 @@
 
     The final model is using static sensors with data mules. This model is a variation on the previous model in that the sensors are static, however the sink also remains static. In order for data to get from the sensors to the sink a \emph{data mule} moves around the sensors collecting data, before ferrying said data to a sink node. 
 
-    In our system we are using the static sink model with mobile sensors. The reason for this is that it allows us to exploit some of the natural mobility which exists in a city. In the case of this project this mobility is provided by buses. The sensors will be placed on these buses which will move around the city collecting data. As the buses pass open WiFi access points, i.e. the static sinks, they will upload the data. We could have used static sensors with the buses as data mules, however the buses in the city of Edinburgh provide fairly good coverage of the city with lower expenses than static sensors covering the city. 
+    In our system we are using the static sink model with mobile sensors. The reason for this is that it allows us to exploit some of the natural mobility which exists in a city. In the case of this project this mobility is provided by buses. The sensors will be placed on these buses which will move around the city collecting data. As the buses pass open WiFi APs, i.e. the static sinks, they will upload the data. We could have used static sensors with the buses as data mules, however the buses in the city of Edinburgh provide fairly good coverage of the city with lower expenses than static sensors covering the city. 
 
     Currently, standard methods of collecting air quality data depend on using static sensors and then collecting data in one of two ways. The first is that the sensors are visited by a person and the data loaded onto some form of removable storage. The second, and now much more popular method, is to have these sensors connected to the internet via some mechanism as seen by organisations such as \emph{Scottish Air Quality}~\cite{scottishairquality}. However, as static sensors have much poorer coverage than mobile sensors, alternative are still required. 
 
