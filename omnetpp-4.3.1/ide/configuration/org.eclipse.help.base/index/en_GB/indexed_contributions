@@ -1,0 +1,17 @@
+#This is a generated file; do not edit.
+#Fri Dec 20 16:38:25 GMT 2013
+org.eclipse.ui.intro.universal=org.eclipse.ui.intro.universal\n3.2.600.v20120912-155524
+org.eclipse.cdt=org.eclipse.cdt\n8.1.1.201302132326
+org.eclipse.platform=org.eclipse.platform\n3.8.2.v201301310800
+org.eclipse.platform.doc.user=org.eclipse.platform.doc.user\n3.8.2.v20130121-201129
+org.eclipse.linuxtools.cdt.libhover.library.docs=org.eclipse.linuxtools.cdt.libhover.library.docs\n1.0.2.201302051708
+org.eclipse.linuxtools.cdt.libhover.glibc=org.eclipse.linuxtools.cdt.libhover.glibc\n1.2.0.201302051708
+org.eclipse.ui.cheatsheets=org.eclipse.ui.cheatsheets\n3.4.200.v20120521-2344
+org.omnetpp.doc=org.omnetpp.doc\n4.3.0.130913-19cda8a
+org.eclipse.cdt.doc.user=org.eclipse.cdt.doc.user\n5.2.0.201302132326
+org.eclipse.egit.doc=org.eclipse.egit.doc\n2.2.0.201212191850-r
+org.eclipse.help.base=org.eclipse.help.base\n3.6.101.v201301310800
+org.eclipse.help=org.eclipse.help\n3.6.0.v20120912-134126
+org.eclipse.ui.intro=org.eclipse.ui.intro\n3.4.200.v20120521-2344
+org.eclipse.linuxtools.valgrind.doc=org.eclipse.linuxtools.valgrind.doc\n1.0.0.201302051708
+org.eclipse.linuxtools.profiling.docs=org.eclipse.linuxtools.profiling.docs\n1.0.0.201302051708

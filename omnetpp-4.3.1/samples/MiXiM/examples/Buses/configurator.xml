@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config>
+    <interface hosts='bus[*]' address='10.0.1.x' netmask='255.255.255.0'/>
+    <interface hosts='router' names='*' address='10.0.1.x' netmask='255.255.255.0'/>
+    <interface among='router sink' address='10.0.2.x' netmask='255.255.255.0'/>
+    <route hosts='bus[*]' destination='10.0.2.0' netmask='255.255.255.0' interface='wlan0' />
+    <route hosts='sink' destination='10.0.1.0' netmask='255.255.255.0' interface='eth0'/>
+</config>

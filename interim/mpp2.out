@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Simulation}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{ns-3}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Omnet++}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Creating the Simulation}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Bus Mobility}{subsection.2.3}% 6
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Access Point Positions}{subsection.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.4}{Optimisations}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.4.1}{MPI}{subsection.2.4}% 9
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Parallel Execution}{subsection.2.4}% 10
+\BOOKMARK [1][-]{section.3}{Current Results}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Queue Size}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Model}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Transmitter Power}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Future Work}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Opportunistic Forwarding}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Data Evaluation}{section.4}% 17
+\BOOKMARK [1][-]{figure.8}{References}{}% 18

@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Simulation}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}ns-3}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Omnet++}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Creating the Simulation}{3}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Bus Mobility}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Access Point Positions}{5}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}Optimisations}{5}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}MPI}{5}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Parallel Execution}{6}{subsubsection.2.4.2}
+\contentsline {section}{\numberline {3}Current Results}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}Queue Size}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Model}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Transmitter Power}{8}{subsection.3.3}
+\contentsline {section}{\numberline {4}Future Work}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Opportunistic Forwarding}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Data Evaluation}{11}{subsection.4.2}
+\contentsline {section}{References}{14}{figure.8}
