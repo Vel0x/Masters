@@ -1,0 +1,10 @@
+#Location	Pollutant	Actual	Estimated
+St Johns Road	NO	429.0	151.91592169
+St Johns Road	NO2	111.0	87.6680797517
+St Johns Road	NOx	769.0	319.671916103
+Gorgie Road	NO	79.0	222.23187396
+Gorgie Road	NO2	77.0	93.0128176144
+Gorgie Road	NOx	197.0	434.026735359
+Queen Street	NO	170.0	175.305826436
+Queen Street	NO2	69.0	87.8451980916
+Queen Street	NOx	329.0	356.454718384

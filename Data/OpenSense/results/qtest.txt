@@ -1,0 +1,12 @@
+#Location	Time	Pollutant	Actual	Estimated	Pass	Distance
+St Johns Road	1	NO	6	0	0	1
+St Johns Road	1	NO	6	38.81964483	0	1024
+St Johns Road	1	NO	6	33.19479877	0	2048
+St Johns Road	1	NO	6	25.97105541	0	4096
+St Johns Road	1	NO	6	20.05184395	0	8192
+St Johns Road	1	NO	6	16.46734133	0	16384
+St Johns Road	1	NO	6	14.58878459	0	32768
+St Johns Road	1	NO	6	13.64740138	0	65536
+St Johns Road	1	NO	6	13.17932189	0	131072
+St Johns Road	1	NO	6	12.9463608	0	262144
+St Johns Road	1	NO	6	12.83020461	0	524288

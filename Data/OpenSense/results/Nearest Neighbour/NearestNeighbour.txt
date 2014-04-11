@@ -1,0 +1,24 @@
+St Johns Road	NO	429.0	79.0
+St Johns Road	NO2	111.0	77.0
+St Johns Road	NOx	769.0	197.0
+Gorgie Road NO	79.0	429.0
+Gorgie Road	NO2	77.0	111.0
+Gorgie Road	NOx	197.0	769.0
+Queen Street	NO	170.0	52.0
+Queen Street	NO2	69.0	83.0
+Queen Street	NOx	329.0	163.0
+Glasgow Road	NO	127.0	52.0
+Glasgow Road	NO2	80.0	83.0
+Glasgow Road	NOx	275.0	163.0
+Salamander St	NO	331.0	170.0
+Salamander St	NO2	46.0	69.0
+Salamander St	NOx	553.0	329.0
+St Leonards	NO	52.0	170.0
+St Leonards	NO2	83.0	69.0
+St Leonards	NOx	163.0	329.0
+Queensferry Road	NO	317.0	429.0
+Queensferry Road	NO2	130.0	111.0
+Queensferry Road	NOx	616.0	769.0
+Currie  NO	2.0	317.0
+Currie  NO2	25.0	130.0
+Currie  NOx	29.0	616.0
